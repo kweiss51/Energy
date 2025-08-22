@@ -169,8 +169,16 @@
         };
 
         function createCourseCard(course) {
-            // Special case: Energy Fundamentals is now live
-            const isEnergyFundamentals = course.slug === 'energy-fundamentals';
+            // Map slugs to their actual first lesson page
+            const lessonLinks = {
+                'energy-fundamentals': 'energy-fundamentals/week1-lesson1.html',
+                'renewable-essentials': 'renewable-essentials/week1-lesson1.html',
+                'advanced-solar': 'advanced-solar/week1-lesson1.html',
+                'grid-mastery': 'grid-mastery/week1-lesson1.html',
+                'storage-solutions': 'storage-solutions/week1-lesson1.html',
+                'microgrid-design': 'microgrid-design/week1-lesson1.html'
+            };
+            const isLive = lessonLinks.hasOwnProperty(course.slug);
             return `
                 <div class="course-card" data-level="${course.level.toLowerCase()}">
                     <div class="course-card-inner">
@@ -187,8 +195,8 @@
                                     ${course.outcomes.map(outcome => `<li>${outcome}</li>`).join('')}
                                 </ul>
                             </div>
-                            <a href="${isEnergyFundamentals ? 'energy-fundamentals/week1-lesson1.html' : `coming-soon-${course.slug}.html`}" class="course-cta">
-                                ${isEnergyFundamentals ? 'Start Learning' : 'Coming Soon'}
+                            <a href="${isLive ? lessonLinks[course.slug] : `coming-soon-${course.slug}.html`}" class="course-cta">
+                                ${isLive ? 'Start Learning' : 'Coming Soon'}
                                 <span class="arrow">→</span>
                             </a>
                         </div>
