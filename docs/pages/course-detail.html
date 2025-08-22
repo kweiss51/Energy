@@ -18,6 +18,57 @@
     </script>
 </head>
 <body class="course-detail-page">
+        <!-- User Data Collection Modal -->
+        <div id="user-modal-overlay" style="display:none;position:fixed;z-index:10000;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);backdrop-filter:blur(2px);justify-content:center;align-items:center;">
+            <div id="user-modal" style="background:#fff;padding:2.5rem 2rem 2rem 2rem;border-radius:14px;max-width:370px;width:90vw;box-shadow:0 8px 32px rgba(0,0,0,0.18);text-align:left;">
+                <h2 style="margin-top:0;font-size:1.5rem;">Tell us about yourself</h2>
+                <form id="user-profile-form">
+                    <label style="display:block;margin-bottom:0.5rem;font-weight:500;">Your Role/Profession</label>
+                    <select id="user-role" required style="width:100%;padding:0.5rem;margin-bottom:1rem;">
+                        <option value="">Select...</option>
+                        <option>Student</option>
+                        <option>Industry Professional</option>
+                        <option>Hobbyist/DIYer</option>
+                        <option>Other</option>
+                    </select>
+                    <label style="display:block;margin-bottom:0.5rem;font-weight:500;">What do you hope to achieve with this course?</label>
+                    <input id="user-goal" type="text" maxlength="120" required style="width:100%;padding:0.5rem;margin-bottom:1rem;" placeholder="Your goal...">
+                    <label style="display:block;margin-bottom:0.5rem;font-weight:500;">Experience Level</label>
+                    <select id="user-experience" required style="width:100%;padding:0.5rem;margin-bottom:1.5rem;">
+                        <option value="">Select...</option>
+                        <option>Beginner</option>
+                        <option>Intermediate</option>
+                        <option>Advanced</option>
+                    </select>
+                    <button type="submit" class="cta-button" style="width:100%;margin-bottom:0.5rem;">Continue to Course</button>
+                </form>
+                <button id="skip-user-modal" style="background:none;border:none;color:#888;text-decoration:underline;cursor:pointer;font-size:0.98rem;">Skip for now</button>
+                <div style="font-size:0.9rem;color:#888;margin-top:1rem;">We use this info to improve your experience. You can skip this step.</div>
+            </div>
+        </div>
+        // User Data Collection Modal Logic
+        function showUserModalIfNeeded() {
+            const userProfile = localStorage.getItem('userProfile');
+            if (!userProfile) {
+                document.getElementById('user-modal-overlay').style.display = 'flex';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            showUserModalIfNeeded();
+            document.getElementById('user-profile-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const role = document.getElementById('user-role').value;
+                const goal = document.getElementById('user-goal').value.trim();
+                const experience = document.getElementById('user-experience').value;
+                if (role && goal && experience) {
+                    localStorage.setItem('userProfile', JSON.stringify({ role, goal, experience, ts: Date.now() }));
+                    document.getElementById('user-modal-overlay').style.display = 'none';
+                }
+            });
+            document.getElementById('skip-user-modal').addEventListener('click', function() {
+                document.getElementById('user-modal-overlay').style.display = 'none';
+            });
+        });
     <div class="course-image-hero" id="course-image-hero"></div>
     <nav class="nav-minimal">
         <div class="nav-content">
@@ -270,6 +321,7 @@
             document.getElementById('course-duration').textContent = course.duration;
             document.getElementById('course-level').textContent = course.level;
             document.getElementById('course-price').textContent = course.price;
+            document.getElementById('course-price').textContent = 'Free';
             document.getElementById('course-includes').innerHTML = course.includes.map(item => `
                 <li>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -296,7 +348,7 @@
 
             // Handle enrollment
             document.getElementById('enroll-button').addEventListener('click', function() {
-                window.location.href = `enroll.html?course=${courseSlug}`;
+                alert('This course is now free! You have full access.');
             });
 
             // Load video player component
