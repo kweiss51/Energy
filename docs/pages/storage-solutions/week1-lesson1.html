@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Storage Solutions - Week 1 Lesson 1</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <nav class="nav-minimal" style="margin-bottom:2rem;">
+    <div class="nav-content">
+      <a href="../../energy.html" class="nav-logo">Energy</a>
+      <div class="nav-links">
+        <a href="../courses.html">Course Home</a>
+      </div>
+    </div>
+  </nav>
+  <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
+    <!-- Sleek Course Landing -->
+    <div class="course-landing" style="text-align:center;max-width:520px;margin:0 auto 2.5rem auto;">
+      <img src="../../images/storage-solutions1" alt="Energy Storage Solutions" style="max-width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin-bottom:2rem;">
+      <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.75rem;">Energy Storage Solutions</h1>
+      <p style="font-size:1.15rem;color:var(--color-text-light);margin-bottom:2rem;">Discover the technologies powering the future of energy. Learn how storage enables renewables, balances the grid, and drives innovation.</p>
+      <div style="display:flex;gap:1.5rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap;">
+        <a href="week1-lesson2.html" class="cta-primary" style="min-width:160px;">Start Course</a>
+        <a href="../courses.html" class="cta-secondary" style="min-width:160px;">View Other Courses</a>
+      </div>
+      <!-- Interactive: Storage Career Path Quiz -->
+      <section style="margin:2.5rem auto 0 auto;max-width:420px;">
+        <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Storage Career Path Quiz</h2>
+        <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <div style="margin-bottom:1rem;">Which energy storage career path interests you most?</div>
+          <select id="storageCareerQuiz" style="width:100%;margin-bottom:1rem;">
+            <option value="">Choose an answer...</option>
+            <option value="design">System Design</option>
+            <option value="research">Research & Innovation</option>
+            <option value="operations">Operations & Maintenance</option>
+            <option value="sales">Sales & Consulting</option>
+          </select>
+          <button id="checkStorageCareerQuiz" class="cta-primary" style="margin-top:1rem;">See Result</button>
+          <div id="storageCareerQuizResult" style="margin-top:1rem;font-weight:500;"></div>
+        </div>
+        <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Discover your storage journey!</div>
+      </section>
+    </div>
+    </div>
+  </main>
+  <script>
+    // Interactive: Storage Career Path Quiz
+    const storageCareerQuiz = document.getElementById('storageCareerQuiz');
+    const checkStorageCareerQuiz = document.getElementById('checkStorageCareerQuiz');
+    const storageCareerQuizResult = document.getElementById('storageCareerQuizResult');
+    if (storageCareerQuiz && checkStorageCareerQuiz && storageCareerQuizResult) {
+      checkStorageCareerQuiz.onclick = function() {
+        let msg = '';
+        switch (storageCareerQuiz.value) {
+          case 'design':
+            msg = 'System designers are vital for deploying new storage projects.';
+            break;
+          case 'research':
+            msg = 'Research & innovation drive the next generation of storage tech!';
+            break;
+          case 'operations':
+            msg = 'O&M experts keep storage systems running reliably.';
+            break;
+          case 'sales':
+            msg = 'Sales & consulting pros help bring storage to the world.';
+            break;
+          default:
+            msg = 'Please select a career path.';
+        }
+        storageCareerQuizResult.textContent = msg;
+        storageCareerQuizResult.style.color = 'var(--color-primary)';
+      };
+    }
+    // Show Mark Complete button when video ends
+    const video = document.getElementById('lessonVideo');
+    const markBtn = document.getElementById('markCompleteBtn');
+    const completeDiv = document.getElementById('lesson-complete');
+    const markWrap = document.getElementById('mark-complete-wrap');
+    if(video && markBtn) {
+      video.addEventListener('ended', () => {
+        markBtn.style.display = 'inline-block';
+      });
+      markBtn.addEventListener('click', () => {
+        markWrap.style.display = 'none';
+        completeDiv.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>

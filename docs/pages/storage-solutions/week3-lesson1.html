@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Storage Solutions - Week 3 Lesson 1</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <nav class="nav-minimal" style="margin-bottom:2rem;">
+    <div class="nav-content">
+      <a href="../../energy.html" class="nav-logo">Energy</a>
+      <div class="nav-links">
+        <a href="../courses.html">Course Home</a>
+      </div>
+    </div>
+  </nav>
+  <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
+    <!-- Progress Tracker -->
+    <div class="lesson-progress" style="margin-bottom:2rem;">
+      <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 7 of 9</div>
+      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Storage for Renewables & Microgrids</div>
+      <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
+        <div style="background:var(--color-primary);width:77%;height:100%;transition:width 0.5s;"></div>
+      </div>
+    </div>
+    <!-- Before and After Framing -->
+    <div class="lesson-framing" style="margin-bottom:2rem;">
+      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">How does storage enable more renewables? By the end of this lesson, you’ll understand firming, smoothing, and microgrid applications for storage.</p>
+    </div>
+    <!-- Video Player -->
+    <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
+      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/storage-solutions3.jpg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
+        <source src="../../assets/storage-solutions-week3-lesson1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <!-- Lesson Content -->
+    <section style="margin-bottom:2rem;">
+      <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
+      <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
+        <li>Storage for renewable integration (NREL, MIT OCW, DOE)</li>
+        <li>Firming and smoothing renewables (Stanford, EPRI, PNNL)</li>
+        <li>Microgrid storage applications (IEA, ORNL, Sandia)</li>
+        <li>Case studies and best practices (EIA, USGS, ANL)</li>
+      </ul>
+    </section>
+    <!-- Interactive: Renewable Storage Visualizer -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Renewable Storage Visualizer</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Select a renewable source to see how storage helps:</div>
+        <select id="renewableType" style="width:100%;margin-bottom:1rem;">
+          <option value="">Choose...</option>
+          <option value="solar">Solar</option>
+          <option value="wind">Wind</option>
+          <option value="hybrid">Hybrid</option>
+        </select>
+        <div id="renewableResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">See how storage enables more renewables!</div>
+    </section>
+    <!-- Progress Affirmation & Next Step -->
+    <div id="lesson-complete" style="display:none;text-align:center;">
+      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand storage for renewables and microgrids.</div>
+      <a href="week3-lesson2.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
+      <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
+    </div>
+    <!-- Mark Complete Button (appears after video) -->
+    <div id="mark-complete-wrap" style="text-align:center;">
+      <button id="markCompleteBtn" class="cta-primary" style="margin-top:1.5rem;display:none;">Mark Lesson Complete</button>
+    </div>
+  </main>
+  <script>
+    // Interactive: Renewable Storage Visualizer
+    const renewableType = document.getElementById('renewableType');
+    const renewableResult = document.getElementById('renewableResult');
+    if (renewableType && renewableResult) {
+      renewableType.onchange = function() {
+        let msg = '';
+        switch (renewableType.value) {
+          case 'solar':
+            msg = 'Storage shifts solar energy to evening hours, firming supply.';
+            break;
+          case 'wind':
+            msg = 'Storage smooths wind output, providing grid stability.';
+            break;
+          case 'hybrid':
+            msg = 'Hybrid systems use storage to balance both solar and wind.';
+            break;
+          default:
+            msg = '';
+        }
+        renewableResult.textContent = msg;
+        renewableResult.style.color = 'var(--color-primary)';
+      };
+    }
+    // Show Mark Complete button when video ends
+    const video = document.getElementById('lessonVideo');
+    const markBtn = document.getElementById('markCompleteBtn');
+    const completeDiv = document.getElementById('lesson-complete');
+    const markWrap = document.getElementById('mark-complete-wrap');
+    if(video && markBtn) {
+      video.addEventListener('ended', () => {
+        markBtn.style.display = 'inline-block';
+      });
+      markBtn.addEventListener('click', () => {
+        markWrap.style.display = 'none';
+        completeDiv.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>
