@@ -1,6 +1,7 @@
 // Expose courseDetails globally for the course detail page
 window.courseDetails = {
     "energy-fundamentals": {
+        image: "../assets/energy-fundamentals.jpg",
         title: "Energy Systems Fundamentals",
         subtitle: "Master the Core Concepts That Drive Modern Energy Systems",
         description: "Transform from confused beginner to confident energy professional through hands-on learning and real-world applications.",
@@ -88,6 +89,7 @@ window.courseDetails = {
         }
     },
     "renewable-essentials": {
+        image: "../assets/renewable-essentials.jpg",
         title: "Renewable Energy Essentials",
         subtitle: "Your Gateway to Clean Energy Technologies",
         description: "Master the fundamentals of renewable energy systems and their integration into modern power grids.",
@@ -190,6 +192,7 @@ window.courseDetails = {
         }
     },
     "advanced-solar": {
+        image: "../assets/advanced-solar.jpg",
         title: "Advanced Solar Technology",
         subtitle: "Master the Design and Implementation of Solar Power Systems",
         description: "Take your solar expertise to the next level with advanced design principles and implementation strategies.",
@@ -302,6 +305,7 @@ window.courseDetails = {
         }
     },
     "grid-mastery": {
+        image: "../assets/grid-mastery.jpg",
         title: "Grid Integration Mastery",
         subtitle: "Advanced Power Systems and Grid Integration",
         description: "Master the complexities of modern power grids and renewable integration.",
@@ -424,6 +428,7 @@ window.courseDetails = {
         }
     },
     "storage-solutions": {
+        image: "../assets/storage-solutions.jpg",
         title: "Energy Storage Solutions",
         subtitle: "Advanced Energy Storage Systems and Applications",
         description: "Master the design and implementation of modern energy storage systems.",
@@ -526,6 +531,7 @@ window.courseDetails = {
         }
     },
     "microgrid-design": {
+        image: "../assets/microgrid-design.jpg",
         title: "Microgrid Design & Implementation",
         subtitle: "Master the Art of Microgrid Systems",
         description: "Learn to design and implement reliable and efficient microgrid systems.",

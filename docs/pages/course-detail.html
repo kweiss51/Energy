@@ -18,6 +18,7 @@
     </script>
 </head>
 <body class="course-detail-page">
+    <div class="course-image-hero" id="course-image-hero"></div>
     <nav class="nav-minimal">
         <div class="nav-content">
             <a href="../index.html" class="nav-logo">Energy</a>
@@ -218,6 +219,10 @@
             }
             console.log('Selected Course:', course ? course.title : 'Not found');
 
+            // Populate course image hero
+            document.getElementById('course-image-hero').innerHTML = `
+                <img src="${course.image}" alt="${course.title}" class="course-hero-image" style="width:100%;max-height:340px;object-fit:cover;display:block;">
+            `;
             // Populate header
             document.getElementById('course-header').innerHTML = `
                 <div class="content-wrapper">

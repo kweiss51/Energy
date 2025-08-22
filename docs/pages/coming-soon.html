@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Energy Course Platform</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/courses-data.js"></script>
+</head>
+<body class="course-detail-page">
+    <div class="course-image-hero" id="course-image-hero"></div>
+    <main class="course-detail-content">
+        <div class="content-wrapper">
+            <div class="content-main">
+                <section class="course-intro">
+                    <h1 id="course-title">Coming Soon</h1>
+                    <p id="course-subtitle"></p>
+                </section>
+                <section class="learning-journey">
+                    <h2>Your Learning Journey</h2>
+                    <div class="journey-timeline" id="journey-timeline"></div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <section class="next-steps">
+        <div class="content-wrapper">
+            <h2>Stay Tuned!</h2>
+            <p>We're working hard to bring you this exciting new course. Check back soon for updates!</p>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseSlug = urlParams.get('course');
+            const course = window.courseDetails ? window.courseDetails[courseSlug] : null;
+            if (!course) return;
+            document.getElementById('course-title').textContent = course.title + ' — Coming Soon!';
+            document.getElementById('course-subtitle').textContent = course.subtitle;
+            document.getElementById('course-image-hero').innerHTML = `<img src="${course.image}" alt="${course.title}" class="course-hero-image" style="width:100%;max-height:340px;object-fit:cover;display:block;">`;
+            document.getElementById('journey-timeline').innerHTML = course.journey.map(week => `
+                <div class="journey-week">
+                    <div class="week-header">
+                        <span class="week-number">Week ${week.week}</span>
+                        <h3>${week.title}</h3>
+                    </div>
+                    <ul class="week-topics">
+                        ${week.topics.map(topic => `<li>${topic}</li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
+</html>

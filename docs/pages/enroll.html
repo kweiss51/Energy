@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enroll Now | Energy Course Platform</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/courses-data.js"></script>
 </head>
 <body>
     <header>
@@ -82,14 +83,17 @@
             loadComponent('../components/Header.html', 'header-placeholder');
             loadComponent('../components/Footer.html', 'footer-placeholder');
 
+
             // Get course from URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const courseId = urlParams.get('course');
-            
-            if (courseId) {
+            let coursePrice = '$99.99';
+            if (courseId && window.courseDetails && window.courseDetails[courseId]) {
+                coursePrice = window.courseDetails[courseId].price;
                 const courseSelect = document.getElementById('course');
-                courseSelect.value = courseId;
+                if (courseSelect) courseSelect.value = courseId;
             }
+            document.getElementById('course-price').textContent = coursePrice;
 
             // Handle form submission
             document.getElementById('enrollment-form').addEventListener('submit', function(e) {
