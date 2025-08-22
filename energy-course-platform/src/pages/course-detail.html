@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Detail</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <header>
+        <!-- Include Header Component -->
+        <div id="header-placeholder"></div>
+    </header>
+
+    <main>
+        <section class="course-detail">
+            <h1 id="course-title">Course Title</h1>
+            <p id="course-description">This course provides an in-depth understanding of energy topics.</p>
+            <h2>Course Objectives</h2>
+            <ul id="course-objectives">
+                <li>Understand the fundamentals of energy.</li>
+                <li>Explore renewable energy sources.</li>
+                <li>Analyze energy consumption patterns.</li>
+            </ul>
+            <div class="video-container">
+                <!-- Include Video Player Component -->
+                <div id="video-player-placeholder"></div>
+            </div>
+            <button id="enroll-button">Enroll Now</button>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Include Footer Component -->
+        <div id="footer-placeholder"></div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/navigation.js"></script>
+    <script>
+        // Load Header and Footer Components
+        document.getElementById('header-placeholder').innerHTML = '<!-- Header HTML goes here -->';
+        document.getElementById('footer-placeholder').innerHTML = '<!-- Footer HTML goes here -->';
+        
+        // Load Video Player Component
+        document.getElementById('video-player-placeholder').innerHTML = '<!-- Video Player HTML goes here -->';
+        
+        // Enroll Button Click Event
+        document.getElementById('enroll-button').addEventListener('click', function() {
+            window.location.href = 'enroll.html';
+        });
+    </script>
+</body>
+</html>
