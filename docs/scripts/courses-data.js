@@ -1,4 +1,5 @@
-const courseDetails = {
+// Expose courseDetails globally for the course detail page
+window.courseDetails = {
     "energy-fundamentals": {
         title: "Energy Systems Fundamentals",
         subtitle: "Master the Core Concepts That Drive Modern Energy Systems",
