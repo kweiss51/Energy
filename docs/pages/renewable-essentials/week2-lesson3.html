@@ -45,6 +45,25 @@
         <li>Case studies of high-renewable grids (IEA, Stanford)</li>
       </ul>
     </section>
+    <!-- Interactive: Grid Flexibility Simulator -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Grid Flexibility Simulator</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Balance renewable supply and demand by adjusting storage and demand response:</div>
+        <label for="renewable-supply" style="font-weight:500;">Renewable Supply (MW):</label>
+        <input type="range" id="renewable-supply" min="0" max="100" value="60" style="width:100%;">
+        <span id="renewable-supply-value" style="font-weight:600;">60</span> MW<br><br>
+        <label for="storage" style="font-weight:500;">Storage (MW):</label>
+        <input type="range" id="storage" min="0" max="50" value="20" style="width:100%;">
+        <span id="storage-value" style="font-weight:600;">20</span> MW<br><br>
+        <label for="demand-response" style="font-weight:500;">Demand Response (MW):</label>
+        <input type="range" id="demand-response" min="0" max="30" value="10" style="width:100%;">
+        <span id="demand-response-value" style="font-weight:600;">10</span> MW<br><br>
+        <button id="checkFlexibility" class="cta-primary" style="margin-top:1rem;">Check Balance</button>
+        <div id="flexibilityResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Total supply (renewables + storage + demand response) must meet 80 MW demand!</div>
+    </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
       <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand how renewables are integrated into the grid.</div>
@@ -57,6 +76,30 @@
     </div>
   </main>
   <script>
+    // Interactive: Grid Flexibility Simulator
+    const renewableSupply = document.getElementById('renewable-supply');
+    const renewableSupplyValue = document.getElementById('renewable-supply-value');
+    const storage = document.getElementById('storage');
+    const storageValue = document.getElementById('storage-value');
+    const demandResponse = document.getElementById('demand-response');
+    const demandResponseValue = document.getElementById('demand-response-value');
+    const checkFlexibility = document.getElementById('checkFlexibility');
+    const flexibilityResult = document.getElementById('flexibilityResult');
+    if (renewableSupply && renewableSupplyValue && storage && storageValue && demandResponse && demandResponseValue && checkFlexibility && flexibilityResult) {
+      renewableSupply.oninput = function() { renewableSupplyValue.textContent = renewableSupply.value; };
+      storage.oninput = function() { storageValue.textContent = storage.value; };
+      demandResponse.oninput = function() { demandResponseValue.textContent = demandResponse.value; };
+      checkFlexibility.onclick = function() {
+        const total = parseInt(renewableSupply.value) + parseInt(storage.value) + parseInt(demandResponse.value);
+        if (total === 80) {
+          flexibilityResult.textContent = "Perfect! The grid is balanced at 80 MW.";
+          flexibilityResult.style.color = 'var(--color-success, #2e7d32)';
+        } else {
+          flexibilityResult.textContent = `Total is ${total} MW. Adjust to meet 80 MW demand.`;
+          flexibilityResult.style.color = 'var(--color-error, #b71c1c)';
+        }
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

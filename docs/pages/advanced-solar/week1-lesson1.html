@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Solar Design - Week 1 Lesson 1</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <nav class="nav-minimal" style="margin-bottom:2rem;">
+    <div class="nav-content">
+      <a href="../../energy.html" class="nav-logo">Energy</a>
+      <div class="nav-links">
+        <a href="../courses.html">Course Home</a>
+      </div>
+    </div>
+  </nav>
+  <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
+    <!-- Sleek Course Landing (copied style from storage-solutions) -->
+    <div class="course-landing" style="text-align:center;max-width:520px;margin:0 auto 2.5rem auto;">
+      <img src="../../images/advanced-solar1" alt="Advanced Solar Design" style="max-width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin-bottom:2rem;">
+      <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.75rem;">Advanced Solar Design</h1>
+      <p style="font-size:1.15rem;color:var(--color-text-light);margin-bottom:2rem;">Become a solar design specialist. Master site analysis, system optimization, and advanced solar technologies for real-world impact.</p>
+      <div style="display:flex;gap:1.5rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap;">
+        <a href="week1-lesson2.html" class="cta-primary" style="min-width:160px;">Start Course</a>
+        <a href="../courses.html" class="cta-secondary" style="min-width:160px;">View Other Courses</a>
+      </div>
+      <!-- Interactive: Solar Career Path Quiz -->
+      <section style="margin:2.5rem auto 0 auto;max-width:420px;">
+        <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Solar Career Path Quiz</h2>
+        <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <div style="margin-bottom:1rem;">Which solar career path interests you most?</div>
+          <select id="careerQuiz" style="width:100%;margin-bottom:1rem;">
+            <option value="">Choose an answer...</option>
+            <option value="design">System Design</option>
+            <option value="install">Installation</option>
+            <option value="research">Research & Innovation</option>
+            <option value="sales">Sales & Consulting</option>
+          </select>
+          <button id="checkCareerQuiz" class="cta-primary" style="margin-top:1rem;">See Result</button>
+          <div id="careerQuizResult" style="margin-top:1rem;font-weight:500;"></div>
+        </div>
+        <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Discover your solar journey!</div>
+      </section>
+    </div>
+    </div>
+  </main>
+  <script>
+    // Interactive: Solar Career Path Quiz
+    const careerQuiz = document.getElementById('careerQuiz');
+    const checkCareerQuiz = document.getElementById('checkCareerQuiz');
+    const careerQuizResult = document.getElementById('careerQuizResult');
+    if (careerQuiz && checkCareerQuiz && careerQuizResult) {
+      checkCareerQuiz.onclick = function() {
+        let msg = '';
+        switch (careerQuiz.value) {
+          case 'design':
+            msg = 'Great choice! System designers are in high demand for advanced solar projects.';
+            break;
+          case 'install':
+            msg = 'Installers are the backbone of the solar industry—hands-on and essential!';
+            break;
+          case 'research':
+            msg = 'Research & innovation drive the future of solar. Your curiosity will change the world!';
+            break;
+          case 'sales':
+            msg = 'Sales & consulting experts help bring solar to more people every day.';
+            break;
+          default:
+            msg = 'Please select a career path.';
+        }
+        careerQuizResult.textContent = msg;
+        careerQuizResult.style.color = 'var(--color-primary)';
+      };
+    }
+    // Show Mark Complete button when video ends
+    const video = document.getElementById('lessonVideo');
+    const markBtn = document.getElementById('markCompleteBtn');
+    const completeDiv = document.getElementById('lesson-complete');
+    const markWrap = document.getElementById('mark-complete-wrap');
+    if(video && markBtn) {
+      video.addEventListener('ended', () => {
+        markBtn.style.display = 'inline-block';
+      });
+      markBtn.addEventListener('click', () => {
+        markWrap.style.display = 'none';
+        completeDiv.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>

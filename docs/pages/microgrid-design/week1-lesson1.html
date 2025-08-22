@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microgrid Design - Week 1 Lesson 1</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <nav class="nav-minimal" style="margin-bottom:2rem;">
+    <div class="nav-content">
+      <a href="../../energy.html" class="nav-logo">Energy</a>
+      <div class="nav-links">
+        <a href="../courses.html">Course Home</a>
+      </div>
+    <!-- Interactive: Microgrid Basics Quiz -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Microgrid Basics Quiz</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Which of the following is a key benefit of microgrids?</div>
+        <select id="microgridQuiz" style="width:100%;margin-bottom:1rem;">
+          <option value="">Choose an answer...</option>
+          <option value="resilience">Resilience during outages</option>
+          <option value="pollution">Increased pollution</option>
+          <option value="waste">More energy waste</option>
+          <option value="none">None of the above</option>
+        </select>
+        <button id="checkMicrogridQuiz" class="cta-primary" style="margin-top:1rem;">Check Answer</button>
+        <div id="microgridQuizResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Test your microgrid knowledge before you begin!</div>
+    </section>
+    </div>
+  </nav>
+  <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
+    <!-- Sleek Course Landing (copied style from storage-solutions) -->
+    <div class="course-landing" style="text-align:center;max-width:520px;margin:0 auto 2.5rem auto;">
+      <img src="../../images/microgrid-design1" alt="Microgrid Design" style="max-width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin-bottom:2rem;">
+      <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.75rem;">Microgrid Design</h1>
+      <p style="font-size:1.15rem;color:var(--color-text-light);margin-bottom:2rem;">Design the resilient energy systems of tomorrow. Explore microgrid concepts, benefits, and real-world applications for a sustainable future.</p>
+      <div style="display:flex;gap:1.5rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap;">
+        <a href="week1-lesson2.html" class="cta-primary" style="min-width:160px;">Start Course</a>
+        <a href="../courses.html" class="cta-secondary" style="min-width:160px;">View Other Courses</a>
+      </div>
+    </div>
+    </div>
+  </main>
+  <script>
+    // Interactive: Microgrid Basics Quiz
+    const microgridQuiz = document.getElementById('microgridQuiz');
+    const checkMicrogridQuiz = document.getElementById('checkMicrogridQuiz');
+    const microgridQuizResult = document.getElementById('microgridQuizResult');
+    if (microgridQuiz && checkMicrogridQuiz && microgridQuizResult) {
+      checkMicrogridQuiz.onclick = function() {
+        if (microgridQuiz.value === 'resilience') {
+          microgridQuizResult.textContent = 'Correct! Microgrids provide resilience during outages.';
+          microgridQuizResult.style.color = 'var(--color-success, #2e7d32)';
+        } else if (microgridQuiz.value) {
+          microgridQuizResult.textContent = 'Not quite. Try again!';
+          microgridQuizResult.style.color = 'var(--color-error, #b71c1c)';
+        } else {
+          microgridQuizResult.textContent = 'Please select an answer.';
+          microgridQuizResult.style.color = 'var(--color-warning, #f9a825)';
+        }
+      };
+    }
+    // Show Mark Complete button when video ends
+    const video = document.getElementById('lessonVideo');
+    const markBtn = document.getElementById('markCompleteBtn');
+    const completeDiv = document.getElementById('lesson-complete');
+    const markWrap = document.getElementById('mark-complete-wrap');
+    if(video && markBtn) {
+      video.addEventListener('ended', () => {
+        markBtn.style.display = 'inline-block';
+      });
+      markBtn.addEventListener('click', () => {
+        markWrap.style.display = 'none';
+        completeDiv.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>

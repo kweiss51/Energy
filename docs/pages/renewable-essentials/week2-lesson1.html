@@ -45,6 +45,22 @@
         <li>Role of water power in the renewable mix (DOE, EIA)</li>
       </ul>
     </section>
+    <!-- Interactive: Hydropower Output Visualizer -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Hydropower Output Visualizer</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Adjust the water flow and dam height to estimate hydropower output:</div>
+        <label for="flow-rate" style="font-weight:500;">Water Flow (m³/s):</label>
+        <input type="range" id="flow-rate" min="10" max="500" step="1" value="100" style="width:100%;">
+        <span id="flow-rate-value" style="font-weight:600;">100</span> m³/s<br><br>
+        <label for="dam-height" style="font-weight:500;">Dam Height (m):</label>
+        <input type="range" id="dam-height" min="10" max="200" step="1" value="50" style="width:100%;">
+        <span id="dam-height-value" style="font-weight:600;">50</span> m<br><br>
+        <button id="calcHydroOutput" class="cta-primary" style="margin-top:1rem;">Estimate Output</button>
+        <div id="hydroOutputResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Power output = 9.8 × flow × height × 0.9 (efficiency). Try different values!</div>
+    </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
       <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand the fundamentals of hydropower and marine energy.</div>
@@ -57,6 +73,25 @@
     </div>
   </main>
   <script>
+    // Interactive: Hydropower Output Visualizer
+    const flowRate = document.getElementById('flow-rate');
+    const flowRateValue = document.getElementById('flow-rate-value');
+    const damHeight = document.getElementById('dam-height');
+    const damHeightValue = document.getElementById('dam-height-value');
+    const calcHydroOutput = document.getElementById('calcHydroOutput');
+    const hydroOutputResult = document.getElementById('hydroOutputResult');
+    if (flowRate && flowRateValue && damHeight && damHeightValue && calcHydroOutput && hydroOutputResult) {
+      flowRate.oninput = function() { flowRateValue.textContent = flowRate.value; };
+      damHeight.oninput = function() { damHeightValue.textContent = damHeight.value; };
+      calcHydroOutput.onclick = function() {
+        // Power = 9.8 * flow * height * 0.9 (efficiency), result in kW
+        const flow = parseFloat(flowRate.value);
+        const height = parseFloat(damHeight.value);
+        const power = 9.8 * flow * height * 0.9 / 1000;
+        hydroOutputResult.textContent = `Estimated Output: ${power.toFixed(0)} kW`;
+        hydroOutputResult.style.color = 'var(--color-primary)';
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

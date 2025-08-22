@@ -16,8 +16,16 @@
   <main class="assessment-content">
     <h1>Find Your Perfect Learning Path</h1>
     <form id="assessment-form" class="assessment-form">
+      <div class="assessment-step" id="step-0">
+        <h2>Let's get started! Tell us about yourself.</h2>
+        <label for="name">Full Name</label><br>
+        <input type="text" id="name" name="name" required style="width:100%;padding:0.5rem;margin-bottom:1rem;"><br>
+        <label for="email">Email Address</label><br>
+        <input type="email" id="email" name="email" required style="width:100%;padding:0.5rem;margin-bottom:1.5rem;"><br>
+        <button type="button" class="next-btn">Next</button>
+      </div>
       <div class="assessment-step" id="step-1">
-        <h2>1. What best describes your current experience with energy systems?</h2>
+  <h2>1. What best describes your current experience with energy systems?</h2>
         <label><input type="radio" name="experience" value="beginner" required> I'm new to energy concepts</label><br>
         <label><input type="radio" name="experience" value="intermediate"> I have some technical background</label><br>
         <label><input type="radio" name="experience" value="advanced"> I'm experienced in the field</label>
@@ -54,11 +62,20 @@
     }
     document.querySelectorAll('.next-btn').forEach(btn => btn.onclick = () => showStep(currentStep + 1));
     document.querySelectorAll('.prev-btn').forEach(btn => btn.onclick = () => showStep(currentStep - 1));
+    showStep(0); // Start at the new name/email step
+
     document.getElementById('assessment-form').onsubmit = function(e) {
       e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
       const exp = document.querySelector('input[name="experience"]:checked')?.value;
       const goal = document.querySelector('input[name="goal"]:checked')?.value;
       const topic = document.querySelector('input[name="topic"]:checked')?.value;
+      if (!name || !email) {
+        alert('Please enter your name and email.');
+        showStep(0);
+        return;
+      }
       let suggestion = '';
       let link = '';
       if (topic === 'fundamentals' || exp === 'beginner') {
@@ -66,19 +83,19 @@
         link = 'energy-fundamentals/week1-lesson1.html';
       } else if (topic === 'renewables') {
         suggestion = 'Renewable Energy Essentials';
-        link = 'coming-soon-renewable-essentials.html';
+        link = 'renewable-essentials/week1-lesson1.html';
       } else if (topic === 'solar') {
         suggestion = 'Advanced Solar Design';
-        link = 'coming-soon-advanced-solar.html';
+        link = 'advanced-solar/week1-lesson1.html';
       } else if (topic === 'grid') {
         suggestion = 'Grid Integration Mastery';
-        link = 'coming-soon-grid-mastery.html';
+        link = 'grid-mastery/week1-lesson1.html';
       } else if (topic === 'storage') {
         suggestion = 'Energy Storage Solutions';
-        link = 'coming-soon-storage-solutions.html';
+        link = 'storage-solutions/week1-lesson1.html';
       } else if (topic === 'microgrid') {
         suggestion = 'Microgrid Design';
-        link = 'coming-soon-microgrid-design.html';
+        link = 'microgrid-design/week1-lesson1.html';
       } else {
         suggestion = 'Energy Systems Fundamentals';
         link = 'energy-fundamentals/week1-lesson1.html';

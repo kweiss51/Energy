@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Renewable Energy Essentials - Week 3 Lesson 1</title>
+  <title>Microgrid Design - Week 3 Lesson 2</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
@@ -18,20 +18,20 @@
   <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
     <!-- Progress Tracker -->
     <div class="lesson-progress" style="margin-bottom:2rem;">
-      <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 7 of 9</div>
-      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Renewable Energy Markets and Economics</div>
+      <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 8 of 9</div>
+      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Business Models & Economics</div>
       <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
-        <div style="background:var(--color-primary);width:77%;height:100%;transition:width 0.5s;"></div>
+        <div style="background:var(--color-primary);width:88%;height:100%;transition:width 0.5s;"></div>
       </div>
     </div>
     <!-- Before and After Framing -->
     <div class="lesson-framing" style="margin-bottom:2rem;">
-      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Are renewables affordable and reliable? By the end of this lesson, you’ll understand the economics, incentives, and market trends shaping renewables.</p>
+      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">How do microgrids make economic sense? By the end of this lesson, you’ll understand business models, financing, and value creation for microgrids.</p>
     </div>
     <!-- Video Player -->
     <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/renewable-essentials2.jpeg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/renewable-week3-lesson1.mp4" type="video/mp4">
+      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/microgrid-design2.jpg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
+        <source src="../../assets/microgrid-design-week3-lesson2.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -39,30 +39,32 @@
     <section style="margin-bottom:2rem;">
       <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
       <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
-        <li>Trends in renewable energy costs (IEA, EIA, NREL)</li>
-        <li>Incentives and policy drivers (DOE, FERC, CAISO)</li>
-        <li>Market structures and reliability (EPRI, Stanford)</li>
-        <li>Jobs and economic impacts (IEA, EPRI, DOE)</li>
+        <li>Business models and financing (DOE, EPRI, NREL)</li>
+        <li>Value creation and cost-benefit analysis (Stanford, ANL, IEA)</li>
+        <li>Ownership and partnership structures (FERC, PNNL, USGS)</li>
+        <li>Case studies and best practices (EIA, Sandia, INL)</li>
       </ul>
     </section>
-    <!-- Interactive: Renewable Payback Calculator -->
+    <!-- Interactive: Microgrid Payback Calculator -->
     <section style="margin-bottom:2.5rem;">
-      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Renewable Payback Calculator</h2>
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Microgrid Payback Calculator</h2>
       <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <div style="margin-bottom:1rem;">Estimate how long it takes for a renewable investment to pay for itself:</div>
-        <label for="system-cost" style="font-weight:500;">System Cost ($):</label>
-        <input type="number" id="system-cost" min="1000" max="100000" value="15000" style="width:100%;margin-bottom:0.5rem;">
+        <div style="margin-bottom:1rem;">Estimate the payback period for a microgrid investment:</div>
+        <label for="install-cost" style="font-weight:500;">Installation Cost ($):</label>
+        <input type="number" id="install-cost" min="1000" max="10000000" value="100000" style="width:100%;">
+        <br><br>
         <label for="annual-savings" style="font-weight:500;">Annual Savings ($):</label>
-        <input type="number" id="annual-savings" min="100" max="10000" value="1800" style="width:100%;margin-bottom:0.5rem;">
+        <input type="number" id="annual-savings" min="100" max="1000000" value="10000" style="width:100%;">
+        <br><br>
         <button id="calcPayback" class="cta-primary" style="margin-top:1rem;">Calculate Payback</button>
         <div id="paybackResult" style="margin-top:1rem;font-weight:500;"></div>
       </div>
-      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Payback period = System Cost / Annual Savings. Try different values!</div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Payback Period = installation cost / annual savings. Try different values!</div>
     </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
-      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand the economics and markets for renewables.</div>
-      <a href="week3-lesson2.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
+      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand business models and economics for microgrids.</div>
+      <a href="week3-lesson3.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
       <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
     </div>
     <!-- Mark Complete Button (appears after video) -->
@@ -71,23 +73,23 @@
     </div>
   </main>
   <script>
-    // Interactive: Renewable Payback Calculator
-    const systemCost = document.getElementById('system-cost');
+    // Interactive: Microgrid Payback Calculator
+    const installCost = document.getElementById('install-cost');
     const annualSavings = document.getElementById('annual-savings');
     const calcPayback = document.getElementById('calcPayback');
     const paybackResult = document.getElementById('paybackResult');
-    if (systemCost && annualSavings && calcPayback && paybackResult) {
+    if (installCost && annualSavings && calcPayback && paybackResult) {
       calcPayback.onclick = function() {
-        const cost = parseFloat(systemCost.value);
+        const cost = parseFloat(installCost.value);
         const savings = parseFloat(annualSavings.value);
-        if (cost > 0 && savings > 0) {
-          const years = cost / savings;
-          paybackResult.textContent = `Estimated Payback: ${years.toFixed(1)} years`;
-          paybackResult.style.color = 'var(--color-primary)';
-        } else {
+        if (isNaN(cost) || isNaN(savings) || cost <= 0 || savings <= 0) {
           paybackResult.textContent = 'Please enter valid values.';
           paybackResult.style.color = 'var(--color-error, #b71c1c)';
+          return;
         }
+        const years = cost / savings;
+        paybackResult.textContent = `Estimated Payback Period: ${years.toFixed(1)} years`;
+        paybackResult.style.color = 'var(--color-primary)';
       };
     }
     // Show Mark Complete button when video ends

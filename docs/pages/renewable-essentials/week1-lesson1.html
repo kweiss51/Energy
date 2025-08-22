@@ -13,54 +13,57 @@
       <div class="nav-links">
         <a href="../courses.html">Course Home</a>
       </div>
+    <!-- Interactive: Renewable Energy Awareness Quiz -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Renewable Energy Awareness Quiz</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Which of the following is NOT a renewable energy source?</div>
+        <select id="renewableQuiz" style="width:100%;margin-bottom:1rem;">
+          <option value="">Choose an answer...</option>
+          <option value="solar">Solar</option>
+          <option value="wind">Wind</option>
+          <option value="coal">Coal</option>
+          <option value="hydro">Hydro</option>
+        </select>
+        <button id="checkRenewableQuiz" class="cta-primary" style="margin-top:1rem;">Check Answer</button>
+        <div id="renewableQuizResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Test your knowledge before you begin!</div>
+    </section>
     </div>
   </nav>
   <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
-    <!-- Course Image -->
-    <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="../../images/renewable-essentials1" alt="Renewable Energy" style="max-width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-    </div>
-    <!-- Progress Tracker -->
-    <div class="lesson-progress" style="margin-bottom:2rem;">
-      <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 1 of 9</div>
-      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">The Case for Renewables: Why the World is Changing</div>
-      <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
-        <div style="background:var(--color-primary);width:11%;height:100%;transition:width 0.5s;"></div>
+    <!-- Sleek Course Landing -->
+    <div class="course-landing" style="text-align:center;max-width:520px;margin:0 auto 2.5rem auto;">
+      <img src="../../images/renewable-essentials1" alt="Renewable Energy Essentials" style="max-width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin-bottom:2rem;">
+      <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.75rem;">Renewable Energy Essentials</h1>
+      <p style="font-size:1.15rem;color:var(--color-text-light);margin-bottom:2rem;">Master the fundamentals of solar, wind, and other renewables. Learn why the world is shifting to clean energy, the science behind it, and how you can be part of the transformation.</p>
+      <div style="display:flex;gap:1.5rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap;">
+        <a href="week1-lesson2.html" class="cta-primary" style="min-width:160px;">Start Course</a>
+        <a href="../courses.html" class="cta-secondary" style="min-width:160px;">View Other Courses</a>
       </div>
     </div>
-    <!-- Before and After Framing -->
-    <div class="lesson-framing" style="margin-bottom:2rem;">
-      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Right now, the world relies on fossil fuels—but the costs are mounting. By the end of this lesson, you’ll understand why renewables are essential for our climate, economy, and energy security.</p>
-    </div>
-    <!-- Video Player -->
-    <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/renewable-essentials1.jpg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/renewable-week1-lesson1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <!-- Lesson Content -->
-    <section style="margin-bottom:2rem;">
-      <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
-      <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
-        <li>Why the world is shifting to renewables (MIT OCW, Stanford, IEA)</li>
-        <li>Climate change, air quality, and health impacts (NREL, DOE, EIA)</li>
-        <li>Economic drivers: jobs, costs, and innovation (IEA, EPRI)</li>
-        <li>Energy security and resilience (DOE, FERC, CAISO)</li>
-      </ul>
-    </section>
-    <!-- Progress Affirmation & Next Step -->
-    <div id="lesson-complete" style="display:none;text-align:center;">
-      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You can now explain why the world is moving toward renewables.</div>
-      <a href="week1-lesson2.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
-      <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
-    </div>
-    <!-- Mark Complete Button (appears after video) -->
-    <div id="mark-complete-wrap" style="text-align:center;">
-      <button id="markCompleteBtn" class="cta-primary" style="margin-top:1.5rem;display:none;">Mark Lesson Complete</button>
     </div>
   </main>
   <script>
+    // Interactive: Renewable Energy Awareness Quiz
+    const renewableQuiz = document.getElementById('renewableQuiz');
+    const checkRenewableQuiz = document.getElementById('checkRenewableQuiz');
+    const renewableQuizResult = document.getElementById('renewableQuizResult');
+    if (renewableQuiz && checkRenewableQuiz && renewableQuizResult) {
+      checkRenewableQuiz.onclick = function() {
+        if (renewableQuiz.value === 'coal') {
+          renewableQuizResult.textContent = 'Correct! Coal is not a renewable energy source.';
+          renewableQuizResult.style.color = 'var(--color-success, #2e7d32)';
+        } else if (renewableQuiz.value) {
+          renewableQuizResult.textContent = 'Not quite. Try again!';
+          renewableQuizResult.style.color = 'var(--color-error, #b71c1c)';
+        } else {
+          renewableQuizResult.textContent = 'Please select an answer.';
+          renewableQuizResult.style.color = 'var(--color-warning, #f9a825)';
+        }
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

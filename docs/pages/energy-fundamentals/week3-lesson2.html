@@ -49,6 +49,22 @@
         <li>How you benefit from energy storage every day</li>
       </ul>
     </section>
+    <!-- Interactive: Storage Technology Explorer -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Storage Technology Explorer</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Select a storage technology to learn how it works:</div>
+        <select id="storageType" style="width:100%;margin-bottom:1rem;">
+          <option value="">Choose a technology...</option>
+          <option value="battery">Battery</option>
+          <option value="pumped">Pumped Hydro</option>
+          <option value="thermal">Thermal Storage</option>
+          <option value="flywheel">Flywheel</option>
+        </select>
+        <div id="storageResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Explore each technology to see its role in the grid!</div>
+    </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
       <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You can now explain why energy storage matters and describe key technologies.</div>
@@ -61,6 +77,33 @@
     </div>
   </main>
   <script>
+    // Interactive: Storage Technology Explorer
+    const storageType = document.getElementById('storageType');
+    const storageResult = document.getElementById('storageResult');
+    if (storageType && storageResult) {
+      storageType.onchange = function() {
+        switch(storageType.value) {
+          case 'battery':
+            storageResult.textContent = 'Batteries store electricity chemically and release it when needed. Used in homes, cars, and the grid.';
+            storageResult.style.color = 'var(--color-primary)';
+            break;
+          case 'pumped':
+            storageResult.textContent = 'Pumped hydro stores energy by moving water uphill, then releases it to generate electricity when needed.';
+            storageResult.style.color = 'var(--color-primary)';
+            break;
+          case 'thermal':
+            storageResult.textContent = 'Thermal storage holds heat or cold for later use, helping balance supply and demand.';
+            storageResult.style.color = 'var(--color-primary)';
+            break;
+          case 'flywheel':
+            storageResult.textContent = 'Flywheels store energy as rotational motion and can quickly release it to stabilize the grid.';
+            storageResult.style.color = 'var(--color-primary)';
+            break;
+          default:
+            storageResult.textContent = '';
+        }
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

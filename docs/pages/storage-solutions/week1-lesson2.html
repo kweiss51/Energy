@@ -28,12 +28,13 @@
     <div class="lesson-framing" style="margin-bottom:2rem;">
       <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">What makes a battery work? By the end of this lesson, you’ll understand lithium-ion, flow, lead-acid, and emerging battery chemistries.</p>
     </div>
-    <!-- Video Player -->
-    <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/storage-solutions1.jpg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/storage-solutions-week1-lesson2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <!-- Timer Bar (30 seconds) -->
+    <div class="lesson-timer" style="margin-bottom:2rem;text-align:center;">
+      <div style="font-size:1.1rem;margin-bottom:0.5rem;">Lesson unlocks in <span id="timer-seconds">30</span> seconds</div>
+      <div style="background:var(--color-surface);border-radius:8px;height:18px;width:100%;max-width:420px;margin:0 auto;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div id="timer-bar" style="background:var(--color-primary);height:100%;width:0%;transition:width 0.5s;"></div>
+      </div>
+      <button id="proceed-button" class="cta-primary" style="margin-top:1.2rem;opacity:0.5;pointer-events:none;">Proceed</button>
     </div>
     <!-- Lesson Content -->
     <section style="margin-bottom:2rem;">
@@ -73,6 +74,30 @@
     </div>
   </main>
   <script>
+    // Timer Bar Logic
+    let timer = 30;
+    const timerBar = document.getElementById('timer-bar');
+    const timerSeconds = document.getElementById('timer-seconds');
+    const proceedBtn = document.getElementById('proceed-button');
+    let interval = setInterval(() => {
+      timer--;
+      timerSeconds.textContent = timer;
+      timerBar.style.width = ((30-timer)/30*100) + '%';
+      if (timer <= 0) {
+        clearInterval(interval);
+        timerBar.style.width = '100%';
+        proceedBtn.style.opacity = 1;
+        proceedBtn.style.pointerEvents = 'auto';
+        timerSeconds.textContent = '0';
+      }
+    }, 1000);
+    proceedBtn.addEventListener('click', function() {
+      // Find the next lesson link and go there
+      const nextLink = document.getElementById('nextLessonBtn');
+      if (nextLink) {
+        window.location.href = nextLink.href;
+      }
+    });
     // Interactive: Battery Chemistry Explorer
     const batteryChemistry = document.getElementById('batteryChemistry');
     const chemistryResult = document.getElementById('chemistryResult');

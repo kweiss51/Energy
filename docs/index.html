@@ -8,12 +8,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="nav-minimal">
-        <div class="nav-content">
-            <a href="/" class="nav-logo">Energy</a>
-            <a href="pages/courses.html" class="nav-cta">View Courses</a>
-        </div>
-    </div>
+        <nav class="nav-minimal">
+            <div class="nav-content">
+                <a href="energy.html" class="nav-logo">Energy</a>
+                <div class="nav-links">
+                    <a href="pages/courses.html">Courses</a>
+                    <a href="pages/about.html">About</a>
+                    <a href="pages/assessment.html" class="nav-cta">Find Your Path</a>
+                </div>
+            </div>
+        </nav>
     
     <main class="hero-minimal">
         <div class="hero-content">
@@ -21,7 +25,7 @@
             <p class="hero-subtitle">From confused engineer to confident expert. Our structured program turns technical overwhelm into practical mastery.</p>
             
             <div class="hero-cta">
-                <a href="pages/courses.html" class="cta-primary">Start Your Journey</a>
+                <a href="pages/assessment.html" class="cta-primary">Start Your Journey</a>
                 <a href="#path" class="cta-secondary">See Your Path →</a>
             </div>
         </div>
@@ -50,6 +54,7 @@
     </section>
 
     <section class="proof-section">
+
         <div class="proof-content">
             <div class="testimonial">
                 <blockquote>"This program transformed how I approach energy systems. I went from struggling with basics to leading projects at my company."</blockquote>
@@ -58,16 +63,46 @@
         </div>
     </section>
 
+    <!-- Courses Displayed on Home Page -->
+    <section class="course-section foundation-level">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Build Your Foundation</h2>
+                <p>Master the fundamentals and establish your core knowledge</p>
+            </div>
+            <div class="course-grid" id="home-foundation-courses"></div>
+        </div>
+    </section>
+    <section class="course-section advanced-level">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Advanced Expertise</h2>
+                <p>Deepen your knowledge and tackle complex challenges</p>
+            </div>
+            <div class="course-grid" id="home-advanced-courses"></div>
+        </div>
+    </section>
+    <section class="course-section specialized-topics">
+        <div class="section-content">
+            <div class="section-header">
+                <h2>Specialized Focus</h2>
+                <p>Master specific domains and become an industry expert</p>
+            </div>
+            <div class="course-grid" id="home-specialized-courses"></div>
+        </div>
+    </section>
+
     <footer class="footer-minimal">
         <div class="footer-content">
             <div class="footer-links">
                 <a href="pages/courses.html">Courses</a>
                 <a href="pages/about.html">About</a>
-                <a href="pages/success-stories.html">Success Stories</a>
+                <a href="pages/assessment.html">Find Your Path</a>
             </div>
             <p class="footer-copyright">© 2025 Energy Education Platform</p>
         </div>
     </footer>
+    <script src="home-courses.js"></script>
 
     <script>
         // Smooth scroll for anchor links

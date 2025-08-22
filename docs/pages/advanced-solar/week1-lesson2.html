@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Renewable Energy Essentials - Week 1 Lesson 2</title>
+  <title>Advanced Solar Design - Week 1 Lesson 2</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
@@ -16,21 +16,17 @@
     </div>
   </nav>
   <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
-    <!-- Course Image -->
-    <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="../../images/renewable-essentials2" alt="Renewable Energy" style="max-width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-    </div>
     <!-- Progress Tracker -->
     <div class="lesson-progress" style="margin-bottom:2rem;">
       <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 2 of 9</div>
-      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Solar Energy Fundamentals</div>
+      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">PV Cell & Module Technology</div>
       <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
         <div style="background:var(--color-primary);width:22%;height:100%;transition:width 0.5s;"></div>
       </div>
     </div>
     <!-- Before and After Framing -->
     <div class="lesson-framing" style="margin-bottom:2rem;">
-      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">How does sunlight become electricity? By the end of this lesson, you’ll understand the basics of solar energy, from photons to power plants.</p>
+      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">What makes a solar panel efficient? By the end of this lesson, you’ll understand cell types, module design, and the factors that affect performance.</p>
     </div>
     <!-- Timer Bar (30 seconds) -->
     <div class="lesson-timer" style="margin-bottom:2rem;text-align:center;">
@@ -44,31 +40,31 @@
     <section style="margin-bottom:2rem;">
       <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
       <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
-        <li>How solar panels convert sunlight to electricity (MIT OCW, NREL)</li>
-        <li>Types of solar energy systems: PV, CSP, and solar thermal (Stanford, DOE)</li>
-        <li>Solar resource and siting basics (NREL, USGS)</li>
-        <li>Challenges and opportunities for solar adoption (IEA, EIA)</li>
+        <li>PV cell types: mono, poly, thin-film (MIT OCW, NREL, Stanford)</li>
+        <li>Module design and construction (DOE, Sandia, ANL)</li>
+        <li>Performance factors: temperature, soiling, degradation (NREL, ORNL, INL)</li>
+        <li>Emerging cell technologies (IEA, PNNL, EPRI)</li>
       </ul>
     </section>
-    <!-- Interactive Solar Output Calculator -->
+    <!-- Interactive: PV Cell Efficiency Calculator -->
     <section style="margin-bottom:2.5rem;">
-      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Estimate Your Solar Output</h2>
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: PV Cell Efficiency Calculator</h2>
       <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <label for="sun-hours" style="font-weight:500;">Average Sun Hours per Day:</label>
-        <input type="range" id="sun-hours" min="2" max="8" step="0.1" value="5" style="width:100%;">
-        <span id="sun-hours-value" style="font-weight:600;">5</span> hrs<br><br>
-        <label for="system-size" style="font-weight:500;">System Size (kW):</label>
-        <input type="range" id="system-size" min="1" max="10" step="0.1" value="5" style="width:100%;">
-        <span id="system-size-value" style="font-weight:600;">5</span> kW<br><br>
-        <div style="margin-top:1rem;font-size:1.1rem;">
-          <strong>Estimated Daily Output:</strong> <span id="solar-output">25</span> kWh
-        </div>
+        <div style="margin-bottom:1rem;">Estimate the efficiency of a PV cell based on input and output power:</div>
+        <label for="inputPower" style="font-weight:500;">Input Power (W):</label>
+        <input type="number" id="inputPower" min="1" max="1000" value="100" style="width:100%;">
+        <br><br>
+        <label for="outputPower" style="font-weight:500;">Output Power (W):</label>
+        <input type="number" id="outputPower" min="1" max="1000" value="18" style="width:100%;">
+        <br><br>
+        <button id="calcEfficiency" class="cta-primary" style="margin-top:1rem;">Calculate Efficiency</button>
+        <div id="efficiencyResult" style="margin-top:1rem;font-weight:500;"></div>
       </div>
-      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Adjust the sliders to see how sun hours and system size affect your solar energy production.</div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Efficiency = (output / input) × 100%</div>
     </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
-      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand the fundamentals of solar energy.</div>
+      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand the fundamentals of PV cell and module technology.</div>
       <a href="week1-lesson3.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
       <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
     </div>
@@ -102,24 +98,24 @@
         window.location.href = nextLink.href;
       }
     });
-    // Interactive Solar Output Calculator
-    const sunHours = document.getElementById('sun-hours');
-    const sunHoursValue = document.getElementById('sun-hours-value');
-    const systemSize = document.getElementById('system-size');
-    const systemSizeValue = document.getElementById('system-size-value');
-    const solarOutput = document.getElementById('solar-output');
-    function updateSolarOutput() {
-      const hours = parseFloat(sunHours.value);
-      const size = parseFloat(systemSize.value);
-      sunHoursValue.textContent = hours;
-      systemSizeValue.textContent = size;
-      // Assume 100% efficiency for simplicity
-      solarOutput.textContent = (hours * size).toFixed(1);
-    }
-    if(sunHours && systemSize && solarOutput) {
-      sunHours.addEventListener('input', updateSolarOutput);
-      systemSize.addEventListener('input', updateSolarOutput);
-      updateSolarOutput();
+    // Interactive: PV Cell Efficiency Calculator
+    const inputPower = document.getElementById('inputPower');
+    const outputPower = document.getElementById('outputPower');
+    const calcEfficiency = document.getElementById('calcEfficiency');
+    const efficiencyResult = document.getElementById('efficiencyResult');
+    if (inputPower && outputPower && calcEfficiency && efficiencyResult) {
+      calcEfficiency.onclick = function() {
+        const input = parseFloat(inputPower.value);
+        const output = parseFloat(outputPower.value);
+        if (isNaN(input) || isNaN(output) || input <= 0 || output < 0) {
+          efficiencyResult.textContent = 'Please enter valid values.';
+          efficiencyResult.style.color = 'var(--color-error, #b71c1c)';
+          return;
+        }
+        const eff = (output / input) * 100;
+        efficiencyResult.textContent = `Estimated Efficiency: ${eff.toFixed(1)}%`;
+        efficiencyResult.style.color = 'var(--color-primary)';
+      };
     }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');

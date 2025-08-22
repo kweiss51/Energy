@@ -45,6 +45,22 @@
         <li>Environmental and economic impacts (IEA, EPRI)</li>
       </ul>
     </section>
+    <!-- Interactive: Bioenergy & Geothermal Potential Estimator -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Bioenergy & Geothermal Potential Estimator</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Estimate the energy potential from bioenergy or geothermal sources:</div>
+        <label for="bio-mass" style="font-weight:500;">Biomass Available (tons):</label>
+        <input type="range" id="bio-mass" min="0" max="1000" step="10" value="200" style="width:100%;">
+        <span id="bio-mass-value" style="font-weight:600;">200</span> tons<br><br>
+        <label for="geo-temp" style="font-weight:500;">Geothermal Temp (°C):</label>
+        <input type="range" id="geo-temp" min="50" max="300" step="1" value="150" style="width:100%;">
+        <span id="geo-temp-value" style="font-weight:600;">150</span> °C<br><br>
+        <button id="calcBioGeo" class="cta-primary" style="margin-top:1rem;">Estimate Potential</button>
+        <div id="bioGeoResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Bioenergy: 1 ton ≈ 2 MWh. Geothermal: (Temp-50) × 10 = kW. Try different values!</div>
+    </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
       <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand the fundamentals of bioenergy and geothermal energy.</div>
@@ -57,6 +73,25 @@
     </div>
   </main>
   <script>
+    // Interactive: Bioenergy & Geothermal Potential Estimator
+    const bioMass = document.getElementById('bio-mass');
+    const bioMassValue = document.getElementById('bio-mass-value');
+    const geoTemp = document.getElementById('geo-temp');
+    const geoTempValue = document.getElementById('geo-temp-value');
+    const calcBioGeo = document.getElementById('calcBioGeo');
+    const bioGeoResult = document.getElementById('bioGeoResult');
+    if (bioMass && bioMassValue && geoTemp && geoTempValue && calcBioGeo && bioGeoResult) {
+      bioMass.oninput = function() { bioMassValue.textContent = bioMass.value; };
+      geoTemp.oninput = function() { geoTempValue.textContent = geoTemp.value; };
+      calcBioGeo.onclick = function() {
+        const tons = parseFloat(bioMass.value);
+        const temp = parseFloat(geoTemp.value);
+        const bioMWh = tons * 2;
+        const geoKW = (temp - 50) * 10;
+        bioGeoResult.innerHTML = `Bioenergy Potential: <b>${bioMWh.toFixed(0)} MWh</b><br>Geothermal Potential: <b>${geoKW.toFixed(0)} kW</b>`;
+        bioGeoResult.style.color = 'var(--color-primary)';
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

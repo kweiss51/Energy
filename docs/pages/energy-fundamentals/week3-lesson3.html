@@ -49,6 +49,22 @@
         <li>Why the smart grid matters for everyone</li>
       </ul>
     </section>
+    <!-- Interactive: Smart Grid Benefits Explorer -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Smart Grid Benefits Explorer</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Select a benefit to see how the smart grid makes it possible:</div>
+        <select id="gridBenefit" style="width:100%;margin-bottom:1rem;">
+          <option value="">Choose a benefit...</option>
+          <option value="cleaner">Cleaner Energy</option>
+          <option value="reliable">More Reliable Power</option>
+          <option value="savings">Cost Savings</option>
+          <option value="resilience">Resilience to Outages</option>
+        </select>
+        <div id="benefitResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Explore each benefit to see the smart grid in action!</div>
+    </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
       <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You can now describe the smart grid and its benefits for the future.</div>
@@ -61,6 +77,33 @@
     </div>
   </main>
   <script>
+    // Interactive: Smart Grid Benefits Explorer
+    const gridBenefit = document.getElementById('gridBenefit');
+    const benefitResult = document.getElementById('benefitResult');
+    if (gridBenefit && benefitResult) {
+      gridBenefit.onchange = function() {
+        switch(gridBenefit.value) {
+          case 'cleaner':
+            benefitResult.textContent = 'Smart grids help integrate more renewables, reducing pollution and supporting a cleaner environment.';
+            benefitResult.style.color = 'var(--color-primary)';
+            break;
+          case 'reliable':
+            benefitResult.textContent = 'Sensors and automation make the grid more reliable, quickly detecting and fixing problems.';
+            benefitResult.style.color = 'var(--color-primary)';
+            break;
+          case 'savings':
+            benefitResult.textContent = 'Smart grids help lower costs by reducing waste and enabling smarter energy use.';
+            benefitResult.style.color = 'var(--color-primary)';
+            break;
+          case 'resilience':
+            benefitResult.textContent = 'Smart grids can reroute power and recover faster from outages, keeping the lights on.';
+            benefitResult.style.color = 'var(--color-primary)';
+            break;
+          default:
+            benefitResult.textContent = '';
+        }
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Renewable Energy Essentials - Week 3 Lesson 3</title>
+  <title>Grid Integration Mastery - Week 3 Lesson 3</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
@@ -19,19 +19,19 @@
     <!-- Progress Tracker -->
     <div class="lesson-progress" style="margin-bottom:2rem;">
       <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 9 of 9</div>
-      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">The Path Forward: Innovation and Careers</div>
+      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">The Future Grid: Innovation & Careers</div>
       <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
         <div style="background:var(--color-primary);width:100%;height:100%;transition:width 0.5s;"></div>
       </div>
     </div>
     <!-- Before and After Framing -->
     <div class="lesson-framing" style="margin-bottom:2rem;">
-      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">How do I make an impact in renewables? By the end of this lesson, you’ll know about new technologies, research, and career pathways in the renewable sector.</p>
+      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">What’s next for the grid—and for you? By the end of this lesson, you’ll know about new technologies, research, and career pathways in grid integration.</p>
     </div>
     <!-- Video Player -->
     <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/renewable-essentials2.jpeg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/renewable-week3-lesson3.mp4" type="video/mp4">
+      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/grid-mastery2.jpg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
+        <source src="../../assets/grid-mastery-week3-lesson3.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -39,31 +39,31 @@
     <section style="margin-bottom:2rem;">
       <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
       <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
-        <li>Emerging renewable technologies (MIT OCW, NREL, Sandia)</li>
-        <li>Research and innovation trends (Stanford, IEA, DOE)</li>
-        <li>Career opportunities in renewables (EPRI, DOE, IEA)</li>
-        <li>How to get involved and make an impact (NREL, EIA, USGS)</li>
+        <li>Emerging grid technologies (NREL, Sandia, MIT OCW)</li>
+        <li>Research and innovation trends (Stanford, DOE, ORNL)</li>
+        <li>Career opportunities in grid integration (EPRI, IEA, DOE)</li>
+        <li>How to get involved and make an impact (PNNL, EIA, USGS)</li>
       </ul>
     </section>
-    <!-- Interactive: Renewable Careers Explorer -->
+    <!-- Interactive: Grid Careers Explorer -->
     <section style="margin-bottom:2.5rem;">
-      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Renewable Careers Explorer</h2>
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Grid Careers Explorer</h2>
       <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
         <div style="margin-bottom:1rem;">Select a career path to learn more about it:</div>
-        <select id="careerPath" style="width:100%;margin-bottom:1rem;">
+        <select id="gridCareer" style="width:100%;margin-bottom:1rem;">
           <option value="">Choose a path...</option>
           <option value="engineering">Engineering</option>
-          <option value="policy">Policy & Advocacy</option>
+          <option value="operations">Grid Operations</option>
+          <option value="policy">Policy & Planning</option>
           <option value="research">Research & Innovation</option>
-          <option value="installation">Installation & Operations</option>
         </select>
         <div id="careerResult" style="margin-top:1rem;font-weight:500;"></div>
       </div>
-      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Explore how you can make an impact in renewables!</div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Explore how you can make an impact in the future grid!</div>
     </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
-      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed the Renewable Energy Essentials course! You’re ready to make a difference in the energy transition.</div>
+      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed the Grid Integration Mastery course! You’re ready to make a difference in the future of the grid.</div>
       <a href="../courses.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Back to Course Home</a>
     </div>
     <!-- Mark Complete Button (appears after video) -->
@@ -72,26 +72,26 @@
     </div>
   </main>
   <script>
-    // Interactive: Renewable Careers Explorer
-    const careerPath = document.getElementById('careerPath');
+    // Interactive: Grid Careers Explorer
+    const gridCareer = document.getElementById('gridCareer');
     const careerResult = document.getElementById('careerResult');
-    if (careerPath && careerResult) {
-      careerPath.onchange = function() {
-        switch(careerPath.value) {
+    if (gridCareer && careerResult) {
+      gridCareer.onchange = function() {
+        switch(gridCareer.value) {
           case 'engineering':
-            careerResult.textContent = 'Engineers design, build, and optimize renewable energy systems, from solar panels to wind farms.';
+            careerResult.textContent = 'Engineers design, build, and optimize grid infrastructure and smart systems.';
+            careerResult.style.color = 'var(--color-primary)';
+            break;
+          case 'operations':
+            careerResult.textContent = 'Grid operators manage real-time power flows and keep the lights on.';
             careerResult.style.color = 'var(--color-primary)';
             break;
           case 'policy':
-            careerResult.textContent = 'Policy experts shape the laws and incentives that drive renewable adoption and climate action.';
+            careerResult.textContent = 'Policy and planning experts shape the rules and investments for a reliable, clean grid.';
             careerResult.style.color = 'var(--color-primary)';
             break;
           case 'research':
-            careerResult.textContent = 'Researchers develop new technologies and improve existing ones, pushing the boundaries of what’s possible.';
-            careerResult.style.color = 'var(--color-primary)';
-            break;
-          case 'installation':
-            careerResult.textContent = 'Installers and operators bring renewable projects to life and keep them running safely and efficiently.';
+            careerResult.textContent = 'Researchers develop new technologies and strategies for grid modernization.';
             careerResult.style.color = 'var(--color-primary)';
             break;
           default:

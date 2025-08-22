@@ -32,12 +32,13 @@
     <div class="lesson-framing" style="margin-bottom:2rem;">
       <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Right now, the grid is a black box—something you rely on but rarely see. By the end of this lesson, you’ll understand how the grid works and why it’s one of humanity’s greatest achievements.</p>
     </div>
-    <!-- Video Player -->
-    <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/energy-fundamentals3" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/week1-lesson3.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <!-- Timer Bar (30 seconds) -->
+    <div class="lesson-timer" style="margin-bottom:2rem;text-align:center;">
+      <div style="font-size:1.1rem;margin-bottom:0.5rem;">Lesson unlocks in <span id="timer-seconds">30</span> seconds</div>
+      <div style="background:var(--color-surface);border-radius:8px;height:18px;width:100%;max-width:420px;margin:0 auto;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div id="timer-bar" style="background:var(--color-primary);height:100%;width:0%;transition:width 0.5s;"></div>
+      </div>
+      <button id="proceed-button" class="cta-primary" style="margin-top:1.2rem;opacity:0.5;pointer-events:none;">Proceed</button>
     </div>
     <!-- Lesson Content -->
     <section style="margin-bottom:2rem;">
@@ -48,6 +49,18 @@
         <li>Why the grid is vital to modern society</li>
         <li>How you can shape the future of energy</li>
       </ul>
+    </section>
+    <!-- Interactive: Grid Balancing Simulator -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Grid Balancing Simulator</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Try to balance electricity supply and demand! Adjust the sliders so supply matches demand.</div>
+        <div style="margin-bottom:0.5rem;">Supply: <input id="supplySlider" type="range" min="0" max="100" value="50" style="width:60%;"> <span id="supplyVal">50</span> MW</div>
+        <div style="margin-bottom:0.5rem;">Demand: <input id="demandSlider" type="range" min="0" max="100" value="50" style="width:60%;"> <span id="demandVal">50</span> MW</div>
+        <button id="checkGridBalance" class="cta-primary" style="margin-top:1rem;">Check Balance</button>
+        <div id="gridBalanceResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Hint: The grid must always keep supply and demand in balance!</div>
     </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
@@ -61,6 +74,55 @@
     </div>
   </main>
   <script>
+    // Timer Bar Logic
+    let timer = 30;
+    const timerBar = document.getElementById('timer-bar');
+    const timerSeconds = document.getElementById('timer-seconds');
+    const proceedBtn = document.getElementById('proceed-button');
+    let interval = setInterval(() => {
+      timer--;
+      timerSeconds.textContent = timer;
+      timerBar.style.width = ((30-timer)/30*100) + '%';
+      if (timer <= 0) {
+        clearInterval(interval);
+        timerBar.style.width = '100%';
+        proceedBtn.style.opacity = 1;
+        proceedBtn.style.pointerEvents = 'auto';
+        timerSeconds.textContent = '0';
+      }
+    }, 1000);
+    proceedBtn.addEventListener('click', function() {
+      // Find the next lesson link and go there
+      const nextLink = document.getElementById('nextLessonBtn');
+      if (nextLink) {
+        window.location.href = nextLink.href;
+      }
+    });
+    // Interactive: Grid Balancing Simulator
+    const supplySlider = document.getElementById('supplySlider');
+    const demandSlider = document.getElementById('demandSlider');
+    const supplyVal = document.getElementById('supplyVal');
+    const demandVal = document.getElementById('demandVal');
+    const checkGridBalance = document.getElementById('checkGridBalance');
+    const gridBalanceResult = document.getElementById('gridBalanceResult');
+    if (supplySlider && demandSlider && supplyVal && demandVal && checkGridBalance && gridBalanceResult) {
+      supplySlider.oninput = function() { supplyVal.textContent = supplySlider.value; };
+      demandSlider.oninput = function() { demandVal.textContent = demandSlider.value; };
+      checkGridBalance.onclick = function() {
+        const supply = parseInt(supplySlider.value);
+        const demand = parseInt(demandSlider.value);
+        if (supply === demand) {
+          gridBalanceResult.textContent = "Perfect! The grid is balanced.";
+          gridBalanceResult.style.color = 'var(--color-success, #2e7d32)';
+        } else if (supply > demand) {
+          gridBalanceResult.textContent = "Too much supply! Try lowering supply or raising demand.";
+          gridBalanceResult.style.color = 'var(--color-warning, #f9a825)';
+        } else {
+          gridBalanceResult.textContent = "Not enough supply! Try raising supply or lowering demand.";
+          gridBalanceResult.style.color = 'var(--color-error, #b71c1c)';
+        }
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

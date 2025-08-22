@@ -49,6 +49,21 @@
         <li>How you interact with the grid every day</li>
       </ul>
     </section>
+    <!-- Interactive: Transmission Path Visualizer -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Transmission Path Visualizer</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Select a starting point and see how electricity travels to your home.</div>
+        <select id="startPoint" style="width:100%;margin-bottom:1rem;">
+          <option value="">Choose a starting point...</option>
+          <option value="plant">Power Plant</option>
+          <option value="substation">Substation</option>
+          <option value="distribution">Distribution Line</option>
+        </select>
+        <div id="pathResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Try each starting point to trace the journey!</div>
+    </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
       <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You can now describe how electricity travels from generation to your home.</div>
@@ -61,6 +76,29 @@
     </div>
   </main>
   <script>
+    // Interactive: Transmission Path Visualizer
+    const startPoint = document.getElementById('startPoint');
+    const pathResult = document.getElementById('pathResult');
+    if (startPoint && pathResult) {
+      startPoint.onchange = function() {
+        switch(startPoint.value) {
+          case 'plant':
+            pathResult.textContent = 'Power Plant → Transmission Line → Substation → Distribution Line → Your Home';
+            pathResult.style.color = 'var(--color-primary)';
+            break;
+          case 'substation':
+            pathResult.textContent = 'Substation → Distribution Line → Your Home';
+            pathResult.style.color = 'var(--color-primary)';
+            break;
+          case 'distribution':
+            pathResult.textContent = 'Distribution Line → Your Home';
+            pathResult.style.color = 'var(--color-primary)';
+            break;
+          default:
+            pathResult.textContent = '';
+        }
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

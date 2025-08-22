@@ -33,11 +33,12 @@
       <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Right now, energy is a mystery—an invisible force shaping your world. This week, you’ll uncover the fundamental laws of energy, so you can begin to speak the language of the energy sector with confidence.</p>
     </div>
     <!-- Video Player -->
-    <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/energy-fundamentals1" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/week1-lesson1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <!-- Timer Bar (30 seconds) -->
+    <div class="lesson-timer" style="margin-bottom:2rem;text-align:center;">
+      <div style="font-size:1.1rem;margin-bottom:0.5rem;">Lesson unlocks in <span id="timer-seconds">30</span> seconds</div>
+      <div style="background:var(--color-surface);border-radius:8px;height:18px;width:100%;max-width:420px;margin:0 auto;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div id="timer-bar" style="background:var(--color-primary);height:100%;width:0%;transition:width 0.5s;"></div>
+      </div>
     </div>
     <!-- Lesson Content -->
     <section style="margin-bottom:2rem;">
@@ -48,6 +49,25 @@
         <li>How energy is transformed and why efficiency is key</li>
         <li>The invisible systems powering our civilization</li>
       </ul>
+    </section>
+    <!-- Interactive: Energy Conversion Visualizer -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Energy Conversion Visualizer</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <label for="input-energy" style="font-weight:500;">Input Energy (Joules):</label>
+        <input type="range" id="input-energy" min="10" max="1000" step="10" value="500" style="width:100%;">
+        <span id="input-energy-value" style="font-weight:600;">500</span> J<br><br>
+        <label for="efficiency" style="font-weight:500;">Efficiency (%):</label>
+        <input type="range" id="efficiency" min="10" max="100" step="1" value="60" style="width:100%;">
+        <span id="efficiency-value" style="font-weight:600;">60</span> %<br><br>
+        <div style="margin-top:1rem;font-size:1.1rem;">
+          <strong>Useful Output Energy:</strong> <span id="output-energy">300</span> J
+        </div>
+        <div style="margin-top:0.5rem;font-size:0.98rem;color:var(--color-text-light);">
+          <span id="wasted-energy">200</span> J is lost as waste (heat, sound, etc.)
+        </div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Adjust the sliders to see how efficiency affects the conversion of input energy to useful output.</div>
     </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
@@ -61,15 +81,48 @@
     </div>
   </main>
   <script>
-    // Show Mark Complete button when video ends
-    const video = document.getElementById('lessonVideo');
+    // Interactive: Energy Conversion Visualizer
+    const inputEnergy = document.getElementById('input-energy');
+    const inputEnergyValue = document.getElementById('input-energy-value');
+    const efficiency = document.getElementById('efficiency');
+    const efficiencyValue = document.getElementById('efficiency-value');
+    const outputEnergy = document.getElementById('output-energy');
+    const wastedEnergy = document.getElementById('wasted-energy');
+    function updateEnergyConversion() {
+      const input = parseFloat(inputEnergy.value);
+      const eff = parseFloat(efficiency.value);
+      inputEnergyValue.textContent = input;
+      efficiencyValue.textContent = eff;
+      const output = input * (eff / 100);
+      outputEnergy.textContent = output.toFixed(1);
+      wastedEnergy.textContent = (input - output).toFixed(1);
+    }
+    if(inputEnergy && efficiency && outputEnergy && wastedEnergy) {
+      inputEnergy.addEventListener('input', updateEnergyConversion);
+      efficiency.addEventListener('input', updateEnergyConversion);
+      updateEnergyConversion();
+    }
+
+    // Timer Bar Logic
+    const timerBar = document.getElementById('timer-bar');
+    const timerSeconds = document.getElementById('timer-seconds');
     const markBtn = document.getElementById('markCompleteBtn');
     const completeDiv = document.getElementById('lesson-complete');
     const markWrap = document.getElementById('mark-complete-wrap');
-    if(video && markBtn) {
-      video.addEventListener('ended', () => {
-        markBtn.style.display = 'inline-block';
-      });
+    let secondsLeft = 30;
+    if (timerBar && timerSeconds && markBtn) {
+      markBtn.style.display = 'none';
+      const interval = setInterval(() => {
+        secondsLeft--;
+        timerSeconds.textContent = secondsLeft;
+        timerBar.style.width = ((30 - secondsLeft) / 30 * 100) + '%';
+        if (secondsLeft <= 0) {
+          clearInterval(interval);
+          timerBar.style.width = '100%';
+          timerSeconds.textContent = '0';
+          markBtn.style.display = 'inline-block';
+        }
+      }, 1000);
       markBtn.addEventListener('click', () => {
         markWrap.style.display = 'none';
         completeDiv.style.display = 'block';

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microgrid Design - Week 2 Lesson 3</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <nav class="nav-minimal" style="margin-bottom:2rem;">
+    <div class="nav-content">
+      <a href="../../energy.html" class="nav-logo">Energy</a>
+      <div class="nav-links">
+        <a href="../courses.html">Course Home</a>
+      </div>
+    </div>
+  </nav>
+  <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
+    <!-- Progress Tracker -->
+    <div class="lesson-progress" style="margin-bottom:2rem;">
+      <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 6 of 9</div>
+      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Codes, Standards & Safety</div>
+      <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
+        <div style="background:var(--color-primary);width:66%;height:100%;transition:width 0.5s;"></div>
+      </div>
+    </div>
+    <!-- Before and After Framing -->
+    <div class="lesson-framing" style="margin-bottom:2rem;">
+      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">How do we ensure safe, compliant microgrids? By the end of this lesson, you’ll understand NFPA, permitting, and best practices for microgrid safety.</p>
+    </div>
+    <!-- Video Player -->
+    <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
+      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/microgrid-design2.jpg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
+        <source src="../../assets/microgrid-design-week2-lesson3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <!-- Lesson Content -->
+    <section style="margin-bottom:2rem;">
+      <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
+      <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
+        <li>NFPA codes and standards (NFPA, DOE, EPRI)</li>
+        <li>Permitting and inspection (FERC, CAISO, USGS)</li>
+        <li>Fire safety and mitigation (NFPA, Sandia, ORNL)</li>
+        <li>Best practices and compliance (IEA, PNNL, INL)</li>
+      </ul>
+    </section>
+    <!-- Interactive: Safety Standards Quiz -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Safety Standards Quiz</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Which organization is primarily responsible for fire safety codes in microgrids?</div>
+        <form id="safetyQuizForm">
+          <input type="radio" id="nfpa" name="safety" value="NFPA">
+          <label for="nfpa">NFPA</label><br>
+          <input type="radio" id="ferc" name="safety" value="FERC">
+          <label for="ferc">FERC</label><br>
+          <input type="radio" id="iea" name="safety" value="IEA">
+          <label for="iea">IEA</label><br>
+          <input type="radio" id="usgs" name="safety" value="USGS">
+          <label for="usgs">USGS</label><br><br>
+          <button type="button" id="submitQuiz" class="cta-primary">Submit Answer</button>
+        </form>
+        <div id="quizResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Test your knowledge of microgrid safety standards!</div>
+    </section>
+    <!-- Progress Affirmation & Next Step -->
+    <div id="lesson-complete" style="display:none;text-align:center;">
+      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand codes, standards, and safety for microgrids.</div>
+      <a href="week3-lesson1.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
+      <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
+    </div>
+    <!-- Mark Complete Button (appears after video) -->
+    <div id="mark-complete-wrap" style="text-align:center;">
+      <button id="markCompleteBtn" class="cta-primary" style="margin-top:1.5rem;display:none;">Mark Lesson Complete</button>
+    </div>
+  </main>
+  <script>
+    // Interactive: Safety Standards Quiz
+    const submitQuiz = document.getElementById('submitQuiz');
+    const quizResult = document.getElementById('quizResult');
+    if (submitQuiz && quizResult) {
+      submitQuiz.onclick = function() {
+        const selected = document.querySelector('input[name="safety"]:checked');
+        if (!selected) {
+          quizResult.textContent = 'Please select an answer.';
+          quizResult.style.color = 'var(--color-error, #b71c1c)';
+          return;
+        }
+        if (selected.value === 'NFPA') {
+          quizResult.textContent = 'Correct! NFPA sets fire safety codes for microgrids.';
+          quizResult.style.color = 'var(--color-success, #2e7d32)';
+        } else {
+          quizResult.textContent = 'Incorrect. The correct answer is NFPA.';
+          quizResult.style.color = 'var(--color-error, #b71c1c)';
+        }
+      };
+    }
+    // Show Mark Complete button when video ends
+    const video = document.getElementById('lessonVideo');
+    const markBtn = document.getElementById('markCompleteBtn');
+    const completeDiv = document.getElementById('lesson-complete');
+    const markWrap = document.getElementById('mark-complete-wrap');
+    if(video && markBtn) {
+      video.addEventListener('ended', () => {
+        markBtn.style.display = 'inline-block';
+      });
+      markBtn.addEventListener('click', () => {
+        markWrap.style.display = 'none';
+        completeDiv.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -32,12 +32,13 @@
     <div class="lesson-framing" style="margin-bottom:2rem;">
       <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Right now, energy is a collection of mysterious types and flows. By the end of this lesson, you’ll be able to trace energy’s journey from source to socket—and see the world’s power in a whole new way.</p>
     </div>
-    <!-- Video Player -->
-    <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/energy-fundamentals2" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/week1-lesson2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <!-- Timer Bar (30 seconds) -->
+    <div class="lesson-timer" style="margin-bottom:2rem;text-align:center;">
+      <div style="font-size:1.1rem;margin-bottom:0.5rem;">Lesson unlocks in <span id="timer-seconds">30</span> seconds</div>
+      <div style="background:var(--color-surface);border-radius:8px;height:18px;width:100%;max-width:420px;margin:0 auto;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div id="timer-bar" style="background:var(--color-primary);height:100%;width:0%;transition:width 0.5s;"></div>
+      </div>
+      <button id="proceed-button" class="cta-primary" style="margin-top:1.2rem;opacity:0.5;pointer-events:none;">Proceed</button>
     </div>
     <!-- Lesson Content -->
     <section style="margin-bottom:2rem;">
@@ -48,6 +49,22 @@
         <li>The global journey of energy and its challenges</li>
         <li>How to see energy’s path in your own life</li>
       </ul>
+    </section>
+    <!-- Interactive: Energy Journey Mapper -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Map the Journey of Energy</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Select the correct order for the journey of electricity from source to your home:</div>
+        <ol id="energy-steps" style="padding-left:1.2em;">
+          <li><select id="step1"><option>Choose...</option><option>Power Plant</option><option>Transmission Lines</option><option>Wall Outlet</option><option>Fuel Source</option></select></li>
+          <li><select id="step2"><option>Choose...</option><option>Power Plant</option><option>Transmission Lines</option><option>Wall Outlet</option><option>Fuel Source</option></select></li>
+          <li><select id="step3"><option>Choose...</option><option>Power Plant</option><option>Transmission Lines</option><option>Wall Outlet</option><option>Fuel Source</option></select></li>
+          <li><select id="step4"><option>Choose...</option><option>Power Plant</option><option>Transmission Lines</option><option>Wall Outlet</option><option>Fuel Source</option></select></li>
+        </ol>
+        <button id="checkJourney" class="cta-primary" style="margin-top:1rem;">Check My Answer</button>
+        <div id="journeyResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Try to put the steps in the correct order: Fuel Source → Power Plant → Transmission Lines → Wall Outlet.</div>
     </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
@@ -61,6 +78,50 @@
     </div>
   </main>
   <script>
+    // Timer Bar Logic
+    let timer = 30;
+    const timerBar = document.getElementById('timer-bar');
+    const timerSeconds = document.getElementById('timer-seconds');
+    const proceedBtn = document.getElementById('proceed-button');
+    let interval = setInterval(() => {
+      timer--;
+      timerSeconds.textContent = timer;
+      timerBar.style.width = ((30-timer)/30*100) + '%';
+      if (timer <= 0) {
+        clearInterval(interval);
+        timerBar.style.width = '100%';
+        proceedBtn.style.opacity = 1;
+        proceedBtn.style.pointerEvents = 'auto';
+        timerSeconds.textContent = '0';
+      }
+    }, 1000);
+    proceedBtn.addEventListener('click', function() {
+      // Find the next lesson link and go there
+      const nextLink = document.getElementById('nextLessonBtn');
+      if (nextLink) {
+        window.location.href = nextLink.href;
+      }
+    });
+    // Interactive: Energy Journey Mapper
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const step3 = document.getElementById('step3');
+    const step4 = document.getElementById('step4');
+    const checkJourney = document.getElementById('checkJourney');
+    const journeyResult = document.getElementById('journeyResult');
+    if (step1 && step2 && step3 && step4 && checkJourney && journeyResult) {
+      checkJourney.onclick = function() {
+        const answer = [step1.value, step2.value, step3.value, step4.value];
+        const correct = ["Fuel Source", "Power Plant", "Transmission Lines", "Wall Outlet"];
+        if (answer.join() === correct.join()) {
+          journeyResult.textContent = "Correct! That's the journey of electricity.";
+          journeyResult.style.color = 'var(--color-success, #2e7d32)';
+        } else {
+          journeyResult.textContent = "Try again! Remember: Fuel Source → Power Plant → Transmission Lines → Wall Outlet.";
+          journeyResult.style.color = 'var(--color-error, #b71c1c)';
+        }
+      };
+    }
     // Show Mark Complete button when video ends
     const video = document.getElementById('lessonVideo');
     const markBtn = document.getElementById('markCompleteBtn');

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Renewable Energy Essentials - Week 3 Lesson 2</title>
+  <title>Grid Integration Mastery - Week 3 Lesson 2</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
@@ -19,19 +19,19 @@
     <!-- Progress Tracker -->
     <div class="lesson-progress" style="margin-bottom:2rem;">
       <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 8 of 9</div>
-      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Policy, Safety, and Regulation</div>
+      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Policy, Regulation & Grid Planning</div>
       <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
         <div style="background:var(--color-primary);width:88%;height:100%;transition:width 0.5s;"></div>
       </div>
     </div>
     <!-- Before and After Framing -->
     <div class="lesson-framing" style="margin-bottom:2rem;">
-      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">What rules shape the renewable transition? By the end of this lesson, you’ll know the key policies, safety codes, and regulatory bodies that guide renewables.</p>
+      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Who decides how the grid evolves? By the end of this lesson, you’ll understand policy, planning, and regulatory frameworks for the grid.</p>
     </div>
     <!-- Video Player -->
     <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/renewable-essentials2.jpeg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/renewable-week3-lesson2.mp4" type="video/mp4">
+      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/grid-mastery2.jpg" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
+        <source src="../../assets/grid-mastery-week3-lesson2.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -39,31 +39,31 @@
     <section style="margin-bottom:2rem;">
       <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
       <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
-        <li>Key renewable energy policies (DOE, IEA, EIA)</li>
-        <li>Safety codes and standards (NFPA, EPRI)</li>
-        <li>Role of regulatory bodies (FERC, CAISO, EIA)</li>
-        <li>Permitting and compliance (USGS, Sandia)</li>
+        <li>Policy and regulatory frameworks (FERC, DOE, IEA)</li>
+        <li>Grid planning and investment (EPRI, CAISO, EIA)</li>
+        <li>Stakeholder roles and decision-making (Stanford, NREL, PNNL)</li>
+        <li>Trends in grid policy and planning (MIT OCW, ORNL, ANL)</li>
       </ul>
     </section>
-    <!-- Interactive: Policy Impact Explorer -->
+    <!-- Interactive: Grid Policy & Planning Explorer -->
     <section style="margin-bottom:2.5rem;">
-      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Policy Impact Explorer</h2>
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Grid Policy & Planning Explorer</h2>
       <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <div style="margin-bottom:1rem;">Select a policy or regulation to see its impact on renewables:</div>
-        <select id="policySelect" style="width:100%;margin-bottom:1rem;">
-          <option value="">Choose a policy...</option>
-          <option value="tax">Tax Credits</option>
-          <option value="standards">Safety Standards</option>
-          <option value="permits">Permitting</option>
-          <option value="markets">Market Rules</option>
+        <div style="margin-bottom:1rem;">Select a topic to learn about grid policy and planning:</div>
+        <select id="policyTopic" style="width:100%;margin-bottom:1rem;">
+          <option value="">Choose...</option>
+          <option value="ferc">FERC</option>
+          <option value="planning">Grid Planning</option>
+          <option value="stakeholders">Stakeholders</option>
+          <option value="trends">Trends</option>
         </select>
         <div id="policyResult" style="margin-top:1rem;font-weight:500;"></div>
       </div>
-      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Explore how each policy shapes the renewable transition!</div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Explore how policy and planning shape the grid!</div>
     </section>
     <!-- Progress Affirmation & Next Step -->
     <div id="lesson-complete" style="display:none;text-align:center;">
-      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand the policy and regulatory landscape for renewables.</div>
+      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You now understand policy, regulation, and grid planning.</div>
       <a href="week3-lesson3.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
       <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
     </div>
@@ -73,26 +73,26 @@
     </div>
   </main>
   <script>
-    // Interactive: Policy Impact Explorer
-    const policySelect = document.getElementById('policySelect');
+    // Interactive: Grid Policy & Planning Explorer
+    const policyTopic = document.getElementById('policyTopic');
     const policyResult = document.getElementById('policyResult');
-    if (policySelect && policyResult) {
-      policySelect.onchange = function() {
-        switch(policySelect.value) {
-          case 'tax':
-            policyResult.textContent = 'Tax credits lower the cost of renewables, making them more affordable for homes and businesses.';
+    if (policyTopic && policyResult) {
+      policyTopic.onchange = function() {
+        switch(policyTopic.value) {
+          case 'ferc':
+            policyResult.textContent = 'FERC sets rules for grid reliability, markets, and transmission planning.';
             policyResult.style.color = 'var(--color-primary)';
             break;
-          case 'standards':
-            policyResult.textContent = 'Safety standards ensure renewable systems are reliable and protect people and property.';
+          case 'planning':
+            policyResult.textContent = 'Grid planning ensures enough capacity and resilience for future needs.';
             policyResult.style.color = 'var(--color-primary)';
             break;
-          case 'permits':
-            policyResult.textContent = 'Permitting can speed up or slow down renewable projects, affecting how quickly they are built.';
+          case 'stakeholders':
+            policyResult.textContent = 'Stakeholders include utilities, regulators, customers, and technology providers.';
             policyResult.style.color = 'var(--color-primary)';
             break;
-          case 'markets':
-            policyResult.textContent = 'Market rules determine how renewables compete and get paid, shaping investment and growth.';
+          case 'trends':
+            policyResult.textContent = 'Trends include more renewables, grid modernization, and increased resilience.';
             policyResult.style.color = 'var(--color-primary)';
             break;
           default:

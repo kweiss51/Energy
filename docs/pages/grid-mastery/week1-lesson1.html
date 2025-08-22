@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Integration Mastery - Week 1 Lesson 1</title>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+  <nav class="nav-minimal" style="margin-bottom:2rem;">
+    <div class="nav-content">
+      <a href="../../energy.html" class="nav-logo">Energy</a>
+      <div class="nav-links">
+        <a href="../courses.html">Course Home</a>
+      </div>
+    <!-- Interactive: Grid Knowledge Quiz -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Grid Knowledge Quiz</h2>
+      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1rem;">Which of the following is NOT a part of the electric grid?</div>
+        <select id="gridQuiz" style="width:100%;margin-bottom:1rem;">
+          <option value="">Choose an answer...</option>
+          <option value="transmission">Transmission Lines</option>
+          <option value="distribution">Distribution Lines</option>
+          <option value="solar-panel">Solar Panel</option>
+          <option value="substation">Substation</option>
+        </select>
+        <button id="checkGridQuiz" class="cta-primary" style="margin-top:1rem;">Check Answer</button>
+        <div id="gridQuizResult" style="margin-top:1rem;font-weight:500;"></div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Test your grid knowledge before you begin!</div>
+    </section>
+    </div>
+  </nav>
+  <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
+    <!-- Sleek Course Landing (copied style from storage-solutions) -->
+    <div class="course-landing" style="text-align:center;max-width:520px;margin:0 auto 2.5rem auto;">
+      <img src="../../images/grid-mastery1" alt="Grid Integration Mastery" style="max-width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,0.10);margin-bottom:2rem;">
+      <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.75rem;">Grid Integration Mastery</h1>
+      <p style="font-size:1.15rem;color:var(--color-text-light);margin-bottom:2rem;">Unlock the secrets of the modern grid. Learn how electricity flows, how the grid is managed, and how to design for reliability and resilience.</p>
+      <div style="display:flex;gap:1.5rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap;">
+        <a href="week1-lesson2.html" class="cta-primary" style="min-width:160px;">Start Course</a>
+        <a href="../courses.html" class="cta-secondary" style="min-width:160px;">View Other Courses</a>
+      </div>
+    </div>
+    </div>
+  </main>
+  <script>
+    // Interactive: Grid Knowledge Quiz
+    const gridQuiz = document.getElementById('gridQuiz');
+    const checkGridQuiz = document.getElementById('checkGridQuiz');
+    const gridQuizResult = document.getElementById('gridQuizResult');
+    if (gridQuiz && checkGridQuiz && gridQuizResult) {
+      checkGridQuiz.onclick = function() {
+        if (gridQuiz.value === 'solar-panel') {
+          gridQuizResult.textContent = 'Correct! Solar panels are not a core part of the grid itself.';
+          gridQuizResult.style.color = 'var(--color-success, #2e7d32)';
+        } else if (gridQuiz.value) {
+          gridQuizResult.textContent = 'Not quite. Try again!';
+          gridQuizResult.style.color = 'var(--color-error, #b71c1c)';
+        } else {
+          gridQuizResult.textContent = 'Please select an answer.';
+          gridQuizResult.style.color = 'var(--color-warning, #f9a825)';
+        }
+      };
+    }
+    // Show Mark Complete button when video ends
+    const video = document.getElementById('lessonVideo');
+    const markBtn = document.getElementById('markCompleteBtn');
+    const completeDiv = document.getElementById('lesson-complete');
+    const markWrap = document.getElementById('mark-complete-wrap');
+    if(video && markBtn) {
+      video.addEventListener('ended', () => {
+        markBtn.style.display = 'inline-block';
+      });
+      markBtn.addEventListener('click', () => {
+        markWrap.style.display = 'none';
+        completeDiv.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -2,23 +2,54 @@
 :root {
     /* Colors */
     --color-primary: #1a5f7a;
-    --color-secondary: #2d3436;
+    --color-secondary: #00b894;
     --color-accent: #e17055;
     --color-background: #ffffff;
     --color-surface: #f8f9fa;
     --color-text: #2d3436;
     --color-text-light: #636e72;
-    
+    --color-border: #e0e0e0;
+
     /* Typography */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    
+    --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 2rem;
+    --font-size-h1: clamp(2rem, 4vw, 3rem);
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h4: 1.125rem;
+    --font-size-body: 1rem;
+    --font-size-body-lg: 1.25rem;
+    --font-size-body-sm: 0.875rem;
+    --font-weight-heading: 700;
+    --font-weight-body: 400;
+    --font-weight-medium: 500;
+
     /* Spacing */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
     --spacing-xl: 4rem;
-    
+
+    /* Border Radius */
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-sm: 4px;
+
+    /* Shadows */
+    --box-shadow-card: 0 4px 6px rgba(0,0,0,0.05);
+    --box-shadow-card-hover: 0 12px 24px rgba(0,0,0,0.1);
+    --box-shadow-surface: 0 2px 4px rgba(0,0,0,0.05);
+
+    /* Max Widths */
+    --max-width-content: 1200px;
+    --max-width-main: 800px;
+    --max-width-guide: 600px;
+    --max-width-form: 800px;
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -32,7 +63,9 @@
 }
 
 body {
-    font-family: var(--font-primary);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-body);
     line-height: 1.6;
     color: var(--color-text);
     background: var(--color-background);
@@ -42,22 +75,23 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
+    font-family: var(--font-family-heading);
+    font-weight: var(--font-weight-heading);
     line-height: 1.2;
     margin-bottom: var(--spacing-md);
 }
 
 .hero-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-heading);
     letter-spacing: -0.02em;
     margin-bottom: var(--spacing-lg);
 }
 
 .hero-subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    font-size: var(--font-size-body-lg);
     color: var(--color-text-light);
-    max-width: 600px;
+    max-width: var(--max-width-guide);
     margin-bottom: var(--spacing-xl);
 }
 
@@ -120,8 +154,9 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--color-primary);
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
+    border-radius: var(--border-radius-sm);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-body);
     transition: transform var(--transition-fast),
                 background var(--transition-fast);
 }
@@ -149,7 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .path-content {
-    max-width: 1200px;
+    max-width: var(--max-width-content);
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -159,8 +194,8 @@ h1, h2, h3, h4, h5, h6 {
 .path-step {
     padding: var(--spacing-lg);
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-card);
     opacity: 0;
     transform: translateY(20px);
     transition: opacity var(--transition-smooth),
@@ -228,7 +263,7 @@ cite {
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: var(--max-width-content);
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -706,14 +741,14 @@ cite {
 }
 
 .price {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-heading);
     color: var(--color-text);
     display: block;
 }
 
 .guarantee {
-    font-size: 0.875rem;
+    font-size: var(--font-size-body-sm);
     color: var(--color-text-light);
 }
 
@@ -723,8 +758,9 @@ cite {
     background: var(--color-primary);
     color: white;
     border: none;
-    border-radius: 6px;
-    font-weight: 500;
+    border-radius: var(--border-radius-sm);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-body);
     cursor: pointer;
     transition: background var(--transition-fast);
 }
@@ -937,8 +973,8 @@ cite {
 .form-group select {
     padding: var(--spacing-sm);
     border: 2px solid var(--color-border);
-    border-radius: 6px;
-    font-size: 1rem;
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-body);
     width: 100%;
     transition: border-color var(--transition-fast);
 }
