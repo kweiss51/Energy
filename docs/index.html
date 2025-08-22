@@ -8,16 +8,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        <nav class="nav-minimal">
+        <nav class="nav-minimal nav-modern">
             <div class="nav-content">
-                <a href="energy.html" class="nav-logo">Energy</a>
-                <div class="nav-links">
+                <a href="energy.html" class="nav-logo">⚡ Energy</a>
+                <div class="nav-links" id="navLinks">
                     <a href="pages/courses.html">Courses</a>
                     <a href="pages/about.html">About</a>
                     <a href="pages/assessment.html" class="nav-cta">Find Your Path</a>
                 </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </div>
         </nav>
+    <script>
+        // Hamburger menu toggle for mobile
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open');
+        });
+    </script>
     
     <main class="hero-minimal">
         <div class="hero-content">

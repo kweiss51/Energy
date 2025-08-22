@@ -37,8 +37,8 @@
 
     <main>
         <section class="enrollment-section">
-            <h1>Enroll in Your Course</h1>
-            <p class="lead">Take the next step in your energy education journey.</p>
+            <h1>Tell Us About You</h1>
+            <p class="lead">Before you begin, please share a few details to personalize your learning experience. Enrollment is free and your information will help us improve the course for you.</p>
             
             <div class="enrollment-container">
                 <div class="selected-course-info" id="selected-course-info">
@@ -72,16 +72,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group payment-info">
-                        <h3>Payment Information</h3>
-                        <div class="price-display">
-                            <span>Course Price:</span>
-                            <span class="price" id="course-price">$99.99</span>
-                        </div>
-                        <!-- Payment form fields would go here in a real implementation -->
-                    </div>
 
-                    <button type="submit" class="cta-button">Complete Enrollment</button>
+
+                    <button type="submit" class="cta-button">Start Course</button>
                 </form>
             </div>
         </section>
@@ -107,25 +100,33 @@
             loadComponent('../components/Footer.html', 'footer-placeholder');
 
 
-            // Get course from URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const courseId = urlParams.get('course');
-            let coursePrice = '$99.99';
-            if (courseId && window.courseDetails && window.courseDetails[courseId]) {
-                coursePrice = window.courseDetails[courseId].price;
-                const courseSelect = document.getElementById('course');
-                if (courseSelect) courseSelect.value = courseId;
-            }
-            document.getElementById('course-price').textContent = coursePrice;
+
 
             // Handle form submission
-            document.getElementById('enrollment-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                // Here you would typically handle the form submission
-                // For now, we'll just show an alert
-                alert('Thank you for enrolling! You will receive a confirmation email shortly.');
-                window.location.href = '../index.html';
-            });
+                        document.getElementById('enrollment-form').addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                // Store user info in localStorage for later use
+                                const userInfo = {
+                                    name: document.getElementById('name').value,
+                                    email: document.getElementById('email').value,
+                                    phone: document.getElementById('phone').value,
+                                    course: document.getElementById('course').value
+                                };
+                                localStorage.setItem('energyUserInfo', JSON.stringify(userInfo));
+                                alert('Thank you! Your information has been saved. You will now begin your course.');
+                                // Redirect to the selected course home or first lesson
+                                if (userInfo.course === 'renewable-energy') {
+                                    window.location.href = '../pages/renewable-essentials/week1-lesson1.html';
+                                } else if (userInfo.course === 'solar-power') {
+                                    window.location.href = '../pages/advanced-solar/week1-lesson1.html';
+                                } else if (userInfo.course === 'energy-efficiency') {
+                                    window.location.href = '../pages/energy-fundamentals/week1-lesson1.html';
+                                } else if (userInfo.course === 'wind-energy') {
+                                    window.location.href = '../pages/grid-mastery/week1-lesson1.html';
+                                } else {
+                                    window.location.href = '../index.html';
+                                }
+                        });
         });
     </script>
 
