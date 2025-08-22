@@ -7,7 +7,43 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../styles.css">
     <script src="../scripts/courses-data.js"></script>
+    <script src="../scripts/analytics.js"></script>
     <script>
+        // --- Analytics/Tracking Integration ---
+        let pageStartTime = Date.now();
+        function sendAnalyticsEvent(type, data) {
+            if (window.trackPageView && type === 'pageview') {
+                window.trackPageView(data.page);
+            } else if (window.trackButtonClick && type === 'button') {
+                window.trackButtonClick(data.buttonId);
+            } else if (window.trackCustomEvent) {
+                window.trackCustomEvent(type, data);
+            } else {
+                // fallback: log
+                console.log('Analytics event:', type, data);
+            }
+        }
+
+        // Track time on page and video events
+        window.addEventListener('beforeunload', function() {
+            const duration = Math.round((Date.now() - pageStartTime) / 1000);
+            sendAnalyticsEvent('time_on_page', { page: window.location.pathname, seconds: duration });
+        });
+
+        // Track video events if present
+        function setupVideoAnalytics() {
+            const video = document.getElementById('course-video');
+            if (!video) return;
+            video.addEventListener('play', function() {
+                sendAnalyticsEvent('video_play', { page: window.location.pathname });
+            });
+            video.addEventListener('ended', function() {
+                sendAnalyticsEvent('video_complete', { page: window.location.pathname });
+            });
+            video.addEventListener('pause', function() {
+                sendAnalyticsEvent('video_pause', { page: window.location.pathname, currentTime: video.currentTime });
+            });
+        }
         // Error handling for course data loading
         window.addEventListener('error', function(e) {
             if (e.filename.includes('courses-data.js')) {
@@ -360,10 +396,18 @@
                 const response = await fetch(path);
                 const html = await response.text();
                 document.getElementById(elementId).innerHTML = html;
+                                // After loading video player, set up analytics
+                                setTimeout(setupVideoAnalytics, 500);
             } catch (error) {
                 console.error(`Error loading component ${path}:`, error);
             }
         }
+                // Track lesson completion (example: when user scrolls to bottom)
+                window.addEventListener('scroll', function() {
+                    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2) {
+                        sendAnalyticsEvent('lesson_complete', { page: window.location.pathname });
+                    }
+                });
     </script>
 </body>
 </html>
