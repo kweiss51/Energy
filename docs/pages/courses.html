@@ -3,83 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Available Courses | Energy Course Platform</title>
+    <title>Your Path to Energy Mastery | Energy Education Platform</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
-    <header>
-        <div id="header-placeholder"></div>
+<body class="courses-page">
+    <nav class="nav-minimal">
+        <div class="nav-content">
+            <a href="../index.html" class="nav-logo">Energy</a>
+            <a href="enroll.html" class="nav-cta">Begin Your Journey</a>
+        </div>
+    </nav>
+
+    <header class="course-hero">
+        <div class="hero-content">
+            <span class="eyebrow">Your Learning Path</span>
+            <h1>From Basics to Mastery:<br>Your Energy Expertise Journey</h1>
+            <p>Choose your starting point and build your expertise step by step.</p>
+        </div>
     </header>
 
     <main>
-        <section class="courses-section">
-            <h1>Available Courses</h1>
-            <div class="course-list" id="course-cards-placeholder"></div>
+        <!-- Foundation Level -->
+        <section class="course-section foundation-level">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2>Build Your Foundation</h2>
+                    <p>Master the fundamentals and establish your core knowledge</p>
+                </div>
+                
+                <div class="course-grid" id="foundation-courses"></div>
+            </div>
+        </section>
+
+        <!-- Advanced Level -->
+        <section class="course-section advanced-level">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2>Advanced Expertise</h2>
+                    <p>Deepen your knowledge and tackle complex challenges</p>
+                </div>
+                
+                <div class="course-grid" id="advanced-courses"></div>
+            </div>
+        </section>
+
+        <!-- Specialized Topics -->
+        <section class="course-section specialized-topics">
+            <div class="section-content">
+                <div class="section-header">
+                    <h2>Specialized Focus</h2>
+                    <p>Master specific domains and become an industry expert</p>
+                </div>
+                
+                <div class="course-grid" id="specialized-courses"></div>
+            </div>
+        </section>
+
+        <!-- Learning Path Guide -->
+        <section class="learning-path-guide">
+            <div class="guide-content">
+                <h2>Not Sure Where to Start?</h2>
+                <p>Take our quick assessment to find your perfect learning path.</p>
+                <a href="assessment.html" class="guide-cta">Find Your Path →</a>
+            </div>
         </section>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <footer class="footer-minimal">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="success-stories.html">Success Stories</a>
+            </div>
+            <p class="footer-copyright">© 2025 Energy Education Platform</p>
+        </div>
+    </footer>
 
-    <!-- Component Loading -->
     <script>
-        // Function to load HTML components
-        async function loadComponent(path, elementId) {
-            try {
-                const response = await fetch(path);
-                const html = await response.text();
-                document.getElementById(elementId).innerHTML = html;
-            } catch (error) {
-                console.error(`Error loading component ${path}:`, error);
-            }
+        const courseData = {
+            foundation: [
+                {
+                    title: "Energy Systems Fundamentals",
+                    description: "Transform from confused beginner to confident energy professional. Master core concepts through hands-on simulations.",
+                    outcomes: ["Understand energy system basics", "Read and interpret system diagrams", "Calculate basic energy flows"],
+                    duration: "6 weeks",
+                    level: "Beginner",
+                    image: "../assets/fundamentals.jpg",
+                    slug: "energy-fundamentals"
+                },
+                {
+                    title: "Renewable Energy Essentials",
+                    description: "Become the go-to expert for renewable energy solutions. Learn to evaluate and implement sustainable systems.",
+                    outcomes: ["Assess renewable potential", "Design basic solar systems", "Understand wind power basics"],
+                    duration: "8 weeks",
+                    level: "Beginner",
+                    image: "../assets/renewable-basics.jpg",
+                    slug: "renewable-essentials"
+                }
+            ],
+            advanced: [
+                {
+                    title: "Advanced Solar Design",
+                    description: "Transform into a solar design specialist. Master complex system design and optimization techniques.",
+                    outcomes: ["Design commercial systems", "Optimize for efficiency", "Master advanced modeling"],
+                    duration: "10 weeks",
+                    level: "Advanced",
+                    image: "../assets/solar-advanced.jpg",
+                    slug: "advanced-solar"
+                },
+                {
+                    title: "Grid Integration Mastery",
+                    description: "Become an integration expert. Learn to seamlessly connect renewable sources to existing grids.",
+                    outcomes: ["Master grid standards", "Design integration systems", "Solve complex challenges"],
+                    duration: "12 weeks",
+                    level: "Advanced",
+                    image: "../assets/grid-integration.jpg",
+                    slug: "grid-mastery"
+                }
+            ],
+            specialized: [
+                {
+                    title: "Energy Storage Solutions",
+                    description: "Lead the energy storage revolution. Master cutting-edge storage technologies and implementation.",
+                    outcomes: ["Design storage systems", "Optimize battery life", "Implement smart solutions"],
+                    duration: "8 weeks",
+                    level: "Specialized",
+                    image: "../assets/storage-solutions.jpg",
+                    slug: "storage-solutions"
+                },
+                {
+                    title: "Microgrid Design",
+                    description: "Become a microgrid specialist. Design resilient, efficient systems for communities and industries.",
+                    outcomes: ["Design microgrids", "Implement controls", "Optimize performance"],
+                    duration: "10 weeks",
+                    level: "Specialized",
+                    image: "../assets/microgrid.jpg",
+                    slug: "microgrid-design"
+                }
+            ]
+        };
+
+        function createCourseCard(course) {
+            return `
+                <div class="course-card" data-level="${course.level.toLowerCase()}">
+                    <div class="course-card-inner">
+                        <div class="course-image">
+                            <img src="${course.image}" alt="${course.title}">
+                            <span class="course-duration">${course.duration}</span>
+                        </div>
+                        <div class="course-content">
+                            <h3>${course.title}</h3>
+                            <p class="course-description">${course.description}</p>
+                            <div class="course-outcomes">
+                                <h4>You'll Learn:</h4>
+                                <ul>
+                                    ${course.outcomes.map(outcome => `<li>${outcome}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <a href="course-detail.html?course=${course.slug}" class="course-cta">
+                                Explore Course
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
 
-        // Load all components when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            loadComponent('../components/Header.html', 'header-placeholder');
-            loadComponent('../components/Footer.html', 'footer-placeholder');
+            // Populate course sections
+            document.getElementById('foundation-courses').innerHTML = 
+                courseData.foundation.map(course => createCourseCard(course)).join('');
             
-            // Load course cards
-            fetch('../components/CourseCard.html')
-                .then(response => response.text())
-                .then(template => {
-                    const coursesContainer = document.getElementById('course-cards-placeholder');
-                    const courses = [
-                        {
-                            title: "Introduction to Renewable Energy",
-                            description: "Learn the fundamentals of renewable energy sources and their impact on our environment.",
-                            image: "../assets/renewable-energy.jpg"
-                        },
-                        {
-                            title: "Solar Power Systems",
-                            description: "Master the principles of solar power generation and system design for residential and commercial applications.",
-                            image: "../assets/solar-power.jpg"
-                        },
-                        {
-                            title: "Energy Efficiency",
-                            description: "Discover techniques and strategies for optimizing energy usage in various settings.",
-                            image: "../assets/energy-efficiency.jpg"
-                        },
-                        {
-                            title: "Wind Energy Technology",
-                            description: "Explore the technology behind wind power generation and its role in the renewable energy landscape.",
-                            image: "../assets/wind-energy.jpg"
-                        }
-                    ];
-                    
-                    courses.forEach(course => {
-                        const courseElement = document.createElement('div');
-                        courseElement.innerHTML = template
-                            .replace(/\{\{title\}\}/g, course.title)
-                            .replace(/\{\{description\}\}/g, course.description)
-                            .replace(/\{\{image\}\}/g, course.image);
-                        coursesContainer.appendChild(courseElement);
-                    });
-                })
-                .catch(error => console.error('Error loading course cards:', error));
+            document.getElementById('advanced-courses').innerHTML = 
+                courseData.advanced.map(course => createCourseCard(course)).join('');
+            
+            document.getElementById('specialized-courses').innerHTML = 
+                courseData.specialized.map(course => createCourseCard(course)).join('');
+
+            // Add scroll animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.course-card').forEach(card => {
+                observer.observe(card);
+            });
         });
     </script>
-
-    <script src="../main.js"></script>
-    <script src="../navigation.js"></script>
 </body>
 </html>
