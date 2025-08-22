@@ -8,39 +8,27 @@
     <script src="../scripts/courses-data.js"></script>
 </head>
 <body class="course-detail-page">
-    <div class="course-image-hero"><img src="../assets/grid-mastery.jpg" alt="Grid Integration Mastery" class="course-hero-image" style="width:100%;max-height:340px;object-fit:cover;display:block;"></div>
-    <main class="course-detail-content">
-        <div class="content-wrapper">
-            <div class="content-main">
-                <section class="course-intro">
-                    <h1>Grid Integration Mastery — Coming Soon!</h1>
-                    <p>Advanced Power Systems and Grid Integration</p>
-                </section>
-                <section class="learning-journey">
-                    <h2>Your Learning Journey</h2>
-                    <div class="journey-timeline">
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 1</span><h3>Power System Fundamentals</h3></div><ul class="week-topics"><li>System components</li><li>Power flow</li><li>Stability concepts</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 2</span><h3>Grid Codes and Standards</h3></div><ul class="week-topics"><li>International standards</li><li>Compliance requirements</li><li>Technical specifications</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 3</span><h3>Advanced Power Electronics</h3></div><ul class="week-topics"><li>Converter technologies</li><li>Control systems</li><li>Protection schemes</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 4</span><h3>Grid Stability</h3></div><ul class="week-topics"><li>Frequency control</li><li>Voltage stability</li><li>Dynamic response</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 5</span><h3>Renewable Integration</h3></div><ul class="week-topics"><li>Integration challenges</li><li>Technical solutions</li><li>Case studies</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 6</span><h3>Smart Grid Technologies</h3></div><ul class="week-topics"><li>Communication systems</li><li>Automation</li><li>Advanced metering</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 7</span><h3>Energy Storage Systems</h3></div><ul class="week-topics"><li>Grid-scale storage</li><li>Control strategies</li><li>Economic operation</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 8</span><h3>Grid Planning</h3></div><ul class="week-topics"><li>Expansion planning</li><li>Reliability analysis</li><li>Investment strategies</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 9</span><h3>Market Operations</h3></div><ul class="week-topics"><li>Energy markets</li><li>Ancillary services</li><li>Trading strategies</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 10</span><h3>Grid Resilience</h3></div><ul class="week-topics"><li>Cybersecurity</li><li>Natural disasters</li><li>Recovery planning</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 11</span><h3>Future Grid</h3></div><ul class="week-topics"><li>Emerging technologies</li><li>Digital transformation</li><li>Market evolution</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 12</span><h3>Advanced Applications</h3></div><ul class="week-topics"><li>AI in grid operations</li><li>Blockchain</li><li>Virtual power plants</li></ul></div>
-                    </div>
-                </section>
+    <div class="course-image-hero"><img src="../images/grid-mastery1.jpeg" alt="Grid Integration Mastery" class="course-hero-image" style="width:100%;max-height:340px;object-fit:cover;display:block;"></div>
+    <main class="course-detail-content" style="padding-top:0;">
+        <div class="content-wrapper" style="max-width:540px;">
+            <div class="content-main" style="text-align:center;">
+                <h1 style="font-size:2.2rem;margin-top:2rem;">Want to Master the Modern Grid?<br>The Solution is Coming Soon.</h1>
+                <p style="font-size:1.25rem;margin:2rem 0 2.5rem 0;">Become an integration expert.<br>Be the first to unlock advanced grid and power systems mastery.</p>
+                <form id="notify-form" style="margin-bottom:2.5rem;">
+                    <input type="email" id="notify-email" name="email" placeholder="Your email address" required style="padding:0.75rem 1rem;border-radius:6px;border:1.5px solid #ccc;font-size:1rem;width:70%;max-width:320px;">
+                    <button type="submit" class="cta-button" style="margin-left:0.5rem;padding:0.8rem 1.5rem;">Get Notified When It Launches</button>
+                </form>
+                <div id="notify-success" style="display:none;color:var(--color-primary);font-weight:500;margin-bottom:2rem;">Thank you! You'll be the first to know.</div>
+                <div style="font-size:1.1rem;color:var(--color-text-light);margin-bottom:2.5rem;">Get a free sneak peek lesson when you sign up.</div>
             </div>
         </div>
     </main>
-    <section class="next-steps">
-        <div class="content-wrapper">
-            <h2>Stay Tuned!</h2>
-            <p>We're working hard to bring you this exciting new course. Check back soon for updates!</p>
-        </div>
-    </section>
+    <script>
+    document.getElementById('notify-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('notify-form').style.display = 'none';
+        document.getElementById('notify-success').style.display = 'block';
+    });
+    </script>
 </body>
 </html>

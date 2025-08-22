@@ -8,37 +8,27 @@
     <script src="../scripts/courses-data.js"></script>
 </head>
 <body class="course-detail-page">
-    <div class="course-image-hero"><img src="../assets/advanced-solar.jpg" alt="Advanced Solar Technology" class="course-hero-image" style="width:100%;max-height:340px;object-fit:cover;display:block;"></div>
-    <main class="course-detail-content">
-        <div class="content-wrapper">
-            <div class="content-main">
-                <section class="course-intro">
-                    <h1>Advanced Solar Technology — Coming Soon!</h1>
-                    <p>Master the Design and Implementation of Solar Power Systems</p>
-                </section>
-                <section class="learning-journey">
-                    <h2>Your Learning Journey</h2>
-                    <div class="journey-timeline">
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 1</span><h3>Advanced PV Technology</h3></div><ul class="week-topics"><li>Cell physics</li><li>Advanced materials</li><li>Efficiency improvements</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 2</span><h3>System Design</h3></div><ul class="week-topics"><li>Advanced modeling</li><li>Performance simulation</li><li>Optimization techniques</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 3</span><h3>Grid Integration</h3></div><ul class="week-topics"><li>Advanced inverter systems</li><li>Power quality</li><li>Grid codes</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 4</span><h3>Energy Storage</h3></div><ul class="week-topics"><li>Battery systems</li><li>Hybrid solutions</li><li>Control strategies</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 5</span><h3>Operation & Maintenance</h3></div><ul class="week-topics"><li>Monitoring systems</li><li>Fault diagnosis</li><li>Preventive maintenance</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 6</span><h3>Project Management</h3></div><ul class="week-topics"><li>Large-scale implementation</li><li>Resource planning</li><li>Risk management</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 7</span><h3>Performance Analysis</h3></div><ul class="week-topics"><li>Data analytics</li><li>Performance optimization</li><li>Troubleshooting</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 8</span><h3>Economic Optimization</h3></div><ul class="week-topics"><li>Financial modeling</li><li>Risk assessment</li><li>ROI optimization</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 9</span><h3>Emerging Technologies</h3></div><ul class="week-topics"><li>Bifacial modules</li><li>Tracking systems</li><li>Smart inverters</li></ul></div>
-                        <div class="journey-week"><div class="week-header"><span class="week-number">Week 10</span><h3>Future Developments</h3></div><ul class="week-topics"><li>Research trends</li><li>Technology roadmap</li><li>Market evolution</li></ul></div>
-                    </div>
-                </section>
+    <div class="course-image-hero"><img src="../images/advanced-solar1.jpeg" alt="Advanced Solar Technology" class="course-hero-image" style="width:100%;max-height:340px;object-fit:cover;display:block;"></div>
+    <main class="course-detail-content" style="padding-top:0;">
+        <div class="content-wrapper" style="max-width:540px;">
+            <div class="content-main" style="text-align:center;">
+                <h1 style="font-size:2.2rem;margin-top:2rem;">Ready to Master Solar Power?<br>The Solution is Coming Soon.</h1>
+                <p style="font-size:1.25rem;margin:2rem 0 2.5rem 0;">Take your solar expertise to the next level.<br>Be the first to unlock advanced design and implementation strategies.</p>
+                <form id="notify-form" style="margin-bottom:2.5rem;">
+                    <input type="email" id="notify-email" name="email" placeholder="Your email address" required style="padding:0.75rem 1rem;border-radius:6px;border:1.5px solid #ccc;font-size:1rem;width:70%;max-width:320px;">
+                    <button type="submit" class="cta-button" style="margin-left:0.5rem;padding:0.8rem 1.5rem;">Get Notified When It Launches</button>
+                </form>
+                <div id="notify-success" style="display:none;color:var(--color-primary);font-weight:500;margin-bottom:2rem;">Thank you! You'll be the first to know.</div>
+                <div style="font-size:1.1rem;color:var(--color-text-light);margin-bottom:2.5rem;">Get a free sneak peek lesson when you sign up.</div>
             </div>
         </div>
     </main>
-    <section class="next-steps">
-        <div class="content-wrapper">
-            <h2>Stay Tuned!</h2>
-            <p>We're working hard to bring you this exciting new course. Check back soon for updates!</p>
-        </div>
-    </section>
+    <script>
+    document.getElementById('notify-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('notify-form').style.display = 'none';
+        document.getElementById('notify-success').style.display = 'block';
+    });
+    </script>
 </body>
 </html>
