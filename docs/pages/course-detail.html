@@ -3,52 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Detail</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Course Details | Energy Course Platform</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
-        <!-- Include Header Component -->
         <div id="header-placeholder"></div>
     </header>
 
     <main>
         <section class="course-detail">
-            <h1 id="course-title">Course Title</h1>
-            <p id="course-description">This course provides an in-depth understanding of energy topics.</p>
-            <h2>Course Objectives</h2>
-            <ul id="course-objectives">
-                <li>Understand the fundamentals of energy.</li>
-                <li>Explore renewable energy sources.</li>
-                <li>Analyze energy consumption patterns.</li>
-            </ul>
-            <div class="video-container">
-                <!-- Include Video Player Component -->
-                <div id="video-player-placeholder"></div>
+            <div class="course-header">
+                <h1 id="course-title">Course Title</h1>
+                <p id="course-description" class="lead">This course provides an in-depth understanding of energy topics.</p>
             </div>
-            <button id="enroll-button">Enroll Now</button>
+
+            <div class="course-content">
+                <div class="video-container">
+                    <div id="video-player-placeholder"></div>
+                </div>
+
+                <div class="course-info">
+                    <h2>Course Objectives</h2>
+                    <ul id="course-objectives">
+                        <li>Understand the fundamentals of energy systems and their interactions</li>
+                        <li>Explore various renewable energy sources and their applications</li>
+                        <li>Analyze energy consumption patterns and optimization strategies</li>
+                        <li>Learn about energy storage and distribution systems</li>
+                    </ul>
+
+                    <h2>What You'll Learn</h2>
+                    <div class="learning-outcomes">
+                        <div class="outcome">
+                            <i class="icon-check"></i>
+                            <span>Practical implementation of energy concepts</span>
+                        </div>
+                        <div class="outcome">
+                            <i class="icon-check"></i>
+                            <span>Real-world case studies and examples</span>
+                        </div>
+                        <div class="outcome">
+                            <i class="icon-check"></i>
+                            <span>Industry best practices and standards</span>
+                        </div>
+                    </div>
+
+                    <div class="enrollment-section">
+                        <div class="price">$99.99</div>
+                        <button id="enroll-button" class="cta-button">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <!-- Include Footer Component -->
-        <div id="footer-placeholder"></div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/navigation.js"></script>
+    <!-- Component Loading -->
     <script>
-        // Load Header and Footer Components
-        document.getElementById('header-placeholder').innerHTML = '<!-- Header HTML goes here -->';
-        document.getElementById('footer-placeholder').innerHTML = '<!-- Footer HTML goes here -->';
-        
-        // Load Video Player Component
-        document.getElementById('video-player-placeholder').innerHTML = '<!-- Video Player HTML goes here -->';
-        
-        // Enroll Button Click Event
-        document.getElementById('enroll-button').addEventListener('click', function() {
-            window.location.href = 'enroll.html';
+        async function loadComponent(path, elementId) {
+            try {
+                const response = await fetch(path);
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+            } catch (error) {
+                console.error(`Error loading component ${path}:`, error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load header and footer
+            loadComponent('../components/Header.html', 'header-placeholder');
+            loadComponent('../components/Footer.html', 'footer-placeholder');
+            loadComponent('../components/VideoPlayer.html', 'video-player-placeholder');
+
+            // Get course details from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseId = urlParams.get('id');
+            
+            // Here you would typically fetch course details from an API
+            // For now, we'll use placeholder data
+            document.getElementById('course-title').textContent = urlParams.get('title') || 'Introduction to Renewable Energy';
+            
+            // Enroll button click handler
+            document.getElementById('enroll-button').addEventListener('click', function() {
+                window.location.href = `enroll.html?course=${courseId}`;
+            });
         });
     </script>
+
+    <script src="../main.js"></script>
+    <script src="../navigation.js"></script>
 </body>
 </html>
