@@ -5,9 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microgrid Design & Implementation — Coming Soon</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/analytics.js"></script>
     <script src="../scripts/courses-data.js"></script>
 </head>
 <body class="course-detail-page">
+        <script>
+        // Analytics: Track page view and time on page
+        let pageStartTime = Date.now();
+        function sendAnalyticsEvent(type, data) {
+            if (window.trackPageView && type === 'pageview') {
+                window.trackPageView(data.page);
+            } else if (window.trackButtonClick && type === 'button') {
+                window.trackButtonClick(data.buttonId);
+            } else if (window.trackCustomEvent) {
+                window.trackCustomEvent(type, data);
+            } else {
+                console.log('Analytics event:', type, data);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            sendAnalyticsEvent('pageview', { page: window.location.pathname });
+        });
+        window.addEventListener('beforeunload', function() {
+            const duration = Math.round((Date.now() - pageStartTime) / 1000);
+            sendAnalyticsEvent('time_on_page', { page: window.location.pathname, seconds: duration });
+        });
+        </script>
     <div class="course-image-hero"><img src="../images/microgrid-design1.jpeg" alt="Microgrid Design & Implementation" class="course-hero-image" style="width:100%;max-height:340px;object-fit:cover;display:block;"></div>
     <main class="course-detail-content" style="padding-top:0;">
         <div class="content-wrapper" style="max-width:540px;">

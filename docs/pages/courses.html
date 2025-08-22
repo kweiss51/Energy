@@ -6,8 +6,31 @@
     <title>Your Path to Energy Mastery | Energy Education Platform</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/analytics.js"></script>
 </head>
 <body class="courses-page">
+        <script>
+        // Analytics: Track page view and time on page
+        let pageStartTime = Date.now();
+        function sendAnalyticsEvent(type, data) {
+            if (window.trackPageView && type === 'pageview') {
+                window.trackPageView(data.page);
+            } else if (window.trackButtonClick && type === 'button') {
+                window.trackButtonClick(data.buttonId);
+            } else if (window.trackCustomEvent) {
+                window.trackCustomEvent(type, data);
+            } else {
+                console.log('Analytics event:', type, data);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            sendAnalyticsEvent('pageview', { page: window.location.pathname });
+        });
+        window.addEventListener('beforeunload', function() {
+            const duration = Math.round((Date.now() - pageStartTime) / 1000);
+            sendAnalyticsEvent('time_on_page', { page: window.location.pathname, seconds: duration });
+        });
+        </script>
     <nav class="nav-minimal">
         <div class="nav-content">
             <a href="../index.html" class="nav-logo">Energy</a>
