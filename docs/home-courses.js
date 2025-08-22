@@ -7,7 +7,7 @@ const courseData = {
             outcomes: ["Understand energy system basics", "Read and interpret system diagrams", "Calculate basic energy flows"],
             duration: "3 weeks",
             level: "Beginner",
-            image: "pages/../images/energy-fundamentals2",
+            image: "images/energy-fundamentals2.jpg",
             slug: "energy-fundamentals"
         },
         {
@@ -16,7 +16,7 @@ const courseData = {
             outcomes: ["Assess renewable potential", "Design basic solar systems", "Understand wind power basics"],
             duration: "3 weeks",
             level: "Beginner",
-            image: "pages/../images/renewable-essentials2",
+            image: "images/renewable-essentials2.jpg",
             slug: "renewable-essentials"
         }
     ],
@@ -27,7 +27,7 @@ const courseData = {
             outcomes: ["Design commercial systems", "Optimize for efficiency", "Master advanced modeling"],
             duration: "3 weeks",
             level: "Advanced",
-            image: "pages/../images/advanced-solar2.jpeg",
+            image: "images/advanced-solar2.jpeg",
             slug: "advanced-solar"
         },
         {
@@ -36,7 +36,7 @@ const courseData = {
             outcomes: ["Master grid standards", "Design integration systems", "Solve complex challenges"],
             duration: "3 weeks",
             level: "Advanced",
-            image: "pages/../images/grid-mastery2",
+            image: "images/grid-mastery2.jpg",
             slug: "grid-mastery"
         }
     ],
@@ -47,7 +47,7 @@ const courseData = {
             outcomes: ["Design storage systems", "Optimize battery life", "Implement smart solutions"],
             duration: "3 weeks",
             level: "Specialized",
-            image: "pages/../images/storage-solutions4",
+            image: "images/storage-solutions4.jpg",
             slug: "storage-solutions"
         },
         {
@@ -56,7 +56,7 @@ const courseData = {
             outcomes: ["Design microgrids", "Implement controls", "Optimize performance"],
             duration: "3 weeks",
             level: "Specialized",
-            image: "pages/../images/microgrid-design2",
+            image: "images/microgrid-design2.jpg",
             slug: "microgrid-design"
         }
     ]
