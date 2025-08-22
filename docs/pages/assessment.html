@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Path | Energy Education Platform</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <nav class="nav-minimal">
+    <div class="nav-content">
+      <a href="../index.html" class="nav-logo">Energy</a>
+      <a href="courses.html" class="nav-link">All Courses</a>
+    </div>
+  </nav>
+  <main class="assessment-content">
+    <h1>Find Your Perfect Learning Path</h1>
+    <form id="assessment-form" class="assessment-form">
+      <div class="assessment-step" id="step-1">
+        <h2>1. What best describes your current experience with energy systems?</h2>
+        <label><input type="radio" name="experience" value="beginner" required> I'm new to energy concepts</label><br>
+        <label><input type="radio" name="experience" value="intermediate"> I have some technical background</label><br>
+        <label><input type="radio" name="experience" value="advanced"> I'm experienced in the field</label>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+      <div class="assessment-step" id="step-2" style="display:none;">
+        <h2>2. What is your main goal?</h2>
+        <label><input type="radio" name="goal" value="career"> Start or advance my career</label><br>
+        <label><input type="radio" name="goal" value="project"> Complete a specific project</label><br>
+        <label><input type="radio" name="goal" value="curiosity"> Satisfy my curiosity</label>
+        <button type="button" class="prev-btn">Back</button>
+        <button type="button" class="next-btn">Next</button>
+      </div>
+      <div class="assessment-step" id="step-3" style="display:none;">
+        <h2>3. Which topic excites you most?</h2>
+        <label><input type="radio" name="topic" value="fundamentals" required> Understanding the basics</label><br>
+        <label><input type="radio" name="topic" value="renewables"> Renewable energy</label><br>
+        <label><input type="radio" name="topic" value="solar"> Advanced solar design</label><br>
+        <label><input type="radio" name="topic" value="grid"> Grid integration</label><br>
+        <label><input type="radio" name="topic" value="storage"> Energy storage</label><br>
+        <label><input type="radio" name="topic" value="microgrid"> Microgrid design</label>
+        <button type="button" class="prev-btn">Back</button>
+        <button type="submit" class="cta-button">See My Path</button>
+      </div>
+    </form>
+    <div id="assessment-result" class="assessment-result" style="display:none;"></div>
+  </main>
+  <script>
+    const steps = Array.from(document.querySelectorAll('.assessment-step'));
+    let currentStep = 0;
+    function showStep(idx) {
+      steps.forEach((step, i) => step.style.display = i === idx ? '' : 'none');
+      currentStep = idx;
+    }
+    document.querySelectorAll('.next-btn').forEach(btn => btn.onclick = () => showStep(currentStep + 1));
+    document.querySelectorAll('.prev-btn').forEach(btn => btn.onclick = () => showStep(currentStep - 1));
+    document.getElementById('assessment-form').onsubmit = function(e) {
+      e.preventDefault();
+      const exp = document.querySelector('input[name="experience"]:checked')?.value;
+      const goal = document.querySelector('input[name="goal"]:checked')?.value;
+      const topic = document.querySelector('input[name="topic"]:checked')?.value;
+      let suggestion = '';
+      let link = '';
+      if (topic === 'fundamentals' || exp === 'beginner') {
+        suggestion = 'Energy Systems Fundamentals';
+        link = 'energy-fundamentals/week1-lesson1.html';
+      } else if (topic === 'renewables') {
+        suggestion = 'Renewable Energy Essentials';
+        link = 'coming-soon-renewable-essentials.html';
+      } else if (topic === 'solar') {
+        suggestion = 'Advanced Solar Design';
+        link = 'coming-soon-advanced-solar.html';
+      } else if (topic === 'grid') {
+        suggestion = 'Grid Integration Mastery';
+        link = 'coming-soon-grid-mastery.html';
+      } else if (topic === 'storage') {
+        suggestion = 'Energy Storage Solutions';
+        link = 'coming-soon-storage-solutions.html';
+      } else if (topic === 'microgrid') {
+        suggestion = 'Microgrid Design';
+        link = 'coming-soon-microgrid-design.html';
+      } else {
+        suggestion = 'Energy Systems Fundamentals';
+        link = 'energy-fundamentals/week1-lesson1.html';
+      }
+      document.getElementById('assessment-form').style.display = 'none';
+      document.getElementById('assessment-result').style.display = '';
+      document.getElementById('assessment-result').innerHTML = `<h2>Your Recommended Path:</h2><p><strong>${suggestion}</strong></p><a href="${link}" class="cta-button">Start This Course</a>`;
+    };
+  </script>
+</body>
+</html>
