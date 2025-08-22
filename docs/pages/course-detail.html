@@ -203,11 +203,19 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM Content Loaded');
+            // Extract course from URL, handling both standard and encoded parameters
             const urlParams = new URLSearchParams(window.location.search);
-            const courseSlug = urlParams.get('course') || 'energy-fundamentals';
+            let courseSlug = urlParams.get('course') || 'energy-fundamentals';
+            // Clean up any encoding issues
+            courseSlug = decodeURIComponent(courseSlug).replace(/[^a-zA-Z0-9-]/g, '');
             console.log('Course Slug:', courseSlug);
-            console.log('Available Courses:', Object.keys(courseDetails));
-            const course = courseDetails[courseSlug];
+            console.log('Available Courses:', Object.keys(window.courseDetails || {}));
+            const course = window.courseDetails ? window.courseDetails[courseSlug] : null;
+            if (!course) {
+                console.error('Course not found:', courseSlug);
+                document.body.innerHTML = '<div style="padding: 20px; text-align: center;"><h1>Course Not Found</h1><p>The requested course could not be found. <a href="courses.html">View all courses</a></p></div>';
+                return;
+            }
             console.log('Selected Course:', course ? course.title : 'Not found');
 
             // Populate header
