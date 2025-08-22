@@ -16,118 +16,143 @@
     </div>
   </nav>
   <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
-    <!-- Course Image -->
-    <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="../../images/energy-fundamentals1" alt="Energy Fundamentals" style="max-width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+    <!-- Week 1: The Foundations of Energy -->
+    <div class="lesson-narrative" style="margin-bottom:2.5rem;">
+      <h1 style="font-size:2rem;font-weight:700;margin-bottom:1rem;">Week 1: The Foundations of Energy</h1>
+      <p>Welcome to your first lesson in Energy Fundamentals. This week, we're building the core concepts that all energy professionals must know. Think of this as your physics boot camp. We'll start with the most basic question of all: what is energy? We’ll then explore the two unbreakable laws that govern how energy behaves everywhere in the universe, from a star to a smartphone. By the end of this lesson, you’ll have a new vocabulary and a new way of seeing the world. Everything you see, from a car on the road to a light in a room, is simply a manifestation of these fundamental principles.</p>
     </div>
-    <!-- Progress Tracker -->
-    <div class="lesson-progress" style="margin-bottom:2rem;">
-      <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 1 of 9</div>
-      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Mastering the Language of Energy</div>
-      <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
-        <div style="background:var(--color-primary);width:11%;height:100%;transition:width 0.5s;"></div>
-      </div>
-    </div>
-    <!-- Before and After Framing -->
-    <div class="lesson-framing" style="margin-bottom:2rem;">
-      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Right now, energy is a mystery—an invisible force shaping your world. This week, you’ll uncover the fundamental laws of energy, so you can begin to speak the language of the energy sector with confidence.</p>
-    </div>
-    <!-- Video Player -->
-    <!-- Timer Bar (30 seconds) -->
-    <div class="lesson-timer" style="margin-bottom:2rem;text-align:center;">
-      <div style="font-size:1.1rem;margin-bottom:0.5rem;">Lesson unlocks in <span id="timer-seconds">30</span> seconds</div>
-      <div style="background:var(--color-surface);border-radius:8px;height:18px;width:100%;max-width:420px;margin:0 auto;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <div id="timer-bar" style="background:var(--color-primary);height:100%;width:0%;transition:width 0.5s;"></div>
-      </div>
-    </div>
-    <!-- Lesson Content -->
-    <section style="margin-bottom:2rem;">
-      <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
-      <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
-        <li>What energy really is—and why it matters</li>
-        <li>The forms energy takes in your daily life</li>
-        <li>How energy is transformed and why efficiency is key</li>
-        <li>The invisible systems powering our civilization</li>
-      </ul>
-    </section>
-    <!-- Interactive: Energy Conversion Visualizer -->
+    <!-- VISUAL 1.1A: Forms of Energy Diagram (Interactive) -->
     <section style="margin-bottom:2.5rem;">
-      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Energy Conversion Visualizer</h2>
-      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <label for="input-energy" style="font-weight:500;">Input Energy (Joules):</label>
-        <input type="range" id="input-energy" min="10" max="1000" step="10" value="500" style="width:100%;">
-        <span id="input-energy-value" style="font-weight:600;">500</span> J<br><br>
-        <label for="efficiency" style="font-weight:500;">Efficiency (%):</label>
-        <input type="range" id="efficiency" min="10" max="100" step="1" value="60" style="width:100%;">
-        <span id="efficiency-value" style="font-weight:600;">60</span> %<br><br>
-        <div style="margin-top:1rem;font-size:1.1rem;">
-          <strong>Useful Output Energy:</strong> <span id="output-energy">300</span> J
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Forms of Energy</h2>
+      <div id="forms-of-energy-diagram" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;background:var(--color-surface);padding:2rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div class="energy-icon" data-type="chemical" style="cursor:pointer;text-align:center;">
+          <img src="../../images/battery-icon.png" alt="Battery" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Chemical</div>
+          <div class="energy-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Chemical Energy: Stored in chemical bonds, like in a battery or gasoline.</div>
         </div>
-        <div style="margin-top:0.5rem;font-size:0.98rem;color:var(--color-text-light);">
-          <span id="wasted-energy">200</span> J is lost as waste (heat, sound, etc.)
+        <div class="energy-icon" data-type="radiant" style="cursor:pointer;text-align:center;">
+          <img src="../../images/lightbulb-icon.png" alt="Light Bulb" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Radiant</div>
+          <div class="energy-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Radiant Energy: Energy that travels in waves, like light from the sun or a light bulb.</div>
+        </div>
+        <div class="energy-icon" data-type="kinetic" style="cursor:pointer;text-align:center;">
+          <img src="../../images/car-icon.png" alt="Moving Car" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Kinetic</div>
+          <div class="energy-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Kinetic Energy: The energy of motion. Examples include a moving vehicle or wind.</div>
+        </div>
+        <div class="energy-icon" data-type="potential" style="cursor:pointer;text-align:center;">
+          <img src="../../images/rock-icon.png" alt="Rock on Cliff" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Potential</div>
+          <div class="energy-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Potential Energy: Stored energy due to position or state. Examples include water behind a dam or a stretched spring.</div>
+        </div>
+        <div class="energy-icon" data-type="thermal" style="cursor:pointer;text-align:center;">
+          <img src="../../images/fireplace-icon.png" alt="Fireplace" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Thermal</div>
+          <div class="energy-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Thermal Energy: Energy from moving molecules, felt as heat. Examples include fire or geothermal vents.</div>
         </div>
       </div>
-      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Adjust the sliders to see how efficiency affects the conversion of input energy to useful output.</div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;margin-top:1rem;">Click each icon to learn about a form of energy.</div>
     </section>
-    <!-- Progress Affirmation & Next Step -->
-    <div id="lesson-complete" style="display:none;text-align:center;">
-      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You can now explain what energy is and why it’s essential to modern life.</div>
-      <a href="week1-lesson2.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
-      <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
+    <!-- NARRATIVE: Law of Conservation of Energy -->
+    <div class="lesson-narrative" style="margin-bottom:2.5rem;">
+      <p>Now that we understand the different forms of energy, let's explore its most important rules. First, a concept that is so important it's called a law: the Law of Conservation of Energy, also known as the First Law of Thermodynamics. This law states that energy cannot be created or destroyed. It can only change from one form to another. Every bit of energy you use has been converted from something else. The electrical energy in your home was once chemical energy in a power plant, which was once solar energy stored in a plant millions of years ago.</p>
     </div>
-    <!-- Mark Complete Button (appears after video) -->
-    <div id="mark-complete-wrap" style="text-align:center;">
-      <button id="markCompleteBtn" class="cta-primary" style="margin-top:1.5rem;display:none;">Mark Lesson Complete</button>
+    <!-- VISUAL 1.2A: Energy Conversion Chain (Animated Flowchart) -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Energy Conversion Chain</h2>
+      <div id="energy-conversion-chain" style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div id="conversion-frame" style="font-size:1.08rem;font-weight:500;text-align:center;min-height:60px;margin-bottom:1rem;">Radiant Energy (Sun) is absorbed by a plant through photosynthesis.</div>
+        <div style="display:flex;justify-content:center;gap:1rem;">
+          <button class="conversion-step" data-step="0" style="border-radius:6px;padding:0.5rem 1.2rem;">1</button>
+          <button class="conversion-step" data-step="1" style="border-radius:6px;padding:0.5rem 1.2rem;">2</button>
+          <button class="conversion-step" data-step="2" style="border-radius:6px;padding:0.5rem 1.2rem;">3</button>
+          <button class="conversion-step" data-step="3" style="border-radius:6px;padding:0.5rem 1.2rem;">4</button>
+          <button class="conversion-step" data-step="4" style="border-radius:6px;padding:0.5rem 1.2rem;">5</button>
+          <button class="conversion-step" data-step="5" style="border-radius:6px;padding:0.5rem 1.2rem;">6</button>
+        </div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;margin-top:1rem;">Click each step to see how energy changes form.</div>
+    </section>
+    <!-- NARRATIVE: Second Law of Thermodynamics -->
+    <div class="lesson-narrative" style="margin-bottom:2.5rem;">
+      <p>This brings us to our second key rule: the Second Law of Thermodynamics. While energy is always conserved, it's not always useful. This law explains that when energy is converted, some of it is always lost as unusable thermal energy—or heat. That's why no energy conversion process is ever 100% efficient. For example, a car engine converts chemical energy into kinetic energy, but a lot of that energy is lost as heat from the exhaust. This is a fundamental concept for understanding efficiency and why some energy sources are better than others.</p>
     </div>
+    <!-- INTERACTIVE 1.3A: Final Quiz -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Quiz: Test Your Knowledge</h2>
+      <form id="week1-quiz" style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1.2rem;">
+          <strong>1. Which law states that energy cannot be created or destroyed?</strong><br>
+          <label><input type="radio" name="q1" value="A"> Newton's First Law</label><br>
+          <label><input type="radio" name="q1" value="B"> The Second Law of Thermodynamics</label><br>
+          <label><input type="radio" name="q1" value="C"> The First Law of Thermodynamics</label>
+        </div>
+        <div style="margin-bottom:1.2rem;">
+          <strong>2. A spring-loaded toy is wound up and ready to launch. It has primarily which type of energy?</strong><br>
+          <label><input type="radio" name="q2" value="A"> Kinetic Energy</label><br>
+          <label><input type="radio" name="q2" value="B"> Potential Energy</label><br>
+          <label><input type="radio" name="q2" value="C"> Thermal Energy</label>
+        </div>
+        <div style="margin-bottom:1.2rem;">
+          <strong>3. Why is energy conversion never 100% efficient?</strong><br>
+          <label><input type="radio" name="q3" value="A"> Energy is destroyed in the process.</label><br>
+          <label><input type="radio" name="q3" value="B"> Some energy is always lost as unusable thermal energy</label><br>
+          <label><input type="radio" name="q3" value="C"> It is impossible to build a perfect machine.</label>
+        </div>
+        <button type="button" id="submit-quiz" class="cta-primary" style="margin-top:1rem;">Submit Answers</button>
+        <div id="quiz-result" style="margin-top:1.5rem;font-weight:600;"></div>
+      </form>
+    </section>
   </main>
   <script>
-    // Interactive: Energy Conversion Visualizer
-    const inputEnergy = document.getElementById('input-energy');
-    const inputEnergyValue = document.getElementById('input-energy-value');
-    const efficiency = document.getElementById('efficiency');
-    const efficiencyValue = document.getElementById('efficiency-value');
-    const outputEnergy = document.getElementById('output-energy');
-    const wastedEnergy = document.getElementById('wasted-energy');
-    function updateEnergyConversion() {
-      const input = parseFloat(inputEnergy.value);
-      const eff = parseFloat(efficiency.value);
-      inputEnergyValue.textContent = input;
-      efficiencyValue.textContent = eff;
-      const output = input * (eff / 100);
-      outputEnergy.textContent = output.toFixed(1);
-      wastedEnergy.textContent = (input - output).toFixed(1);
-    }
-    if(inputEnergy && efficiency && outputEnergy && wastedEnergy) {
-      inputEnergy.addEventListener('input', updateEnergyConversion);
-      efficiency.addEventListener('input', updateEnergyConversion);
-      updateEnergyConversion();
-    }
-
-    // Timer Bar Logic
-    const timerBar = document.getElementById('timer-bar');
-    const timerSeconds = document.getElementById('timer-seconds');
-    const markBtn = document.getElementById('markCompleteBtn');
-    const completeDiv = document.getElementById('lesson-complete');
-    const markWrap = document.getElementById('mark-complete-wrap');
-    let secondsLeft = 30;
-    if (timerBar && timerSeconds && markBtn) {
-      markBtn.style.display = 'none';
-      const interval = setInterval(() => {
-        secondsLeft--;
-        timerSeconds.textContent = secondsLeft;
-        timerBar.style.width = ((30 - secondsLeft) / 30 * 100) + '%';
-        if (secondsLeft <= 0) {
-          clearInterval(interval);
-          timerBar.style.width = '100%';
-          timerSeconds.textContent = '0';
-          markBtn.style.display = 'inline-block';
-        }
-      }, 1000);
-      markBtn.addEventListener('click', () => {
-        markWrap.style.display = 'none';
-        completeDiv.style.display = 'block';
+    // --- Forms of Energy Interactive ---
+    document.querySelectorAll('.energy-icon').forEach(function(icon) {
+      icon.addEventListener('click', function() {
+        // Hide all bubbles
+        document.querySelectorAll('.energy-bubble').forEach(function(b) { b.style.display = 'none'; });
+        // Show this bubble
+        this.querySelector('.energy-bubble').style.display = 'block';
       });
-    }
+    });
+
+    // --- Energy Conversion Chain Interactive ---
+    const conversionFrames = [
+      'Radiant Energy (Sun) is absorbed by a plant through photosynthesis.',
+      'Chemical Energy is stored in the plant as sugars.',
+      'A fossil fuel (coal) forms from ancient plants, storing chemical energy.',
+      'Coal is burned in a power plant, converting chemical energy to thermal energy.',
+      'Thermal energy turns water to steam, which spins a turbine (kinetic energy).',
+      'The turbine drives a generator, converting kinetic energy to electrical energy sent to your home.'
+    ];
+    const conversionFrame = document.getElementById('conversion-frame');
+    document.querySelectorAll('.conversion-step').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const step = parseInt(this.getAttribute('data-step'));
+        conversionFrame.textContent = conversionFrames[step];
+      });
+    });
+
+    // --- Quiz Logic ---
+    document.getElementById('submit-quiz').addEventListener('click', function() {
+      let score = 0;
+      const answers = {
+        q1: 'C',
+        q2: 'B',
+        q3: 'B'
+      };
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      }
+      const result = document.getElementById('quiz-result');
+      if (score === 3) {
+        result.textContent = 'Excellent! You got all questions right.';
+        result.style.color = 'var(--color-primary)';
+      } else {
+        result.textContent = `You got ${score}/3 correct. Review the lesson and try again!`;
+        result.style.color = 'var(--color-error, #c00)';
+      }
+    });
   </script>
 </body>
 </html>

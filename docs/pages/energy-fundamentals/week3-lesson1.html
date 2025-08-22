@@ -10,64 +10,93 @@
   <nav class="nav-minimal" style="margin-bottom:2rem;">
     <div class="nav-content">
       <a href="../../energy.html" class="nav-logo">Energy</a>
-      <div class="nav-links">
-        <a href="../courses.html">Course Home</a>
+      <!-- Week 3: The Grid and Beyond -->
+      <div class="lesson-narrative" style="margin-bottom:2.5rem;">
+        <h1 style="font-size:2rem;font-weight:700;margin-bottom:1rem;">Week 3: The Grid and Beyond</h1>
+        <p>This week, you’ll discover the invisible network that makes modern life possible: the electric grid. We’ll trace the journey of electricity from the power plant to your wall outlet, explore how the grid balances supply and demand in real time, and look at the challenges and innovations shaping the grid of the future. By the end, you’ll see the world around you in a new light—one that’s powered by a complex, dynamic, and increasingly smart system.</p>
       </div>
-    </div>
-  </nav>
-  <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
-    <!-- Course Image -->
-    <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="../../images/grid-mastery2" alt="Transmission & Distribution" style="max-width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-    </div>
-    <!-- Progress Tracker -->
-    <div class="lesson-progress" style="margin-bottom:2rem;">
-      <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 7 of 9</div>
-      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">Following the Flow: Transmission & Distribution</div>
-      <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
-        <div style="background:var(--color-primary);width:77%;height:100%;transition:width 0.5s;"></div>
+      <!-- VISUAL 3.1A: Grid Journey Map (Interactive) -->
+      <section style="margin-bottom:2.5rem;">
+        <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Grid Journey Map</h2>
+        <div id="grid-journey-map" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;background:var(--color-surface);padding:2rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <div class="grid-icon" data-type="plant" style="cursor:pointer;text-align:center;">
+            <img src="../../images/plant-icon.png" alt="Power Plant" style="width:60px;height:60px;">
+            <div style="margin-top:0.5rem;font-weight:600;">Power Plant</div>
+            <div class="grid-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Electricity is generated at power plants using various energy sources.</div>
+          </div>
+          <div class="grid-icon" data-type="transmission" style="cursor:pointer;text-align:center;">
+            <img src="../../images/transmission-icon.png" alt="Transmission Lines" style="width:60px;height:60px;">
+            <div style="margin-top:0.5rem;font-weight:600;">Transmission</div>
+            <div class="grid-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">High-voltage transmission lines carry electricity long distances across regions.</div>
+          </div>
+          <div class="grid-icon" data-type="substation" style="cursor:pointer;text-align:center;">
+            <img src="../../images/substation-icon.png" alt="Substation" style="width:60px;height:60px;">
+            <div style="margin-top:0.5rem;font-weight:600;">Substation</div>
+            <div class="grid-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Substations step down voltage for safe distribution to homes and businesses.</div>
+          </div>
+          <div class="grid-icon" data-type="distribution" style="cursor:pointer;text-align:center;">
+            <img src="../../images/distribution-icon.png" alt="Distribution Lines" style="width:60px;height:60px;">
+            <div style="margin-top:0.5rem;font-weight:600;">Distribution</div>
+            <div class="grid-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Distribution lines deliver electricity the last mile to homes and businesses.</div>
+          </div>
+          <div class="grid-icon" data-type="meter" style="cursor:pointer;text-align:center;">
+            <img src="../../images/meter-icon.png" alt="Meter" style="width:60px;height:60px;">
+            <div style="margin-top:0.5rem;font-weight:600;">Meter</div>
+            <div class="grid-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Meters track electricity usage for billing and grid management.</div>
+          </div>
+          <div class="grid-icon" data-type="home" style="cursor:pointer;text-align:center;">
+            <img src="../../images/home-icon.png" alt="Home" style="width:60px;height:60px;">
+            <div style="margin-top:0.5rem;font-weight:600;">Home</div>
+            <div class="grid-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Electricity powers devices and appliances in your home.</div>
+          </div>
+        </div>
+        <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;margin-top:1rem;">Click each icon to trace the journey of electricity.</div>
+      </section>
+      <!-- NARRATIVE: Grid Balancing & Smart Grid -->
+      <div class="lesson-narrative" style="margin-bottom:2.5rem;">
+        <p>The grid is more than wires and poles—it’s a living system that must balance supply and demand every second. Grid operators use advanced forecasting, flexible power plants, and energy storage to keep the lights on. The future grid will be even smarter, with real-time sensors, distributed energy, and new ways for consumers to participate.</p>
       </div>
-    </div>
-    <!-- Before and After Framing -->
-    <div class="lesson-framing" style="margin-bottom:2rem;">
-      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Right now, electricity’s journey is invisible. By the end of this lesson, you’ll be able to trace power from the plant to your phone—and understand the marvel of the modern grid.</p>
-    </div>
-    <!-- Video Player -->
-    <div class="lesson-video" style="margin-bottom:2rem;text-align:center;">
-      <video id="lessonVideo" width="100%" height="340" controls poster="../../images/energy-fundamentals7" style="border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.08);background:#000;">
-        <source src="../../assets/week3-lesson1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-    <!-- Lesson Content -->
-    <section style="margin-bottom:2rem;">
-      <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
-      <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
-        <li>How electricity travels from generation to your home</li>
-        <li>The role of transmission and distribution networks</li>
-        <li>How the grid balances supply and demand</li>
-        <li>How you interact with the grid every day</li>
-      </ul>
-    </section>
-    <!-- Interactive: Transmission Path Visualizer -->
-    <section style="margin-bottom:2.5rem;">
-      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Transmission Path Visualizer</h2>
-      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <div style="margin-bottom:1rem;">Select a starting point and see how electricity travels to your home.</div>
-        <select id="startPoint" style="width:100%;margin-bottom:1rem;">
-          <option value="">Choose a starting point...</option>
-          <option value="plant">Power Plant</option>
-          <option value="substation">Substation</option>
-          <option value="distribution">Distribution Line</option>
-        </select>
-        <div id="pathResult" style="margin-top:1rem;font-weight:500;"></div>
-      </div>
-      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Try each starting point to trace the journey!</div>
-    </section>
-    <!-- Progress Affirmation & Next Step -->
-    <div id="lesson-complete" style="display:none;text-align:center;">
-      <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You can now describe how electricity travels from generation to your home.</div>
-      <a href="week3-lesson2.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
+      <!-- INTERACTIVE 3.2A: Grid Balancing Simulator (Simple Interactive) -->
+      <section style="margin-bottom:2.5rem;">
+        <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Grid Balancing Simulator</h2>
+        <div id="grid-balancer" style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <div style="margin-bottom:1rem;">Adjust supply and demand to keep the grid balanced.</div>
+          <label for="supply">Supply (MW):</label>
+          <input type="range" id="supply" min="0" max="100" value="50" style="width:100%;">
+          <span id="supply-value" style="font-weight:600;">50</span> MW<br><br>
+          <label for="demand">Demand (MW):</label>
+          <input type="range" id="demand" min="0" max="100" value="50" style="width:100%;">
+          <span id="demand-value" style="font-weight:600;">50</span> MW<br><br>
+          <div id="balance-status" style="margin-top:1rem;font-size:1.1rem;font-weight:500;color:var(--color-primary);">Grid is Balanced</div>
+        </div>
+        <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;margin-top:1rem;">Try to keep supply and demand equal!</div>
+      </section>
+      <!-- INTERACTIVE 3.3A: Final Quiz -->
+      <section style="margin-bottom:2.5rem;">
+        <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Quiz: Test Your Knowledge</h2>
+        <form id="week3-quiz" style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+          <div style="margin-bottom:1.2rem;">
+            <strong>1. What is the main job of the electric grid?</strong><br>
+            <label><input type="radio" name="q1" value="A"> To generate electricity</label><br>
+            <label><input type="radio" name="q1" value="B"> To balance supply and demand in real time</label><br>
+            <label><input type="radio" name="q1" value="C"> To store energy for later</label>
+          </div>
+          <div style="margin-bottom:1.2rem;">
+            <strong>2. What does a substation do?</strong><br>
+            <label><input type="radio" name="q2" value="A"> Increases voltage for long-distance transmission</label><br>
+            <label><input type="radio" name="q2" value="B"> Steps down voltage for safe distribution</label><br>
+            <label><input type="radio" name="q2" value="C"> Measures electricity usage</label>
+          </div>
+          <div style="margin-bottom:1.2rem;">
+            <strong>3. Why is grid balancing important?</strong><br>
+            <label><input type="radio" name="q3" value="A"> To prevent blackouts and keep the system stable</label><br>
+            <label><input type="radio" name="q3" value="B"> To reduce the cost of electricity</label><br>
+            <label><input type="radio" name="q3" value="C"> To increase carbon emissions</label>
+          </div>
+          <button type="button" id="submit-quiz" class="cta-primary" style="margin-top:1rem;">Submit Answers</button>
+          <div id="quiz-result" style="margin-top:1.5rem;font-weight:600;"></div>
+        </form>
+      </section>
       <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
     </div>
     <!-- Mark Complete Button (appears after video) -->
@@ -76,43 +105,63 @@
     </div>
   </main>
   <script>
-    // Interactive: Transmission Path Visualizer
-    const startPoint = document.getElementById('startPoint');
-    const pathResult = document.getElementById('pathResult');
-    if (startPoint && pathResult) {
-      startPoint.onchange = function() {
-        switch(startPoint.value) {
-          case 'plant':
-            pathResult.textContent = 'Power Plant → Transmission Line → Substation → Distribution Line → Your Home';
-            pathResult.style.color = 'var(--color-primary)';
-            break;
-          case 'substation':
-            pathResult.textContent = 'Substation → Distribution Line → Your Home';
-            pathResult.style.color = 'var(--color-primary)';
-            break;
-          case 'distribution':
-            pathResult.textContent = 'Distribution Line → Your Home';
-            pathResult.style.color = 'var(--color-primary)';
-            break;
-          default:
-            pathResult.textContent = '';
-        }
+    // --- Grid Journey Map Interactive ---
+    document.querySelectorAll('.grid-icon').forEach(function(icon) {
+      icon.addEventListener('click', function() {
+        document.querySelectorAll('.grid-bubble').forEach(function(b) { b.style.display = 'none'; });
+        this.querySelector('.grid-bubble').style.display = 'block';
+      });
+    });
+
+    // --- Grid Balancing Simulator ---
+    const supply = document.getElementById('supply');
+    const demand = document.getElementById('demand');
+    const supplyValue = document.getElementById('supply-value');
+    const demandValue = document.getElementById('demand-value');
+    const balanceStatus = document.getElementById('balance-status');
+    function updateBalance() {
+      const s = parseInt(supply.value);
+      const d = parseInt(demand.value);
+      supplyValue.textContent = s;
+      demandValue.textContent = d;
+      if (s === d) {
+        balanceStatus.textContent = 'Grid is Balanced';
+        balanceStatus.style.color = 'var(--color-primary)';
+      } else if (s > d) {
+        balanceStatus.textContent = 'Oversupply! Reduce supply or increase demand.';
+        balanceStatus.style.color = '#e67e22';
+      } else {
+        balanceStatus.textContent = 'Shortage! Increase supply or reduce demand.';
+        balanceStatus.style.color = 'var(--color-error, #c00)';
+      }
+    }
+    if (supply && demand) {
+      supply.addEventListener('input', updateBalance);
+      demand.addEventListener('input', updateBalance);
+      updateBalance();
+    }
+
+    // --- Quiz Logic ---
+    document.getElementById('submit-quiz').addEventListener('click', function() {
+      let score = 0;
+      const answers = {
+        q1: 'B',
+        q2: 'B',
+        q3: 'A'
       };
-    }
-    // Show Mark Complete button when video ends
-    const video = document.getElementById('lessonVideo');
-    const markBtn = document.getElementById('markCompleteBtn');
-    const completeDiv = document.getElementById('lesson-complete');
-    const markWrap = document.getElementById('mark-complete-wrap');
-    if(video && markBtn) {
-      video.addEventListener('ended', () => {
-        markBtn.style.display = 'inline-block';
-      });
-      markBtn.addEventListener('click', () => {
-        markWrap.style.display = 'none';
-        completeDiv.style.display = 'block';
-      });
-    }
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      }
+      const result = document.getElementById('quiz-result');
+      if (score === 3) {
+        result.textContent = 'Excellent! You got all questions right.';
+        result.style.color = 'var(--color-primary)';
+      } else {
+        result.textContent = `You got ${score}/3 correct. Review the lesson and try again!`;
+        result.style.color = 'var(--color-error, #c00)';
+      }
+    });
   </script>
 </body>
 </html>

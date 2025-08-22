@@ -8,67 +8,105 @@
 </head>
 <body>
   <nav class="nav-minimal" style="margin-bottom:2rem;">
-    <div class="nav-content">
-      <a href="../../energy.html" class="nav-logo">Energy</a>
-      <div class="nav-links">
-        <a href="../courses.html">Course Home</a>
-      </div>
+    <!-- Week 2: Energy Sources & Storage -->
+    <div class="lesson-narrative" style="margin-bottom:2.5rem;">
+      <h1 style="font-size:2rem;font-weight:700;margin-bottom:1rem;">Week 2: Energy Sources & Storage</h1>
+      <p>This week, we dive into the origins of the energy that powers our world. Where does it come from? How do we store it for when we need it? You’ll explore the major sources—fossil fuels, renewables, and nuclear—and see how each is harnessed, stored, and delivered. By the end, you’ll understand the tradeoffs that shape our energy system, and why storage is the key to a sustainable future.</p>
     </div>
-  </nav>
-  <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
-    <!-- Course Image -->
-    <div style="text-align:center;margin-bottom:1.5rem;">
-      <img src="../../images/energy-fundamentals1" alt="Energy Source" style="max-width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-    </div>
-    <!-- Progress Tracker -->
-    <div class="lesson-progress" style="margin-bottom:2rem;">
-      <div style="font-size:1rem;color:var(--color-text-light);margin-bottom:0.5rem;">Lesson 4 of 9</div>
-      <div style="font-weight:600;font-size:1.5rem;margin-bottom:0.5rem;">From Source to Power Plant</div>
-      <div style="background:var(--color-surface);border-radius:4px;height:8px;width:100%;overflow:hidden;margin-bottom:1.5rem;">
-        <div style="background:var(--color-primary);width:44%;height:100%;transition:width 0.5s;"></div>
-      </div>
-    </div>
-    <!-- Before and After Framing -->
-    <div class="lesson-framing" style="margin-bottom:2rem;">
-      <p style="font-size:1.1rem;color:var(--color-text);margin-bottom:0.5rem;">Right now, energy sources are just names—coal, wind, sunlight. By the end of this lesson, you’ll understand how these raw resources are transformed into the electricity that powers your life.</p>
-    </div>
-    <!-- Timer Bar (30 seconds) -->
-    <div class="lesson-timer" style="margin-bottom:2rem;text-align:center;">
-      <div style="font-size:1.1rem;margin-bottom:0.5rem;">Lesson unlocks in <span id="timer-seconds">30</span> seconds</div>
-      <div style="background:var(--color-surface);border-radius:8px;height:18px;width:100%;max-width:420px;margin:0 auto;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <div id="timer-bar" style="background:var(--color-primary);height:100%;width:0%;transition:width 0.5s;"></div>
-      </div>
-      <button id="proceed-button" class="cta-primary" style="margin-top:1.2rem;opacity:0.5;pointer-events:none;">Proceed</button>
-    </div>
-    <!-- Lesson Content -->
-    <section style="margin-bottom:2rem;">
-      <h2 style="font-size:1.25rem;margin-bottom:0.5rem;">What You’ll Learn</h2>
-      <ul style="line-height:2;color:var(--color-text-light);font-size:1rem;">
-        <li>How raw energy sources are converted into usable power</li>
-        <li>The role of power plants in the energy system</li>
-        <li>Strengths and weaknesses of different technologies</li>
-        <li>How society balances reliability, cost, and sustainability</li>
-      </ul>
-    </section>
-    <!-- Interactive: Power Plant Converter -->
+    <!-- VISUAL 2.1A: Energy Source Selector (Interactive) -->
     <section style="margin-bottom:2.5rem;">
-      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Power Plant Converter</h2>
-      <div style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:10px;max-width:420px;margin:0 auto 1rem auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-        <div style="margin-bottom:1rem;">Select a raw energy source and see how it is converted into electricity in a power plant.</div>
-        <select id="energySource" style="width:100%;margin-bottom:1rem;">
-          <option value="">Choose a source...</option>
-          <option value="coal">Coal</option>
-          <option value="naturalgas">Natural Gas</option>
-          <option value="wind">Wind</option>
-          <option value="solar">Solar</option>
-          <option value="hydro">Hydro</option>
-        </select>
-        <div id="conversionResult" style="margin-top:1rem;font-weight:500;"></div>
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Explore Energy Sources</h2>
+      <div id="energy-source-selector" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;background:var(--color-surface);padding:2rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div class="source-icon" data-type="coal" style="cursor:pointer;text-align:center;">
+          <img src="../../images/coal-icon.png" alt="Coal" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Coal</div>
+          <div class="source-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Coal: Abundant, reliable, but high in carbon emissions. Used for baseload power.</div>
+        </div>
+        <div class="source-icon" data-type="naturalgas" style="cursor:pointer;text-align:center;">
+          <img src="../../images/gas-icon.png" alt="Natural Gas" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Natural Gas</div>
+          <div class="source-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Natural Gas: Flexible, lower emissions than coal, but still a fossil fuel. Used for peaking and backup.</div>
+        </div>
+        <div class="source-icon" data-type="nuclear" style="cursor:pointer;text-align:center;">
+          <img src="../../images/nuclear-icon.png" alt="Nuclear" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Nuclear</div>
+          <div class="source-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Nuclear: Zero carbon, reliable, but expensive and controversial. Used for baseload power.</div>
+        </div>
+        <div class="source-icon" data-type="solar" style="cursor:pointer;text-align:center;">
+          <img src="../../images/solar-icon.png" alt="Solar" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Solar</div>
+          <div class="source-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Solar: Clean, renewable, but intermittent. Best for daytime and distributed generation.</div>
+        </div>
+        <div class="source-icon" data-type="wind" style="cursor:pointer;text-align:center;">
+          <img src="../../images/wind-icon.png" alt="Wind" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Wind</div>
+          <div class="source-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Wind: Clean, renewable, but variable. Best in windy regions and for utility-scale power.</div>
+        </div>
+        <div class="source-icon" data-type="hydro" style="cursor:pointer;text-align:center;">
+          <img src="../../images/hydro-icon.png" alt="Hydro" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Hydro</div>
+          <div class="source-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Hydro: Clean, reliable, but limited by geography. Used for both baseload and peaking power.</div>
+        </div>
       </div>
-      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;">Each source uses a different process to generate electricity. Try them all!</div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;margin-top:1rem;">Click each icon to learn about an energy source.</div>
     </section>
-    <!-- Progress Affirmation & Next Step -->
-    <div id="lesson-complete" style="display:none;text-align:center;">
+    <!-- NARRATIVE: Why Storage Matters -->
+    <div class="lesson-narrative" style="margin-bottom:2.5rem;">
+      <p>Energy storage is the unsung hero of the modern grid. It allows us to save energy when it’s plentiful and use it when it’s needed most. Without storage, renewables like solar and wind would be far less useful. Let’s explore the main types of energy storage and how they work.</p>
+    </div>
+    <!-- VISUAL 2.2A: Storage Technology Explorer (Interactive) -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Interactive: Storage Technology Explorer</h2>
+      <div id="storage-tech-explorer" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;background:var(--color-surface);padding:2rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div class="storage-icon" data-type="battery" style="cursor:pointer;text-align:center;">
+          <img src="../../images/battery-icon.png" alt="Battery Storage" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Battery</div>
+          <div class="storage-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Battery: Stores electricity chemically. Fast response, scalable, but limited duration and expensive.</div>
+        </div>
+        <div class="storage-icon" data-type="pumpedhydro" style="cursor:pointer;text-align:center;">
+          <img src="../../images/hydro-storage-icon.png" alt="Pumped Hydro" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Pumped Hydro</div>
+          <div class="storage-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Pumped Hydro: Uses water reservoirs at different heights. Large scale, long duration, but site-limited.</div>
+        </div>
+        <div class="storage-icon" data-type="thermal" style="cursor:pointer;text-align:center;">
+          <img src="../../images/thermal-storage-icon.png" alt="Thermal Storage" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Thermal</div>
+          <div class="storage-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Thermal: Stores energy as heat or cold. Useful for buildings and industrial processes.</div>
+        </div>
+        <div class="storage-icon" data-type="flywheel" style="cursor:pointer;text-align:center;">
+          <img src="../../images/flywheel-icon.png" alt="Flywheel" style="width:60px;height:60px;">
+          <div style="margin-top:0.5rem;font-weight:600;">Flywheel</div>
+          <div class="storage-bubble" style="display:none;margin-top:0.5rem;font-size:0.98rem;background:var(--color-primary-light);padding:0.5rem 1rem;border-radius:8px;">Flywheel: Stores energy as rotational kinetic energy. Fast response, high cycle life, but limited capacity.</div>
+        </div>
+      </div>
+      <div style="font-size:0.98rem;color:var(--color-text-light);text-align:center;margin-top:1rem;">Click each icon to learn about a storage technology.</div>
+    </section>
+    <!-- INTERACTIVE 2.3A: Final Quiz -->
+    <section style="margin-bottom:2.5rem;">
+      <h2 style="font-size:1.15rem;margin-bottom:0.5rem;">Quiz: Test Your Knowledge</h2>
+      <form id="week2-quiz" style="background:var(--color-surface);padding:1.5rem 1rem;border-radius:12px;max-width:520px;margin:0 auto;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+        <div style="margin-bottom:1.2rem;">
+          <strong>1. Which energy source is zero carbon and reliable, but expensive and controversial?</strong><br>
+          <label><input type="radio" name="q1" value="A"> Wind</label><br>
+          <label><input type="radio" name="q1" value="B"> Nuclear</label><br>
+          <label><input type="radio" name="q1" value="C"> Natural Gas</label>
+        </div>
+        <div style="margin-bottom:1.2rem;">
+          <strong>2. What is the main benefit of energy storage for renewables?</strong><br>
+          <label><input type="radio" name="q2" value="A"> It makes renewables cheaper</label><br>
+          <label><input type="radio" name="q2" value="B"> It allows energy to be used when needed, not just when generated</label><br>
+          <label><input type="radio" name="q2" value="C"> It increases emissions</label>
+        </div>
+        <div style="margin-bottom:1.2rem;">
+          <strong>3. Which storage technology uses water reservoirs at different heights?</strong><br>
+          <label><input type="radio" name="q3" value="A"> Battery</label><br>
+          <label><input type="radio" name="q3" value="B"> Flywheel</label><br>
+          <label><input type="radio" name="q3" value="C"> Pumped Hydro</label>
+        </div>
+        <button type="button" id="submit-quiz" class="cta-primary" style="margin-top:1rem;">Submit Answers</button>
+        <div id="quiz-result" style="margin-top:1.5rem;font-weight:600;"></div>
+      </form>
+    </section>
       <div style="margin-bottom:1.5rem;font-size:1.1rem;color:var(--color-primary);font-weight:500;">You’ve completed this lesson! You can now describe how raw energy sources are converted into usable power.</div>
       <a href="week2-lesson2.html" id="nextLessonBtn" class="cta-primary" style="display:inline-block;margin-bottom:0.5rem;">Next Lesson →</a>
       <div><a href="../courses.html" style="color:var(--color-text-light);font-size:0.95rem;">Back to Course Home</a></div>
@@ -134,20 +172,43 @@
         }
       };
     }
-    // Show Mark Complete button when video ends
-    const video = document.getElementById('lessonVideo');
-    const markBtn = document.getElementById('markCompleteBtn');
-    const completeDiv = document.getElementById('lesson-complete');
-    const markWrap = document.getElementById('mark-complete-wrap');
-    if(video && markBtn) {
-      video.addEventListener('ended', () => {
-        markBtn.style.display = 'inline-block';
+    // --- Energy Source Selector Interactive ---
+    document.querySelectorAll('.source-icon').forEach(function(icon) {
+      icon.addEventListener('click', function() {
+        document.querySelectorAll('.source-bubble').forEach(function(b) { b.style.display = 'none'; });
+        this.querySelector('.source-bubble').style.display = 'block';
       });
-      markBtn.addEventListener('click', () => {
-        markWrap.style.display = 'none';
-        completeDiv.style.display = 'block';
+    });
+
+    // --- Storage Technology Explorer Interactive ---
+    document.querySelectorAll('.storage-icon').forEach(function(icon) {
+      icon.addEventListener('click', function() {
+        document.querySelectorAll('.storage-bubble').forEach(function(b) { b.style.display = 'none'; });
+        this.querySelector('.storage-bubble').style.display = 'block';
       });
-    }
+    });
+
+    // --- Quiz Logic ---
+    document.getElementById('submit-quiz').addEventListener('click', function() {
+      let score = 0;
+      const answers = {
+        q1: 'B',
+        q2: 'B',
+        q3: 'C'
+      };
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected && selected.value === answers[q]) score++;
+      }
+      const result = document.getElementById('quiz-result');
+      if (score === 3) {
+        result.textContent = 'Excellent! You got all questions right.';
+        result.style.color = 'var(--color-primary)';
+      } else {
+        result.textContent = `You got ${score}/3 correct. Review the lesson and try again!`;
+        result.style.color = 'var(--color-error, #c00)';
+      }
+    });
   </script>
 </body>
 </html>
