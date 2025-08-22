@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energy Course Platform</title>
-    <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
         <section class="hero">
             <h1>Welcome to the Energy Course Platform</h1>
             <p>Your journey to understanding complex energy topics starts here. Engage with our courses and become a successful learner.</p>
-            <a href="courses.html" class="cta-button">Start Learning</a>
+            <a href="pages/courses.html" class="cta-button">Start Learning</a>
         </section>
 
         <section class="featured-courses">
@@ -30,7 +30,64 @@
         <div id="footer-placeholder"></div>
     </footer>
 
-    <script src="../scripts/main.js"></script>
-    <script src="../scripts/navigation.js"></script>
+    <!-- Load Components -->
+    <script>
+        // Function to load HTML components
+        async function loadComponent(path, elementId) {
+            try {
+                const response = await fetch(path);
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+            } catch (error) {
+                console.error(`Error loading component ${path}:`, error);
+            }
+        }
+
+        // Load all components when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadComponent('components/Header.html', 'header-placeholder');
+            loadComponent('components/Footer.html', 'footer-placeholder');
+            
+            // Load course cards
+            fetch('components/CourseCard.html')
+                .then(response => response.text())
+                .then(template => {
+                    const coursesContainer = document.getElementById('course-cards-placeholder');
+                    // Example course data - this would typically come from a database or API
+                    const featuredCourses = [
+                        {
+                            title: "Introduction to Renewable Energy",
+                            description: "Learn the fundamentals of renewable energy sources and their impact.",
+                            image: "assets/renewable-energy.jpg"
+                        },
+                        {
+                            title: "Solar Power Systems",
+                            description: "Master the principles of solar power generation and system design.",
+                            image: "assets/solar-power.jpg"
+                        },
+                        {
+                            title: "Energy Efficiency",
+                            description: "Discover techniques for optimizing energy usage in various settings.",
+                            image: "assets/energy-efficiency.jpg"
+                        }
+                    ];
+                    
+                    // Render each course card
+                    featuredCourses.forEach(course => {
+                        const courseElement = document.createElement('div');
+                        courseElement.innerHTML = template
+                            .replace('{{title}}', course.title)
+                            .replace('{{description}}', course.description)
+                            .replace('{{image}}', course.image);
+                        coursesContainer.appendChild(courseElement);
+                    });
+                })
+                .catch(error => console.error('Error loading course cards:', error));
+        });
+    </script>
+
+    <!-- Main Scripts -->
+    <script src="main.js"></script>
+    <script src="navigation.js"></script>
 </body>
 </html>
