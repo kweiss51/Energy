@@ -169,6 +169,8 @@
         };
 
         function createCourseCard(course) {
+            // Special case: Energy Fundamentals is now live
+            const isEnergyFundamentals = course.slug === 'energy-fundamentals';
             return `
                 <div class="course-card" data-level="${course.level.toLowerCase()}">
                     <div class="course-card-inner">
@@ -185,8 +187,8 @@
                                     ${course.outcomes.map(outcome => `<li>${outcome}</li>`).join('')}
                                 </ul>
                             </div>
-                            <a href="coming-soon-${course.slug}.html" class="course-cta">
-                                Coming Soon
+                            <a href="${isEnergyFundamentals ? 'energy-fundamentals/week1-lesson1.html' : `coming-soon-${course.slug}.html`}" class="course-cta">
+                                ${isEnergyFundamentals ? 'Start Learning' : 'Coming Soon'}
                                 <span class="arrow">→</span>
                             </a>
                         </div>
