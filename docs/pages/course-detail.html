@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../styles.css">
     <script src="../scripts/courses-data.js"></script>
+    <script>
+        // Error handling for course data loading
+        window.addEventListener('error', function(e) {
+            if (e.filename.includes('courses-data.js')) {
+                console.error('Error loading course data:', e);
+                document.body.innerHTML = '<div style="padding: 20px; text-align: center;"><h1>Error Loading Course</h1><p>Please try refreshing the page. If the problem persists, contact support.</p></div>';
+            }
+        });
+    </script>
 </head>
 <body class="course-detail-page">
     <nav class="nav-minimal">
@@ -193,9 +202,13 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM Content Loaded');
             const urlParams = new URLSearchParams(window.location.search);
             const courseSlug = urlParams.get('course') || 'energy-fundamentals';
+            console.log('Course Slug:', courseSlug);
+            console.log('Available Courses:', Object.keys(courseDetails));
             const course = courseDetails[courseSlug];
+            console.log('Selected Course:', course ? course.title : 'Not found');
 
             // Populate header
             document.getElementById('course-header').innerHTML = `
