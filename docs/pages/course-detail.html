@@ -3,64 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Details | Energy Course Platform</title>
+    <title>Master Energy Systems | Energy Education Platform</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../styles.css">
+    <script src="../scripts/courses-data.js"></script>
 </head>
-<body>
-    <header>
-        <div id="header-placeholder"></div>
+<body class="course-detail-page">
+    <nav class="nav-minimal">
+        <div class="nav-content">
+            <a href="../index.html" class="nav-logo">Energy</a>
+            <div class="nav-actions">
+                <a href="courses.html" class="nav-link">All Courses</a>
+                <a href="#enroll" class="nav-cta">Enroll Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="course-detail-hero" id="course-header">
+        <!-- Will be populated by JavaScript -->
     </header>
 
-    <main>
-        <section class="course-detail">
-            <div class="course-header">
-                <h1 id="course-title">Course Title</h1>
-                <p id="course-description" class="lead">This course provides an in-depth understanding of energy topics.</p>
+    <main class="course-detail-content">
+        <div class="content-wrapper">
+            <div class="content-main">
+                <section class="course-intro">
+                    <div class="video-preview">
+                        <div id="video-player-placeholder"></div>
+                    </div>
+                    
+                    <div class="course-overview">
+                        <h2>Course Overview</h2>
+                        <p id="course-overview-text"></p>
+                    </div>
+                </section>
+
+                <section class="learning-journey">
+                    <h2>Your Learning Journey</h2>
+                    <div class="journey-timeline" id="journey-timeline">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <section class="practical-skills">
+                    <h2>Practical Skills You'll Master</h2>
+                    <div class="skills-grid" id="skills-list">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </section>
+
+                <section class="real-world-projects">
+                    <h2>Real-World Projects</h2>
+                    <div class="projects-list" id="projects-list">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </section>
             </div>
 
-            <div class="course-content">
-                <div class="video-container">
-                    <div id="video-player-placeholder"></div>
-                </div>
-
-                <div class="course-info">
-                    <h2>Course Objectives</h2>
-                    <ul id="course-objectives">
-                        <li>Understand the fundamentals of energy systems and their interactions</li>
-                        <li>Explore various renewable energy sources and their applications</li>
-                        <li>Analyze energy consumption patterns and optimization strategies</li>
-                        <li>Learn about energy storage and distribution systems</li>
-                    </ul>
-
-                    <h2>What You'll Learn</h2>
-                    <div class="learning-outcomes">
-                        <div class="outcome">
-                            <i class="icon-check"></i>
-                            <span>Practical implementation of energy concepts</span>
+            <aside class="course-sidebar">
+                <div class="enrollment-card" id="enroll">
+                    <div class="card-content">
+                        <div class="course-meta">
+                            <span class="duration">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 4V10L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                <span id="course-duration"></span>
+                            </span>
+                            <span class="level">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M4 10H16M7 5H13M1 15H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <span id="course-level"></span>
+                            </span>
                         </div>
-                        <div class="outcome">
-                            <i class="icon-check"></i>
-                            <span>Real-world case studies and examples</span>
+                        
+                        <div class="price-section">
+                            <span class="price" id="course-price"></span>
+                            <span class="guarantee">30-Day Money-Back Guarantee</span>
                         </div>
-                        <div class="outcome">
-                            <i class="icon-check"></i>
-                            <span>Industry best practices and standards</span>
+
+                        <button id="enroll-button" class="enroll-button">
+                            Enroll Now
+                        </button>
+
+                        <div class="includes-section">
+                            <h3>This Course Includes:</h3>
+                            <ul class="includes-list" id="course-includes">
+                                <!-- Will be populated by JavaScript -->
+                            </ul>
                         </div>
                     </div>
-
-                    <div class="enrollment-section">
-                        <div class="price">$99.99</div>
-                        <button id="enroll-button" class="cta-button">Enroll Now</button>
-                    </div>
                 </div>
-            </div>
-        </section>
+            </aside>
+        </div>
     </main>
 
-    <div id="footer-placeholder"></div>
+    <section class="instructor-section">
+        <div class="content-wrapper">
+            <h2>Your Instructor</h2>
+            <div class="instructor-profile" id="instructor-profile">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
 
-    <!-- Component Loading -->
+    <section class="next-steps">
+        <div class="content-wrapper">
+            <h2>Ready to Transform Your Career?</h2>
+            <p>Join thousands of successful engineers who have mastered energy systems through our platform.</p>
+            <a href="#enroll" class="cta-button">Start Your Journey Today</a>
+        </div>
+    </section>
+
+    <footer class="footer-minimal">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="courses.html">All Courses</a>
+                <a href="success-stories.html">Success Stories</a>
+            </div>
+            <p class="footer-copyright">© 2025 Energy Education Platform</p>
+        </div>
+    </footer>
+
     <script>
+        // Course data - In a real app, this would come from an API
+        const courseDetails = {
+            "energy-fundamentals": {
+                title: "Energy Systems Fundamentals",
+                subtitle: "Master the Core Concepts That Drive Modern Energy Systems",
+                description: "Transform from confused beginner to confident energy professional through hands-on learning and real-world applications.",
+                duration: "6 weeks",
+                level: "Beginner",
+                price: "$499",
+                overview: "This comprehensive course takes you from the basic principles of energy systems to practical applications in modern settings. Through interactive simulations and real-world case studies, you'll build a solid foundation in energy engineering.",
+                journey: [
+                    {
+                        week: 1,
+                        title: "Energy Basics & Fundamentals",
+                        topics: ["Energy types and conversions", "System efficiency", "Basic measurements"]
+                    },
+                    {
+                        week: 2,
+                        title: "Power Generation Principles",
+                        topics: ["Generation methods", "Power plant types", "Basic calculations"]
+                    },
+                    // Additional weeks...
+                ],
+                skills: [
+                    {
+                        icon: "📊",
+                        name: "System Analysis",
+                        description: "Learn to analyze and optimize energy flows in complex systems"
+                    },
+                    {
+                        icon: "🔧",
+                        name: "Technical Problem-Solving",
+                        description: "Develop systematic approaches to energy-related challenges"
+                    },
+                    // Additional skills...
+                ],
+                projects: [
+                    {
+                        title: "Energy Audit Simulation",
+                        description: "Conduct a complete energy audit of a simulated facility"
+                    },
+                    {
+                        title: "System Optimization",
+                        description: "Optimize an existing energy system for maximum efficiency"
+                    }
+                ],
+                includes: [
+                    "24 hours of video content",
+                    "12 hands-on projects",
+                    "Personal mentor support",
+                    "Industry certification prep",
+                    "Lifetime access to materials"
+                ],
+                instructor: {
+                    name: "Dr. Sarah Chen",
+                    title: "Senior Energy Systems Engineer",
+                    image: "../assets/instructor-sarah.jpg",
+                    bio: "15+ years of experience in energy systems engineering, former lead engineer at Tesla",
+                    credentials: ["Ph.D. in Energy Engineering", "Certified Energy Manager", "20+ Published Papers"]
+                }
+            }
+            // Additional courses...
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseSlug = urlParams.get('course') || 'energy-fundamentals';
+            const course = courseDetails[courseSlug];
+
+            // Populate header
+            document.getElementById('course-header').innerHTML = `
+                <div class="content-wrapper">
+                    <span class="course-level-badge">${course.level}</span>
+                    <h1>${course.title}</h1>
+                    <p>${course.subtitle}</p>
+                </div>
+            `;
+
+            // Populate course overview
+            document.getElementById('course-overview-text').textContent = course.overview;
+
+            // Populate journey timeline
+            const timeline = document.getElementById('journey-timeline');
+            timeline.innerHTML = course.journey.map(week => `
+                <div class="journey-week">
+                    <div class="week-header">
+                        <span class="week-number">Week ${week.week}</span>
+                        <h3>${week.title}</h3>
+                    </div>
+                    <ul class="week-topics">
+                        ${week.topics.map(topic => `<li>${topic}</li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+
+            // Populate skills
+            document.getElementById('skills-list').innerHTML = course.skills.map(skill => `
+                <div class="skill-card">
+                    <span class="skill-icon">${skill.icon}</span>
+                    <h3>${skill.name}</h3>
+                    <p>${skill.description}</p>
+                </div>
+            `).join('');
+
+            // Populate projects
+            document.getElementById('projects-list').innerHTML = course.projects.map(project => `
+                <div class="project-card">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                </div>
+            `).join('');
+
+            // Populate sidebar
+            document.getElementById('course-duration').textContent = course.duration;
+            document.getElementById('course-level').textContent = course.level;
+            document.getElementById('course-price').textContent = course.price;
+            document.getElementById('course-includes').innerHTML = course.includes.map(item => `
+                <li>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8L7 12L13 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    ${item}
+                </li>
+            `).join('');
+
+            // Populate instructor section
+            document.getElementById('instructor-profile').innerHTML = `
+                <div class="instructor-info">
+                    <img src="${course.instructor.image}" alt="${course.instructor.name}">
+                    <div class="instructor-details">
+                        <h3>${course.instructor.name}</h3>
+                        <p class="instructor-title">${course.instructor.title}</p>
+                        <p class="instructor-bio">${course.instructor.bio}</p>
+                        <ul class="instructor-credentials">
+                            ${course.instructor.credentials.map(cred => `<li>${cred}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            // Handle enrollment
+            document.getElementById('enroll-button').addEventListener('click', function() {
+                window.location.href = `enroll.html?course=${courseSlug}`;
+            });
+
+            // Load video player component
+            loadComponent('../components/VideoPlayer.html', 'video-player-placeholder');
+        });
+
         async function loadComponent(path, elementId) {
             try {
                 const response = await fetch(path);
@@ -70,29 +286,6 @@
                 console.error(`Error loading component ${path}:`, error);
             }
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Load header and footer
-            loadComponent('../components/Header.html', 'header-placeholder');
-            loadComponent('../components/Footer.html', 'footer-placeholder');
-            loadComponent('../components/VideoPlayer.html', 'video-player-placeholder');
-
-            // Get course details from URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const courseId = urlParams.get('id');
-            
-            // Here you would typically fetch course details from an API
-            // For now, we'll use placeholder data
-            document.getElementById('course-title').textContent = urlParams.get('title') || 'Introduction to Renewable Energy';
-            
-            // Enroll button click handler
-            document.getElementById('enroll-button').addEventListener('click', function() {
-                window.location.href = `enroll.html?course=${courseId}`;
-            });
-        });
     </script>
-
-    <script src="../main.js"></script>
-    <script src="../navigation.js"></script>
 </body>
 </html>
