@@ -92,10 +92,47 @@ function createCourseCard(course) {
 }
 
 function renderHomeCourses() {
+    console.log('🔥 RENDERING COURSES - This should appear in console!');
     const allCourses = [...courseData.foundation, ...courseData.advanced, ...courseData.specialized];
     const courseGrid = document.getElementById('home-courses-grid');
+    
     if (courseGrid) {
-        courseGrid.innerHTML = allCourses.map(course => createCourseCard(course)).join('');
+        console.log('✅ Found course grid element');
+        const html = allCourses.map(course => createCourseCard(course)).join('');
+        courseGrid.innerHTML = html;
+        console.log('✅ Added', allCourses.length, 'courses to grid');
+        
+        // Force visibility with inline styles
+        courseGrid.style.display = 'grid';
+        courseGrid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+        courseGrid.style.gap = '2rem';
+        courseGrid.style.padding = '2rem';
+        courseGrid.style.background = '#f5f5f7';
+        courseGrid.style.minHeight = '500px';
+        
+        // Add emergency fallback content if cards aren't visible
+        setTimeout(() => {
+            if (courseGrid.children.length === 0) {
+                courseGrid.innerHTML = `
+                    <div style="background: white; padding: 2rem; border: 2px solid #007aff; border-radius: 12px;">
+                        <h3 style="color: #1d1d1f; font-size: 1.5rem; margin-bottom: 1rem;">Emergency Fallback: Energy Systems Fundamentals</h3>
+                        <p style="color: #6e6e73; margin-bottom: 1rem;">If you see this, the JavaScript is working but course cards aren't rendering properly.</p>
+                        <a href="pages/energy-fundamentals/week1-lesson1.html" style="background: #007aff; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">Start Learning →</a>
+                    </div>
+                `;
+            }
+        }, 1000);
+    } else {
+        console.error('❌ Course grid element not found!');
+        // Create the element if it doesn't exist
+        const courseSection = document.querySelector('.course-section');
+        if (courseSection) {
+            const newGrid = document.createElement('div');
+            newGrid.id = 'home-courses-grid';
+            newGrid.className = 'course-grid';
+            courseSection.appendChild(newGrid);
+            renderHomeCourses(); // Try again
+        }
     }
 }
 

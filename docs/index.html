@@ -97,6 +97,48 @@
     </footer>
     <script src="home-courses.js"></script>
 
+    <!-- Emergency course display script -->
+    <script>
+    console.log('🚨 EMERGENCY COURSE SCRIPT LOADED');
+    
+    function emergencyDisplayCourses() {
+        const courseGrid = document.getElementById('home-courses-grid');
+        console.log('🔍 Looking for course grid...', courseGrid);
+        
+        if (courseGrid && courseGrid.children.length === 0) {
+            console.log('🚨 No courses found, adding emergency courses!');
+            courseGrid.innerHTML = `
+                <div style="background: white !important; padding: 2rem !important; border: 3px solid #007aff !important; border-radius: 12px !important; box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;">
+                    <img src="images/energy-fundamentals2" alt="Energy Fundamentals" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                    <h3 style="color: #1d1d1f !important; font-size: 1.5rem !important; font-weight: bold !important; margin-bottom: 1rem !important;">Energy Systems Fundamentals</h3>
+                    <p style="color: #6e6e73 !important; font-size: 1rem !important; line-height: 1.5 !important; margin-bottom: 1rem !important;">Transform from confused beginner to confident energy professional. Master core concepts through hands-on simulations.</p>
+                    <a href="pages/energy-fundamentals/week1-lesson1.html" style="background: #007aff !important; color: white !important; padding: 0.75rem 1.5rem !important; border-radius: 8px !important; text-decoration: none !important; display: inline-block !important; font-weight: 600 !important;">Start Learning →</a>
+                </div>
+                <div style="background: white !important; padding: 2rem !important; border: 3px solid #007aff !important; border-radius: 12px !important; box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;">
+                    <img src="images/renewable-essentials2" alt="Renewable Essentials" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                    <h3 style="color: #1d1d1f !important; font-size: 1.5rem !important; font-weight: bold !important; margin-bottom: 1rem !important;">Renewable Energy Essentials</h3>
+                    <p style="color: #6e6e73 !important; font-size: 1rem !important; line-height: 1.5 !important; margin-bottom: 1rem !important;">Become the go-to expert for renewable energy solutions. Learn to evaluate and implement sustainable systems.</p>
+                    <a href="pages/renewable-essentials/week1-lesson1.html" style="background: #007aff !important; color: white !important; padding: 0.75rem 1.5rem !important; border-radius: 8px !important; text-decoration: none !important; display: inline-block !important; font-weight: 600 !important;">Start Learning →</a>
+                </div>
+                <div style="background: white !important; padding: 2rem !important; border: 3px solid #007aff !important; border-radius: 12px !important; box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;">
+                    <img src="images/advanced-solar2.jpeg" alt="Advanced Solar" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+                    <h3 style="color: #1d1d1f !important; font-size: 1.5rem !important; font-weight: bold !important; margin-bottom: 1rem !important;">Advanced Solar Design</h3>
+                    <p style="color: #6e6e73 !important; font-size: 1rem !important; line-height: 1.5 !important; margin-bottom: 1rem !important;">Transform into a solar design specialist. Master complex system design and optimization techniques.</p>
+                    <a href="pages/advanced-solar/week1-lesson1.html" style="background: #007aff !important; color: white !important; padding: 0.75rem 1.5rem !important; border-radius: 8px !important; text-decoration: none !important; display: inline-block !important; font-weight: 600 !important;">Start Learning →</a>
+                </div>
+            `;
+        }
+    }
+    
+    // Try multiple times to ensure courses appear
+    setTimeout(emergencyDisplayCourses, 500);
+    setTimeout(emergencyDisplayCourses, 1000);
+    setTimeout(emergencyDisplayCourses, 2000);
+    
+    // Also try when page is fully loaded
+    window.addEventListener('load', emergencyDisplayCourses);
+    </script>
+
     <script>
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
