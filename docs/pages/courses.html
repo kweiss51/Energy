@@ -3,12 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Path to Energy Mastery | Energy Education Platform</title>
+    <title>Expert-Led Energy Courses | Alternata</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="../styles.css">
     <script src="../scripts/analytics.js"></script>
 </head>
 <body class="courses-page">
+    <nav class="nav-minimal nav-modern">
+        <div class="nav-content">
+            <a href="../index.html" class="nav-logo">Alternata</a>
+            <div class="nav-links" id="navLinks">
+                <a href="courses.html" aria-current="page">Courses</a>
+                <a href="about.html">About</a>
+                <a href="assessment.html" class="nav-cta">Find Your Path</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+    <script>
+        // Hamburger menu toggle for mobile
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+                navToggle.classList.toggle('open');
+            });
+        }
+    </script>
         <script>
         // Analytics: Track page view and time on page
         let pageStartTime = Date.now();
@@ -33,7 +59,7 @@
         </script>
     <nav class="nav-minimal">
         <div class="nav-content">
-            <a href="../energy.html" class="nav-logo">Energy</a>
+            <a href="../index.html" class="nav-logo">Alternata</a>
             <a href="enroll.html" class="nav-cta">Begin Your Journey</a>
         </div>
     </nav>

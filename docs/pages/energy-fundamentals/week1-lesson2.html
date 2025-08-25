@@ -7,12 +7,24 @@
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
-  <nav class="nav-minimal" style="margin-bottom:2rem;">
+  <nav class="nav-modern">
     <div class="nav-content">
-      <a href="../../energy.html" class="nav-logo">Energy</a>
+      <a href="../../index.html" class="nav-logo">⚡ Alternata</a>
       <div class="nav-links">
-        <a href="../courses.html">Course Home</a>
+        <a href="../../index.html">🏠 Home</a>
+        <a href="../courses.html">📚 Courses</a>
+        <a href="../about.html">ℹ️ About</a>
       </div>
+      <button class="nav-toggle" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="nav-mobile">
+      <a href="../../index.html">🏠 Home</a>
+      <a href="../courses.html">📚 Courses</a>
+      <a href="../about.html">ℹ️ About</a>
     </div>
   </nav>
   <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
@@ -174,6 +186,23 @@
         }
       </style>
     </section>
+
+    <!-- Next Lesson Navigation -->
+    <div style="margin-top:3rem;padding:2rem;background:var(--color-surface);border-radius:var(--border-radius);text-align:center;box-shadow:var(--shadow-subtle);">
+      <h3 style="margin-bottom:1rem;color:var(--color-text);">🎯 Lesson Complete!</h3>
+      <p style="margin-bottom:1.5rem;color:var(--color-text-light);">You've mapped energy's journey! Ready to explore different energy sources?</p>
+      <a href="week1-lesson3.html" class="cta-primary" style="display:inline-flex;align-items:center;gap:0.5rem;">
+        Continue to Lesson 3 →
+      </a>
+    </div>
+
   </main>
+
+  <script>
+    function toggleNav() {
+      const navMobile = document.querySelector('.nav-mobile');
+      navMobile.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>

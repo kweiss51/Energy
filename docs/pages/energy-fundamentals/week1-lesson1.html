@@ -3,18 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Energy Fundamentals - Week 1 Lesson 1</title>
+  <title>Foundations of Energy | Week 1 Lesson 1 | Alternata</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
-  <nav class="nav-minimal" style="margin-bottom:2rem;">
+  <nav class="nav-minimal nav-modern">
     <div class="nav-content">
-      <a href="../../energy.html" class="nav-logo">Energy</a>
-      <div class="nav-links">
-        <a href="../courses.html">Course Home</a>
+      <a href="../../index.html" class="nav-logo">Alternata</a>
+      <div class="nav-links" id="navLinks">
+        <a href="../courses.html">📚 Courses</a>
+        <a href="week1-lesson1.html" aria-current="page">Lesson 1</a>
+        <a href="week1-lesson2.html" class="nav-cta">Next →</a>
       </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </nav>
+  <script>
+    // Hamburger menu toggle for mobile
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open');
+        });
+    }
+  </script>
   <main class="lesson-single-col" style="max-width:600px;margin:0 auto;padding-bottom:4rem;">
     <!-- Week 1: The Foundations of Energy -->
     <div class="lesson-narrative" style="margin-bottom:2.5rem;">
@@ -157,5 +175,16 @@
       }
     });
   </script>
+
+  <!-- Next Lesson Navigation -->
+  <div style="margin-top:3rem;padding:2rem;background:var(--color-surface);border-radius:var(--border-radius);text-align:center;box-shadow:var(--shadow-subtle);">
+    <h3 style="margin-bottom:1rem;color:var(--color-text);">🎉 Lesson Complete!</h3>
+    <p style="margin-bottom:1.5rem;color:var(--color-text-light);">Great work! You've mastered the foundations of energy. Ready for the next challenge?</p>
+    <a href="week1-lesson2.html" class="cta-primary" style="display:inline-flex;align-items:center;gap:0.5rem;">
+      Continue to Lesson 2 →
+    </a>
+  </div>
+
+</main>
 </body>
 </html>

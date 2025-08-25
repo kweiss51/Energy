@@ -3,16 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Find Your Path | Energy Education Platform</title>
+  <title>Find Your Learning Path | Alternata</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <nav class="nav-minimal">
+  <nav class="nav-minimal nav-modern">
     <div class="nav-content">
-      <a href="../energy.html" class="nav-logo">Energy</a>
-      <a href="courses.html" class="nav-link">All Courses</a>
+      <a href="../index.html" class="nav-logo">Alternata</a>
+      <div class="nav-links" id="navLinks">
+        <a href="courses.html">Courses</a>
+        <a href="about.html">About</a>
+        <a href="assessment.html" class="nav-cta" aria-current="page">Find Your Path</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </nav>
+  <script>
+    // Hamburger menu toggle for mobile
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open');
+        });
+    }
+  </script>
   <main class="assessment-content">
     <h1>Find Your Perfect Learning Path</h1>
     <form id="assessment-form" class="assessment-form">

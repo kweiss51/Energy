@@ -3,19 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | Energy Course Platform</title>
+  <title>About Our Mission | Alternata</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <nav class="nav-minimal">
+  <nav class="nav-minimal nav-modern">
     <div class="nav-content">
-      <a class="nav-logo" href="../energy.html">Energy</a>
-      <div class="nav-links">
+      <a class="nav-logo" href="../index.html">Alternata</a>
+      <div class="nav-links" id="navLinks">
         <a href="courses.html">Courses</a>
         <a href="about.html" aria-current="page">About</a>
+        <a href="assessment.html" class="nav-cta">Find Your Path</a>
       </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </div>
   </nav>
+  <script>
+    // Hamburger menu toggle for mobile
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open');
+        });
+    }
+  </script>
   <main class="about-section" style="padding-top:6rem;max-width:700px;margin:0 auto;">
     <section style="text-align:center;margin-bottom:var(--spacing-xl);">
       <h1>About Us</h1>
