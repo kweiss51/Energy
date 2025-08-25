@@ -7,7 +7,7 @@ const courseData = {
             outcomes: ["Understand energy system basics", "Read and interpret system diagrams", "Calculate basic energy flows"],
             duration: "3 weeks",
             level: "Beginner",
-            image: "images/energy-fundamentals2.jpg",
+            image: "images/energy-fundamentals2",
             slug: "energy-fundamentals"
         },
         {
@@ -16,7 +16,7 @@ const courseData = {
             outcomes: ["Assess renewable potential", "Design basic solar systems", "Understand wind power basics"],
             duration: "3 weeks",
             level: "Beginner",
-            image: "images/renewable-essentials2.jpg",
+            image: "images/renewable-essentials2",
             slug: "renewable-essentials"
         }
     ],
@@ -36,7 +36,7 @@ const courseData = {
             outcomes: ["Master grid standards", "Design integration systems", "Solve complex challenges"],
             duration: "3 weeks",
             level: "Advanced",
-            image: "images/grid-mastery2.jpg",
+            image: "images/grid-mastery2",
             slug: "grid-mastery"
         }
     ],
@@ -47,7 +47,7 @@ const courseData = {
             outcomes: ["Design storage systems", "Optimize battery life", "Implement smart solutions"],
             duration: "3 weeks",
             level: "Specialized",
-            image: "images/storage-solutions4.jpg",
+            image: "images/storage-solutions4",
             slug: "storage-solutions"
         },
         {
@@ -56,7 +56,7 @@ const courseData = {
             outcomes: ["Design microgrids", "Implement controls", "Optimize performance"],
             duration: "3 weeks",
             level: "Specialized",
-            image: "images/microgrid-design2.jpg",
+            image: "images/microgrid-design2",
             slug: "microgrid-design"
         }
     ]
@@ -100,3 +100,10 @@ function renderHomeCourses() {
 }
 
 document.addEventListener('DOMContentLoaded', renderHomeCourses);
+
+// Fallback for when DOMContentLoaded has already fired
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderHomeCourses);
+} else {
+    renderHomeCourses();
+}
