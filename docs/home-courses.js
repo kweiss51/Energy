@@ -92,12 +92,11 @@ function createCourseCard(course) {
 }
 
 function renderHomeCourses() {
-    document.getElementById('home-foundation-courses').innerHTML = 
-        courseData.foundation.map(course => createCourseCard(course)).join('');
-    document.getElementById('home-advanced-courses').innerHTML = 
-        courseData.advanced.map(course => createCourseCard(course)).join('');
-    document.getElementById('home-specialized-courses').innerHTML = 
-        courseData.specialized.map(course => createCourseCard(course)).join('');
+    const allCourses = [...courseData.foundation, ...courseData.advanced, ...courseData.specialized];
+    const courseGrid = document.getElementById('home-courses-grid');
+    if (courseGrid) {
+        courseGrid.innerHTML = allCourses.map(course => createCourseCard(course)).join('');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', renderHomeCourses);
